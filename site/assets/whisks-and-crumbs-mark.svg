@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" role="img">
+  <title>Whisks &amp; Crumbs - whisk and crumbs</title>
+  <g stroke="#34483a" stroke-width="2.8" stroke-linecap="round"><g transform="rotate(-28 30 32)" stroke-linejoin="round">
+  <path d="M30 8C20 7 15 16 17 25C19 34 25 37 30 41C35 37 41 34 43 25C45 16 40 7 30 8Z"/>
+  <path d="M30 8C22 13 23 31 30 41C37 31 38 13 30 8M30 8V41"/>
+  <path d="M27.5 41H32.5V55A2.5 2.5 0 0 1 27.5 55Z"/>
+</g></g>
+  <g fill="#a45137"><circle cx="46" cy="10" r="2.2"/><circle cx="51" cy="18" r="1.65"/><circle cx="45" cy="25" r="1.2"/></g>
+</svg>

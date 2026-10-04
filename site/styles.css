@@ -16,7 +16,7 @@
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 24px; }
-body { margin: 0; color: var(--green); background: var(--cream); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+body { margin: 0; color: var(--green); background: var(--cream) url("assets/bakery-pattern-cream.svg") repeat; background-size: 640px 480px; font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 [hidden] { display: none !important; }
 ::selection { color: var(--paper); background: var(--green); }
 a { color: inherit; text-decoration: none; }
@@ -41,10 +41,11 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .skip-link:focus { transform: none; clip-path: none; }
 .site-header { border-bottom: 1px dashed var(--line); background: var(--cream); }
 .header-inner { min-height: 94px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 32px; padding-block: 16px; }
-.brand { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 11px; max-width: 100%; min-width: 0; }
+.brand { display: inline-grid; grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: 12px; max-width: 100%; min-width: 0; }
+.brand > img { width: 56px; height: 56px; }
 .brand > span { max-width: 100%; min-width: 0; }
 .wordmark { display: block; font-family: var(--script); font-weight: 400; color: var(--green); font-size: 2.4rem; line-height: 1.1; }
-.brand-descriptor { display: block; font-size: 1rem; letter-spacing: .12em; margin-top: 5px; }
+.brand-descriptor { display: block; font-size: 1rem; letter-spacing: .02em; line-height: 1.4; margin-top: 7px; }
 #site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
 #site-nav > a { display: inline-flex; justify-content: center; align-items: center; padding: 10px 14px; }
 #site-nav > a:not(.button):hover { text-decoration: underline; text-underline-offset: 6px; }
@@ -99,6 +100,7 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .cake-enquire { display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid #a5ad99; border-radius: 999px; color: var(--green); background: var(--paper); margin-top: 16px; padding: 11px 18px; font-weight: 600; }
 .cake-enquire:hover { background: var(--wash); }
 .order-section { background: var(--green); color: var(--cream); padding-block: 62px; border-block: 2px dashed #7e8b79; }
+.story-section, .order-section { background-image: url("assets/bakery-pattern-green.svg"); background-size: 640px 480px; background-repeat: repeat; }
 .order-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center; }
 .order-layout h2 + p { margin-top: 18px; max-width: 420px; }
 .order-action .button { width: 100%; color: var(--green); background: var(--paper); border-color: var(--paper); }
@@ -145,7 +147,8 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
   .container { width: calc(100% - 40px); }
   .header-inner { min-height: 0; padding-block: 14px; }
   .wordmark { font-size: 2.1rem; }
-  .brand > img { width: 34px; height: 38px; }
+  .brand { grid-template-columns: 44px minmax(0, 1fr); gap: 10px; }
+  .brand > img { width: 44px; height: 44px; }
   #site-nav { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 5.5rem), 1fr)); gap: 8px; align-items: stretch; }
   #site-nav > a { padding: 10px 6px; border: 1px solid var(--line); border-radius: 999px; text-align: center; line-height: 1.4; }
   #site-nav > .nav-cta { border-color: var(--green); }
