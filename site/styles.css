@@ -68,14 +68,14 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .spiral-binding {
   position: absolute;
   z-index: 2;
-  top: -22px;
+  top: -20px;
   left: 44px;
   right: 44px;
-  height: 42px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='42' viewBox='0 0 36 42'%3E%3Cellipse cx='18' cy='13' rx='8' ry='11' fill='none' stroke='%2376543d' stroke-width='3'/%3E%3Cpath d='M18 22v9' stroke='%2376543d' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='31' r='4.5' fill='%2334483a'/%3E%3C/svg%3E");
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='40' viewBox='0 0 34 40'%3E%3Crect x='9' y='28' width='16' height='8' rx='1.5' fill='%2334483a'/%3E%3Cpath d='M11.5 31V14.5C11.5 5.5 22.5 5.5 22.5 14.5V31' fill='none' stroke='%2324392c' stroke-width='3.2' stroke-linecap='round'/%3E%3Cpath d='M14 30.5V15C14 10 20 10 20 15V30.5' fill='none' stroke='%23f5ebdd' stroke-opacity='.42' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
   background-position: center top;
   background-repeat: repeat-x;
-  background-size: 36px 42px;
+  background-size: 34px 40px;
   pointer-events: none;
 }
 .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 50px; align-items: center; margin-block: 34px; padding: 56px 42px 76px; }
