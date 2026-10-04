@@ -103,6 +103,10 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .order-layout h2 + p { margin-top: 18px; max-width: 420px; }
 .order-action .button { width: 100%; color: var(--green); background: var(--paper); border-color: var(--paper); }
 .order-action .button:hover { background: var(--cream); }
+.order-action .instagram-contact { min-height: 230px; flex-direction: column; gap: 12px; padding: 24px; border-radius: 32px; }
+.instagram-logo { display: block; width: 8rem; max-width: 100%; height: auto; aspect-ratio: 1; flex-shrink: 0; }
+.contact-button-label { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; }
+.instagram-contact .contact-button-label { font-size: 1.125rem; }
 .small-note { color: #e2dfd0; margin-top: 13px; }
 .order-action .small-note:last-child { margin-top: 18px; }
 .site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; min-height: 82px; color: var(--muted); }
