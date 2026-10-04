@@ -97,5 +97,16 @@ function initMobileContact() {
 
 initGallery();
 initMobileContact();
+import('./entrance.mjs')
+  .then(({ initBakeryEntrance }) => initBakeryEntrance())
+  .catch(error => {
+    const entrance = byId('bakery-entrance');
+    if (entrance) {
+      entrance.hidden = true;
+      entrance.dataset.state = 'unavailable';
+      entrance.dataset.audio = 'unavailable';
+    }
+    console.warn('The optional bakery entrance is unavailable; showing the site directly.', error);
+  });
 const year = byId('year');
 if (year) year.textContent = String(new Date().getFullYear());
