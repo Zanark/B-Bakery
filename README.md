@@ -35,12 +35,14 @@ Click a category to zoom into its notebook. The image-free first page offers
 availability are confirmed personally.
 
 Subsequent pages hold **four photos per page**, with fewer on the final page when
-necessary. Open notebooks fit the screen **without vertical scrolling**: images
+necessary. Open notebooks fit the screen **without horizontal or vertical scrolling**: images
 and spacing adapt, with two-by-two pages on desktop/portrait phones and four
 across on short landscape screens. The page count is not reduced to fit.
 Use **Back / Next**, the arrow keys, or drag the bottom **Turn** control upward.
 **All categories** returns to the covers. **Enlarge** opens the full photograph;
 **Ask** opens the direct enquiry link. Full accessible action names are retained.
+Enlarged photographs also fit the screen; their titles and controls wrap without
+forcing sideways scrolling.
 
 All six covers now use real, reviewed sticker derivatives. The twelve earlier
 examples are retained, with three new photograph records for Birthday Cakes,
