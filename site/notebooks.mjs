@@ -407,6 +407,8 @@ export function initCategoryNotebooks() {
     }
   }
   document.fonts?.ready.then(scheduleFitCheck);
+  document.fonts?.addEventListener('loadingdone', scheduleFitCheck);
+  document.fonts?.addEventListener('loadingerror', scheduleFitCheck);
   window.addEventListener('resize', settle);
   window.addEventListener('blur', settle);
   window.addEventListener('pagehide', close);
