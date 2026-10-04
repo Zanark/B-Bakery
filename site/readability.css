@@ -1,0 +1,14 @@
+/* Readability is part of the design, not an optional display mode. */
+:root { --reading-size: 1.125rem; --control-size: 1rem; }
+body { font-size: var(--reading-size); line-height: 1.75; }
+.button, #site-nav > a, .cake-enquire, .photo-dialog button,
+.site-footer a, .mobile-enquire, .story-copy .text-link {
+  font-size: var(--control-size);
+  min-height: 48px;
+}
+.eyebrow, .cake-category, .small-note, .site-footer, #photo-counter { font-size: var(--control-size); line-height: 1.65; }
+.hero-description, .section-heading > p, .order-layout > div > p,
+.story-copy > p:not(.eyebrow) { font-size: var(--reading-size); }
+.note-signature { font-size: 1.625rem; }
+.order-action > p.small-note { font-size: var(--control-size); }
+.order-layout > div > a:not(.button) { display: inline-flex; align-items: center; min-height: 48px; font-size: var(--control-size); }

@@ -1,0 +1,15 @@
+# Account exports, original media and private working files are never published.
+.local/
+*.zip
+*.zip.part
+.venv/
+__pycache__/
+*.py[cod]
+
+# Never store Instagram authentication material in this repository.
+.env
+.env.*
+!.env.example
+cookies*.txt
+cookies*.json
+session-*
