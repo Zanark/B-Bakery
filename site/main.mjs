@@ -97,5 +97,25 @@ function initMobileContact() {
 
 initGallery();
 initMobileContact();
+const moduleVersion = new URL(import.meta.url).search;
+const versionedModule = name => {
+  const url = new URL(name, import.meta.url);
+  url.search = moduleVersion;
+  return url.href;
+};
+Promise.all([
+  import(versionedModule('./entrance.mjs')),
+  import(versionedModule('./bell.mjs')),
+])
+  .then(([{ initBakeryEntrance }, { tryRingBell }]) => initBakeryEntrance({ tryRingBell }))
+  .catch(error => {
+    const entrance = byId('bakery-entrance');
+    if (entrance) {
+      entrance.hidden = true;
+      entrance.dataset.state = 'unavailable';
+      entrance.dataset.audio = 'unavailable';
+    }
+    console.warn('The optional bakery entrance is unavailable; showing the site directly.', error);
+  });
 const year = byId('year');
 if (year) year.textContent = String(new Date().getFullYear());

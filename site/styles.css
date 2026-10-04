@@ -50,7 +50,35 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 #site-nav > a { display: inline-flex; justify-content: center; align-items: center; padding: 10px 14px; }
 #site-nav > a:not(.button):hover { text-decoration: underline; text-underline-offset: 6px; }
 
-.hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 50px; align-items: center; padding-block: 56px 76px; }
+.hero, .cake-section {
+  position: relative;
+  border: 1px solid rgb(118 84 61 / 18%);
+  border-radius: 30px;
+  background-color: var(--cream);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0 31px,
+    rgb(52 72 58 / 4%) 31px 32px
+  );
+  box-shadow:
+    0 18px 42px rgb(74 55 35 / 10%),
+    inset 20px 0 0 rgb(164 81 55 / 4%),
+    inset 22px 0 0 rgb(164 81 55 / 13%);
+}
+.spiral-binding {
+  position: absolute;
+  z-index: 2;
+  top: -22px;
+  left: 44px;
+  right: 44px;
+  height: 42px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='42' viewBox='0 0 36 42'%3E%3Cellipse cx='18' cy='13' rx='8' ry='11' fill='none' stroke='%2376543d' stroke-width='3'/%3E%3Cpath d='M18 22v9' stroke='%2376543d' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='31' r='4.5' fill='%2334483a'/%3E%3C/svg%3E");
+  background-position: center top;
+  background-repeat: repeat-x;
+  background-size: 36px 42px;
+  pointer-events: none;
+}
+.hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 50px; align-items: center; margin-block: 34px; padding: 56px 42px 76px; }
 .hero-description { margin-top: 22px; color: var(--muted); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
 .hero-art { position: relative; isolation: isolate; width: min(100%, 470px); justify-self: end; padding: 12px 8px; }
@@ -67,6 +95,28 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .story-section::before { top: -17px; }
 .story-section::after { bottom: -17px; transform: rotate(180deg); }
 .story-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: center; gap: 72px; }
+.hero-copy, .section-heading, .cake-card-info,
+.story-copy, .order-layout > div, .order-action {
+  position: relative;
+  isolation: isolate;
+}
+.hero-copy::before, .section-heading::before, .cake-card-info::before,
+.story-copy::before, .order-layout > div::before, .order-action::before {
+  content: "";
+  position: absolute;
+  inset: -16px -18px;
+  z-index: -1;
+  border-radius: 22px;
+  pointer-events: none;
+}
+.hero-copy::before, .section-heading::before, .cake-card-info::before {
+  background: var(--cream);
+  box-shadow: 0 0 24px 14px var(--cream);
+}
+.story-copy::before, .order-layout > div::before, .order-action::before {
+  background: var(--green);
+  box-shadow: 0 0 24px 14px var(--green);
+}
 .story-copy .eyebrow { color: #dfcfb9; }
 .story-copy h2 { font-size: clamp(2.9rem, 4.3vw, 4rem); }
 .story-copy em, .order-section em { color: #e8baa2; }
@@ -82,7 +132,7 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .note-quote { font-family: var(--script); font-weight: 400; font-size: 2.65rem; line-height: 1.2; }
 .note-signature { display: block; font-family: var(--script); font-weight: 400; color: var(--brown); margin-top: 20px; }
 
-.cake-section { border-top: 0; }
+.cake-section { margin-block: 46px; padding-inline: 42px; border-top: 1px solid rgb(118 84 61 / 18%); }
 .section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 18px 32px; margin-bottom: 30px; }
 .section-heading > p { color: var(--muted); max-width: 350px; }
 .cake-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 38px 26px; }
@@ -116,6 +166,38 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .site-footer a:hover { text-decoration: underline; }
 .mobile-enquire { display: none; }
 
+.bakery-entrance { position: fixed; inset: 0; z-index: 80; overflow: hidden; animation: entrance-dismiss .12s linear 1.68s forwards; }
+.entrance-art { position: absolute; inset: 0; display: grid; place-items: center; }
+.entrance-backdrop { position: absolute; inset: 0; background: var(--cream) url("assets/bakery-pattern-cream.svg") repeat; background-size: 640px 480px; animation: entrance-backdrop-fade .55s ease-out .7s both; }
+.entrance-shop { position: relative; display: flex; flex-direction: column; align-items: center; width: min(550px, calc(100vw - 48px)); height: min(630px, calc(100svh - 160px)); animation: entrance-approach 1.45s ease-in .18s both; }
+.entrance-sign { width: 90%; padding: 12px 24px; background: var(--paper); border: 4px solid var(--green); border-radius: 18px; box-shadow: 0 7px 0 var(--wash); }
+.entrance-sign img { width: 100%; height: auto; }
+.entrance-awning { width: 100%; height: 34px; flex-shrink: 0; margin-top: 15px; border: 2px solid var(--green); border-radius: 10px 10px 18px 18px; background: repeating-linear-gradient(90deg, var(--cream) 0 34px, var(--green) 34px 68px); }
+.entrance-doorway { position: relative; flex: 1; min-height: 0; width: 82%; margin-top: 55px; }
+.entrance-bell-mount { position: absolute; left: calc(50% - 12px); top: -59px; width: 24px; height: 12px; border: 3px solid var(--green); border-radius: 50% 50% 0 0; background: var(--wash); }
+.entrance-bell { position: absolute; left: calc(50% - 32px); top: -54px; z-index: 2; transform-origin: 50% 6%; animation: entrance-bell-swing .9s ease-out .32s both; }
+.entrance-doorframe { position: absolute; inset: 0; display: flex; border: 10px solid var(--green); border-radius: 12px 12px 0 0; perspective: 1100px; box-shadow: 0 10px 0 var(--wash); }
+.entrance-doorframe::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, var(--paper), var(--wash)); animation: entrance-backdrop-fade .5s ease-out .75s both; }
+.entrance-door { position: relative; width: 50%; height: 100%; border: 2px solid var(--wash); background: var(--green); backface-visibility: hidden; }
+.entrance-door-left { transform-origin: left center; animation: entrance-open-left .95s cubic-bezier(.4, 0, .2, 1) .25s both; }
+.entrance-door-right { transform-origin: right center; animation: entrance-open-right .95s cubic-bezier(.4, 0, .2, 1) .25s both; }
+.entrance-glass { position: absolute; inset: 15px 12px 32%; display: grid; place-items: center; background: var(--paper); border: 4px double var(--wash); border-radius: 55px 55px 5px 5px; }
+.entrance-glass img, .entrance-glass svg { width: min(82px, 70%); height: auto; }
+.entrance-door-panel { position: absolute; inset: auto 12px 16px; height: 21%; border: 2px solid #a5ad99; border-radius: 7px; }
+.entrance-handle { position: absolute; top: 56%; width: 8px; height: 42px; border: 2px solid var(--brown); border-radius: 8px; background: var(--cream); }
+.entrance-door-left .entrance-handle { right: 5px; }
+.entrance-door-right .entrance-handle { left: 5px; }
+.entrance-skip { position: absolute; top: 18px; right: 20px; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 11px 18px; border: 1px solid var(--green); border-radius: 999px; background: var(--paper); color: var(--green); font: 600 1rem/1.4 var(--sans); }
+.entrance-skip:hover { background: var(--wash); }
+html:has(:target) .bakery-entrance { display: none; }
+@keyframes entrance-open-left { from { transform: rotateY(0); } to { transform: rotateY(-106deg); } }
+@keyframes entrance-open-right { from { transform: rotateY(0); } to { transform: rotateY(106deg); } }
+@keyframes entrance-bell-swing { 0%, 100% { transform: rotate(0); } 15% { transform: rotate(18deg); } 35% { transform: rotate(-15deg); } 55% { transform: rotate(10deg); } 75% { transform: rotate(-5deg); } }
+@keyframes entrance-backdrop-fade { from { opacity: 1; } to { opacity: 0; } }
+@keyframes entrance-approach { 0% { transform: scale(1); opacity: 1; } 65% { transform: scale(1.035); opacity: 1; } 100% { transform: scale(1.12); opacity: 0; } }
+@keyframes entrance-dismiss { 0% { opacity: 1; } 99%, 100% { opacity: 0; visibility: hidden; pointer-events: none; } }
+@media (max-height: 450px), (forced-colors: active) { .bakery-entrance { display: none; } }
+
 .photo-dialog { width: min(920px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 18px; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); color: var(--green); }
 .photo-dialog::backdrop { background: rgb(22 29 22 / 84%); }
 .photo-dialog-header, .photo-dialog-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -129,7 +211,8 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 
 @media (max-width: 900px) {
   .container { width: calc(100% - 48px); }
-  .hero { gap: 26px; }
+  .hero { gap: 26px; padding-inline: 30px; }
+  .cake-section { padding-inline: 30px; }
   .hero h1 { font-size: 3.2rem; }
   .story-section { padding-block: 64px; }
   .story-layout { grid-template-columns: minmax(0, 1fr); gap: 42px; }
@@ -152,7 +235,15 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
   #site-nav { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 5.5rem), 1fr)); gap: 8px; align-items: stretch; }
   #site-nav > a { padding: 10px 6px; border: 1px solid var(--line); border-radius: 999px; text-align: center; line-height: 1.4; }
   #site-nav > .nav-cta { border-color: var(--green); }
-  .hero { display: flex; flex-direction: column; gap: 24px; padding-block: 26px 38px; }
+  .hero, .cake-section {
+    border-radius: 22px;
+    box-shadow:
+      0 12px 28px rgb(74 55 35 / 9%),
+      inset 12px 0 0 rgb(164 81 55 / 4%),
+      inset 14px 0 0 rgb(164 81 55 / 12%);
+  }
+  .spiral-binding { left: 28px; right: 28px; }
+  .hero { display: flex; flex-direction: column; gap: 24px; margin-block: 22px 30px; padding: 32px 24px 42px; }
   .hero-art { order: -1; width: min(470px, calc(100% - 18px)); margin-inline: 9px; padding: 10px 4px; }
   .hero h1 { font-size: clamp(2.85rem, 10.5vw, 3.5rem); }
   .hero-description { margin-top: 16px; }
@@ -165,7 +256,8 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
   .recipe-note { width: min(340px, calc(100% - 26px)); min-height: 300px; padding: 31px 22px; transform: none; }
   .bowl-drawing { margin-top: 20px; }
   .note-quote { font-size: 2.5rem; }
-  .section-space { padding-block: 38px; }
+  .section-space { padding-block: 42px; }
+  .cake-section { margin-block: 34px; padding-inline: 24px; }
   .section-heading { gap: 14px; margin-bottom: 26px; }
   .section-heading > p { max-width: none; }
   .cake-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -186,6 +278,7 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
   #photo-image { height: 65dvh; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .bakery-entrance { display: none !important; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .button:hover { transform: none; }

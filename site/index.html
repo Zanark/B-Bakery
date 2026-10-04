@@ -22,12 +22,49 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
   <link rel="preload" href="assets/fonts/courgette-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="readability.css">
-  <script type="module" src="main.mjs"></script>
+  <link rel="stylesheet" href="styles.css?v=91563c91fe3c">
+  <link rel="stylesheet" href="readability.css?v=91563c91fe3c">
+  <link rel="modulepreload" href="entrance.mjs?v=91563c91fe3c">
+  <link rel="modulepreload" href="bell.mjs?v=91563c91fe3c">
+  <script type="module" src="main.mjs?v=91563c91fe3c"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to cakes and ordering</a>
+  <div id="bakery-entrance" class="bakery-entrance" data-state="pending" data-audio="waiting">
+    <div class="entrance-art" aria-hidden="true">
+      <div class="entrance-backdrop"></div>
+      <div class="entrance-shop">
+        <div class="entrance-sign">
+          <img src="assets/whisks-and-crumbs-logo.png" width="380" height="86" alt="">
+        </div>
+        <div class="entrance-awning"></div>
+        <div class="entrance-doorway">
+          <div class="entrance-bell-mount"></div>
+          <svg class="entrance-bell" viewBox="0 0 64 68" width="64" height="68" fill="none" focusable="false">
+            <path d="M28 13V9a4 4 0 0 1 8 0v4" stroke="#34483a" stroke-width="3"/>
+            <path d="M15 43c4-8 2-18 6-25 5-8 17-8 22 0 4 7 2 17 6 25l4 6H11Z" fill="#e8baa2" stroke="#34483a" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M22 24c0-4 2-6 4-7" stroke="#fffaf1" stroke-width="3" stroke-linecap="round"/>
+            <path d="M13 49h38" stroke="#76543d" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="54" r="5" fill="#76543d"/>
+          </svg>
+          <div class="entrance-doorframe">
+            <div class="entrance-door entrance-door-left">
+              <div class="entrance-glass"><img src="assets/whisks-and-crumbs-mark.svg" width="82" height="82" alt=""></div>
+              <span class="entrance-door-panel"></span><span class="entrance-handle"></span>
+            </div>
+            <div class="entrance-door entrance-door-right">
+              <div class="entrance-glass">
+                <svg viewBox="0 0 64 64" width="74" height="74" fill="none" focusable="false"><path d="M32 21C17 1 0 22 16 37l16 15 16-15C64 22 47 1 32 21Z" stroke="#a45137" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="entrance-door-panel"></span><span class="entrance-handle"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a id="entrance-skip" class="entrance-skip" href="#home">Skip entrance</a>
+  </div>
+  <noscript><style>.bakery-entrance { display: none !important; }</style></noscript>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="Whisks &amp; Crumbs - home">
@@ -44,6 +81,7 @@
 
   <main id="main" tabindex="-1">
     <section class="hero container" id="home" aria-labelledby="hero-title">
+      <span class="spiral-binding" aria-hidden="true"></span>
       <div class="hero-copy">
         <h1 id="hero-title">Baked at home.<br>Made with <em>heart.</em></h1>
         <p class="hero-description">Vegetarian cakes for your celebrations.</p>
@@ -85,6 +123,7 @@
     </section>
 
     <section class="cake-section container section-space" id="cakes" aria-labelledby="cakes-title">
+      <span class="spiral-binding" aria-hidden="true"></span>
       <div class="section-heading">
         <h2 id="cakes-title">Cakes we've <em>made.</em></h2>
         <p>Choose a design. Ask us about flavours and prices.</p>
