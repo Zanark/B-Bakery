@@ -56,10 +56,11 @@ export function initCategoryNotebooks() {
     previous: element.querySelector('[data-page-previous]'),
     next: element.querySelector('[data-page-next]'),
     counter: element.querySelector('[data-page-counter]'),
+    announcement: element.querySelector('[data-page-announcement]'),
     dragButton: element.querySelector('[data-page-drag]'),
   }));
   if (!books.length || books.some(book => !book.pages.length ||
-      ![book.title, book.binding, book.stage, book.controls, book.previous, book.next, book.counter, book.dragButton].every(Boolean))) {
+      ![book.title, book.binding, book.stage, book.controls, book.previous, book.next, book.counter, book.announcement, book.dragButton].every(Boolean))) {
     console.warn('The category notebook markup is incomplete; keeping every page visible.');
     return;
   }
@@ -102,6 +103,43 @@ export function initCategoryNotebooks() {
   let placeholder;
   let enhanced = true;
   let suppressClick = false;
+  let fitFrame;
+
+  const scheduleFitCheck = () => {
+    cancelAnimationFrame(fitFrame);
+    fitFrame = requestAnimationFrame(() => {
+      if (!active || !dialog.open || active.element.dataset.turnState !== 'idle' ||
+          active.element.getAnimations?.().length || document.fonts?.status === 'loading') return;
+      const page = active.pages[index];
+      const bounds = dialog.getBoundingClientRect();
+      const content = [...page.querySelectorAll('img, h4, a, .weight-option')];
+      const clipped = [dialog, active.stage, page].some(node =>
+        node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1
+      ) || [...page.querySelectorAll('.cake-card')].some(card =>
+        card.querySelector('.photo-link').getBoundingClientRect().bottom >
+          card.querySelector('.cake-card-info').getBoundingClientRect().top + 1
+      ) || content.some(node => {
+        const box = node.getBoundingClientRect();
+        return box.top < bounds.top || box.bottom > bounds.bottom ||
+          box.left < bounds.left || box.right > bounds.right ||
+          (node.tagName === 'IMG' && box.height < 24);
+      });
+      if (!clipped) return;
+      const title = page.querySelector('[data-page-title]');
+      console.warn('Four photos cannot fit this viewport/text size safely; showing the complete static notebooks.');
+      restoreStatic();
+      let notice = document.getElementById('notebook-fit-note');
+      if (!notice) {
+        notice = document.createElement('p');
+        notice.id = 'notebook-fit-note';
+        notice.className = 'small-note';
+        notice.setAttribute('role', 'status');
+        notice.textContent = 'For this screen or text size, photos are shown below so nothing is cut off.';
+        overview.before(notice);
+      }
+      title.focus();
+    });
+  };
 
   const stopZoom = () => {
     clearTimeout(zoomTimer);
@@ -110,10 +148,13 @@ export function initCategoryNotebooks() {
       zoom.cancel();
       zoom = undefined;
     }
+    scheduleFitCheck();
   };
   const updateControls = () => {
     active.element.dataset.pageIndex = String(index);
-    active.counter.textContent = `Page ${index + 1} of ${active.pages.length}`;
+    active.counter.textContent = `${index + 1} / ${active.pages.length}`;
+    active.counter.setAttribute('aria-label', `Page ${index + 1} of ${active.pages.length}`);
+    active.announcement.textContent = `Page ${index + 1} of ${active.pages.length}`;
     active.previous.disabled = index === 0;
     active.next.disabled = index === active.pages.length - 1;
     active.dragButton.disabled = active.next.disabled;
@@ -146,6 +187,7 @@ export function initCategoryNotebooks() {
       page.removeAttribute('aria-hidden');
     }
     updateControls();
+    scheduleFitCheck();
     if (moveFocus && hadFocus) {
       active.pages[index].querySelector('[data-page-title]').focus({ preventScroll: true });
       dialog.scrollTo({ top: 0, behavior: 'instant' });
@@ -252,6 +294,7 @@ export function initCategoryNotebooks() {
       return false;
     }
     document.body.classList.add('has-notebook-dialog');
+    scheduleFitCheck();
     dialog.scrollTo({ top: 0, behavior: 'instant' });
     book.pages[0].querySelector('[data-page-title]').focus({ preventScroll: true });
     if (!wantsStatic() && typeof book.element.animate === 'function') {
@@ -352,7 +395,18 @@ export function initCategoryNotebooks() {
   const settle = () => {
     stopZoom();
     if (active && (pending !== undefined || drag)) finishTurn(drag ? index : pending, false);
+    scheduleFitCheck();
   };
+  if (typeof ResizeObserver === 'function') {
+    const fitObserver = new ResizeObserver(scheduleFitCheck);
+    fitObserver.observe(dialog);
+    for (const book of books) {
+      for (const node of book.element.querySelectorAll('.cake-card-info, .notebook-sheet-copy, .weight-options')) {
+        fitObserver.observe(node);
+      }
+    }
+  }
+  document.fonts?.ready.then(scheduleFitCheck);
   window.addEventListener('resize', settle);
   window.addEventListener('blur', settle);
   window.addEventListener('pagehide', close);
