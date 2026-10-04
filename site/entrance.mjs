@@ -1,7 +1,8 @@
 export function initBakeryEntrance({ tryRingBell } = {}) {
   const entrance = document.getElementById('bakery-entrance');
+  const enter = document.getElementById('entrance-enter');
   const skip = document.getElementById('entrance-skip');
-  if (!entrance || !skip) return;
+  if (!entrance || !enter || !skip) return;
   if (typeof tryRingBell !== 'function') {
     throw new TypeError('The bakery entrance requires a bell playback function.');
   }
@@ -24,43 +25,44 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
 
   let finished = false;
   let bell;
-  let audioTimer;
   let fallbackTimer;
   const events = new AbortController();
-  const startedAt = performance.now();
-  entrance.dataset.state = 'opening';
+  entrance.dataset.state = 'waiting';
 
   const finish = reason => {
     if (finished) return;
     finished = true;
-    clearTimeout(audioTimer);
     clearTimeout(fallbackTimer);
     events.abort();
     bell?.stop();
     entrance.hidden = true;
     entrance.dataset.state = reason;
     if (entrance.dataset.audio === 'waiting') entrance.dataset.audio = 'skipped';
-    if (document.activeElement === skip) {
+    if (document.activeElement === skip || document.activeElement === enter) {
       document.getElementById('main')?.focus({ preventScroll: true });
     }
   };
 
-  const attemptBell = () => {
-    const delay = Math.max(0, 380 - (performance.now() - startedAt));
-    audioTimer = setTimeout(() => {
-      if (finished || document.visibilityState !== 'visible') return;
-      try {
-        bell = tryRingBell();
-        entrance.dataset.audio = bell.status;
-      } catch (error) {
-        entrance.dataset.audio = 'error';
-        console.error('The optional bakery bell could not be played.', error);
-      }
-    }, delay);
+  const beginEntrance = event => {
+    event?.preventDefault();
+    if (finished || entrance.classList.contains('is-entering')) return;
+    entrance.classList.add('is-entering');
+    entrance.dataset.state = 'opening';
+    try {
+      bell = tryRingBell();
+      entrance.dataset.audio = bell.status;
+    } catch (error) {
+      entrance.dataset.audio = 'error';
+      console.error('The optional bakery bell could not be played.', error);
+    }
+    fallbackTimer = setTimeout(() => finish('finished'), 2100);
   };
 
+  enter.addEventListener('click', beginEntrance, { signal: events.signal });
   skip.addEventListener('click', () => finish('skipped'), { signal: events.signal });
-  document.addEventListener('keydown', () => finish('skipped'), { capture: true, signal: events.signal });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') finish('skipped');
+  }, { capture: true, signal: events.signal });
   document.addEventListener('focusin', event => {
     if (!entrance.contains(event.target)) finish('skipped');
   }, { signal: events.signal });
@@ -69,6 +71,17 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
   window.addEventListener('pagehide', () => finish('left-page'), { signal: events.signal });
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState !== 'visible') finish('background');
+  }, { signal: events.signal });
+  entrance.addEventListener('pointermove', event => {
+    if (entrance.classList.contains('is-entering')) return;
+    const x = ((event.clientX / window.innerWidth) - .5) * 18;
+    const y = ((event.clientY / window.innerHeight) - .5) * 14;
+    entrance.style.setProperty('--parallax-x', `${x.toFixed(2)}px`);
+    entrance.style.setProperty('--parallax-y', `${y.toFixed(2)}px`);
+  }, { passive: true, signal: events.signal });
+  entrance.addEventListener('pointerleave', () => {
+    entrance.style.setProperty('--parallax-x', '0px');
+    entrance.style.setProperty('--parallax-y', '0px');
   }, { signal: events.signal });
   for (const preference of [reducedMotion, compactView, forcedColors]) {
     preference.addEventListener('change', event => {
@@ -79,8 +92,5 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
     if (event.target === entrance && event.animationName === 'entrance-dismiss') finish('finished');
   }, { signal: events.signal });
 
-  // CSS also dismisses the scene, so unavailable JavaScript/audio cannot trap visitors.
-  fallbackTimer = setTimeout(() => finish('finished'), 2100);
-  if (document.readyState === 'complete') attemptBell();
-  else window.addEventListener('load', attemptBell, { once: true, signal: events.signal });
+  // The native #home link remains an escape if entrance enhancement fails.
 }

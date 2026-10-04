@@ -166,35 +166,74 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .site-footer a:hover { text-decoration: underline; }
 .mobile-enquire { display: none; }
 
-.bakery-entrance { position: fixed; inset: 0; z-index: 80; overflow: hidden; animation: entrance-dismiss .12s linear 1.68s forwards; }
-.entrance-art { position: absolute; inset: 0; display: grid; place-items: center; }
-.entrance-backdrop { position: absolute; inset: 0; background: var(--cream) url("assets/bakery-pattern-cream.svg") repeat; background-size: 640px 480px; animation: entrance-backdrop-fade .55s ease-out .7s both; }
-.entrance-shop { position: relative; display: flex; flex-direction: column; align-items: center; width: min(550px, calc(100vw - 48px)); height: min(630px, calc(100svh - 160px)); animation: entrance-approach 1.45s ease-in .18s both; }
-.entrance-sign { width: 90%; padding: 12px 24px; background: var(--paper); border: 4px solid var(--green); border-radius: 18px; box-shadow: 0 7px 0 var(--wash); }
+.bakery-entrance {
+  --parallax-x: 0px;
+  --parallax-y: 0px;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: hidden;
+  background: var(--cream);
+}
+.entrance-art { position: absolute; inset: 0; display: grid; place-items: center; padding: clamp(54px, 8vmin, 108px); }
+.entrance-backdrop {
+  position: absolute;
+  inset: -3%;
+  background: var(--cream) url("assets/bakery-pattern-cream.svg") repeat;
+  background-size: 640px 480px;
+  transform: translate(calc(var(--parallax-x) * -.22), calc(var(--parallax-y) * -.22)) scale(1.06);
+  transition: transform .18s ease-out;
+}
+.entrance-shop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(1120px, calc(100vw - clamp(72px, 12vw, 220px)));
+  height: min(820px, calc(100svh - clamp(108px, 16vh, 210px)));
+  transform: translate(var(--parallax-x), var(--parallax-y));
+  transition: transform .18s ease-out;
+}
+.entrance-sign { width: min(760px, 72%); padding: 12px 24px; background: var(--paper); border: 4px solid var(--green); border-radius: 18px; box-shadow: 0 7px 0 var(--wash); }
 .entrance-sign img { width: 100%; height: auto; }
 .entrance-awning { width: 100%; height: 34px; flex-shrink: 0; margin-top: 15px; border: 2px solid var(--green); border-radius: 10px 10px 18px 18px; background: repeating-linear-gradient(90deg, var(--cream) 0 34px, var(--green) 34px 68px); }
-.entrance-doorway { position: relative; flex: 1; min-height: 0; width: 82%; margin-top: 55px; }
+.entrance-doorway { position: relative; flex: 1; min-height: 0; width: 88%; margin-top: 55px; }
 .entrance-bell-mount { position: absolute; left: calc(50% - 12px); top: -59px; width: 24px; height: 12px; border: 3px solid var(--green); border-radius: 50% 50% 0 0; background: var(--wash); }
-.entrance-bell { position: absolute; left: calc(50% - 32px); top: -54px; z-index: 2; transform-origin: 50% 6%; animation: entrance-bell-swing .9s ease-out .32s both; }
+.entrance-bell { position: absolute; left: calc(50% - 32px); top: -54px; z-index: 2; transform-origin: 50% 6%; }
 .entrance-doorframe { position: absolute; inset: 0; display: flex; border: 10px solid var(--green); border-radius: 12px 12px 0 0; perspective: 1100px; box-shadow: 0 10px 0 var(--wash); }
-.entrance-doorframe::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, var(--paper), var(--wash)); animation: entrance-backdrop-fade .5s ease-out .75s both; }
-.entrance-door { position: relative; width: 50%; height: 100%; border: 2px solid var(--wash); background: var(--green); backface-visibility: hidden; }
-.entrance-door-left { transform-origin: left center; animation: entrance-open-left .95s cubic-bezier(.4, 0, .2, 1) .25s both; }
-.entrance-door-right { transform-origin: right center; animation: entrance-open-right .95s cubic-bezier(.4, 0, .2, 1) .25s both; }
+.entrance-doorframe::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, var(--paper), var(--wash)); }
+.entrance-door { position: relative; width: 50%; height: 100%; border: 2px solid var(--wash); background: var(--green); backface-visibility: hidden; transform-style: preserve-3d; }
+.entrance-door-left { transform-origin: left center; }
+.entrance-door-right { transform-origin: right center; }
 .entrance-glass { position: absolute; inset: 15px 12px 32%; display: grid; place-items: center; background: var(--paper); border: 4px double var(--wash); border-radius: 55px 55px 5px 5px; }
 .entrance-glass img, .entrance-glass svg { width: min(82px, 70%); height: auto; }
 .entrance-door-panel { position: absolute; inset: auto 12px 16px; height: 21%; border: 2px solid #a5ad99; border-radius: 7px; }
 .entrance-handle { position: absolute; top: 56%; width: 8px; height: 42px; border: 2px solid var(--brown); border-radius: 8px; background: var(--cream); }
 .entrance-door-left .entrance-handle { right: 5px; }
 .entrance-door-right .entrance-handle { left: 5px; }
-.entrance-skip { position: absolute; top: 18px; right: 20px; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 11px 18px; border: 1px solid var(--green); border-radius: 999px; background: var(--paper); color: var(--green); font: 600 1rem/1.4 var(--sans); }
+.entrance-enter { position: absolute; inset: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: center; padding: 24px; }
+.entrance-enter > span { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 24px; border: 1px solid var(--green); border-radius: 999px; background: var(--paper); color: var(--green); box-shadow: 0 5px 0 rgb(52 72 58 / 13%); font: 600 1rem/1.4 var(--sans); }
+.entrance-enter:hover > span { background: var(--wash); }
+.entrance-skip { position: absolute; z-index: 4; top: 18px; right: 20px; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 11px 18px; border: 1px solid var(--green); border-radius: 999px; background: var(--paper); color: var(--green); font: 600 1rem/1.4 var(--sans); }
 .entrance-skip:hover { background: var(--wash); }
 html:has(:target) .bakery-entrance { display: none; }
+.bakery-entrance.is-entering { animation: entrance-dismiss .12s linear 1.68s forwards; }
+.bakery-entrance.is-entering .entrance-backdrop { animation: entrance-backdrop-fade .55s ease-out .7s both; }
+.bakery-entrance.is-entering .entrance-shop { animation: entrance-approach 1.45s ease-in .18s both; }
+.bakery-entrance.is-entering .entrance-bell { animation: entrance-bell-swing .9s ease-out .05s both; }
+.bakery-entrance.is-entering .entrance-doorframe::before { animation: entrance-backdrop-fade .5s ease-out .75s both; }
+.bakery-entrance.is-entering .entrance-door-left { animation: entrance-open-left .95s cubic-bezier(.4, 0, .2, 1) .08s both; }
+.bakery-entrance.is-entering .entrance-door-right { animation: entrance-open-right .95s cubic-bezier(.4, 0, .2, 1) .08s both; }
+.bakery-entrance.is-entering .entrance-enter, .bakery-entrance.is-entering .entrance-skip { pointer-events: none; opacity: 0; transition: opacity .12s; }
 @keyframes entrance-open-left { from { transform: rotateY(0); } to { transform: rotateY(-106deg); } }
 @keyframes entrance-open-right { from { transform: rotateY(0); } to { transform: rotateY(106deg); } }
 @keyframes entrance-bell-swing { 0%, 100% { transform: rotate(0); } 15% { transform: rotate(18deg); } 35% { transform: rotate(-15deg); } 55% { transform: rotate(10deg); } 75% { transform: rotate(-5deg); } }
 @keyframes entrance-backdrop-fade { from { opacity: 1; } to { opacity: 0; } }
-@keyframes entrance-approach { 0% { transform: scale(1); opacity: 1; } 65% { transform: scale(1.035); opacity: 1; } 100% { transform: scale(1.12); opacity: 0; } }
+@keyframes entrance-approach {
+  0% { transform: translate(var(--parallax-x), var(--parallax-y)) scale(1); opacity: 1; }
+  65% { transform: translate(var(--parallax-x), var(--parallax-y)) scale(1.035); opacity: 1; }
+  100% { transform: translate(var(--parallax-x), var(--parallax-y)) scale(1.12); opacity: 0; }
+}
 @keyframes entrance-dismiss { 0% { opacity: 1; } 99%, 100% { opacity: 0; visibility: hidden; pointer-events: none; } }
 @media (max-height: 450px), (forced-colors: active) { .bakery-entrance { display: none; } }
 
@@ -276,6 +315,11 @@ html:has(:target) .bakery-entrance { display: none; }
   .photo-dialog-controls { gap: 6px; }
   .photo-dialog button { min-width: 72px; padding-inline: 8px; }
   #photo-image { height: 65dvh; }
+  .entrance-art { padding: 76px 20px 86px; }
+  .entrance-shop { width: 100%; height: 100%; }
+  .entrance-sign { width: min(92%, 520px); padding-inline: 14px; }
+  .entrance-doorway { width: 92%; }
+  .entrance-enter { padding-bottom: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .bakery-entrance { display: none !important; }
