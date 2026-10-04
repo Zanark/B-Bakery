@@ -13,8 +13,9 @@ function initGallery() {
   const counter = byId('photo-counter');
   const error = byId('photo-error');
   const links = [...document.querySelectorAll('a[data-photo]')];
-  const photos = [...document.querySelectorAll('.cake-grid a[data-photo]')];
-  if (![image, title, close, previous, next, counter, error].every(Boolean) || !photos.length) return;
+  const galleryPhotos = [...document.querySelectorAll('.cake-grid a[data-photo]')];
+  if (![image, title, close, previous, next, counter, error].every(Boolean) || !galleryPhotos.length) return;
+  let photos = galleryPhotos;
   let index = 0;
   let opener;
 
@@ -43,8 +44,11 @@ function initGallery() {
   for (const link of links) {
     link.addEventListener('click', event => {
       if (!plainClick(event)) return;
+      const notebook = link.closest('.category-notebook');
+      photos = notebook ? [...notebook.querySelectorAll('a[data-photo]')] : galleryPhotos;
       const position = photos.findIndex(photo => photo.href === link.href);
       if (position < 0) return;
+      previous.disabled = next.disabled = photos.length < 2;
       showPhoto(position);
       try {
         dialog.showModal();
@@ -95,153 +99,19 @@ function initMobileContact() {
   observer.observe(order);
 }
 
-function initNotebookPages() {
-  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  for (const page of document.querySelectorAll('.hero.notebook-page')) {
-    let frame;
-    const reset = () => {
-      if (frame) cancelAnimationFrame(frame);
-      page.classList.remove('is-page-active');
-      page.style.setProperty('--page-tilt-x', '0deg');
-      page.style.setProperty('--page-tilt-y', '0deg');
-    };
-    page.addEventListener('pointermove', event => {
-      if (!finePointer.matches || reducedMotion.matches || event.pointerType === 'touch') return;
-      if (frame) cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const bounds = page.getBoundingClientRect();
-        const horizontal = (event.clientX - bounds.left) / bounds.width - .5;
-        const vertical = (event.clientY - bounds.top) / bounds.height - .5;
-        page.classList.add('is-page-active');
-        page.style.setProperty('--page-tilt-x', `${(-vertical * 1.2).toFixed(2)}deg`);
-        page.style.setProperty('--page-tilt-y', `${(horizontal * 1.4).toFixed(2)}deg`);
-      });
-    }, { passive: true });
-    page.addEventListener('pointerleave', reset);
-    window.addEventListener('blur', reset);
-    finePointer.addEventListener('change', reset);
-    reducedMotion.addEventListener('change', reset);
-  }
-}
-
-function initCakeNotebook() {
-  const notebook = byId('cake-notebook');
-  const cover = byId('cake-cover');
-  const gallery = byId('cake-gallery');
-  const turn = byId('cake-page-turn');
-  const close = byId('cake-book-close');
-  const title = byId('cake-page-title');
-  if (![notebook, cover, gallery, turn, close, title].every(Boolean)) return;
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const forcedColors = matchMedia('(forced-colors: active)');
-  const staticPage = () => reducedMotion.matches || forcedColors.matches;
-  // A missing/older stylesheet must never hide an otherwise usable gallery.
-  if (staticPage() || getComputedStyle(notebook).getPropertyValue('--notebook-ready').trim() !== '1') return;
-  let animation;
-  let timer;
-
-  const reveal = (moveFocus = false) => {
-    const coverFocused = cover.contains(document.activeElement);
-    const closeFocused = document.activeElement === close;
-    clearTimeout(timer);
-    if (animation) {
-      animation.onfinish = animation.oncancel = null;
-      animation.cancel();
-      animation = undefined;
-    }
-    notebook.dataset.bookState = 'open';
-    notebook.style.removeProperty('--cover-height');
-    gallery.hidden = false;
-    gallery.inert = false;
-    gallery.removeAttribute('aria-hidden');
-    cover.hidden = true;
-    turn.setAttribute('aria-expanded', 'true');
-    turn.removeAttribute('aria-disabled');
-    close.hidden = staticPage();
-    if (moveFocus && (coverFocused || (staticPage() && closeFocused))) {
-      title.focus({ preventScroll: true });
-      notebook.scrollIntoView({ block: 'start', behavior: 'instant' });
-    }
-  };
-  const open = () => {
-    if (notebook.dataset.bookState !== 'closed') return;
-    if (staticPage() || typeof cover.animate !== 'function') {
-      reveal(true);
-      return;
-    }
-    notebook.style.setProperty('--cover-height', `${cover.offsetHeight}px`);
-    notebook.dataset.bookState = 'opening';
-    gallery.inert = true;
-    gallery.setAttribute('aria-hidden', 'true');
-    gallery.hidden = false;
-    turn.setAttribute('aria-expanded', 'true');
-    turn.setAttribute('aria-disabled', 'true');
-    notebook.scrollIntoView({ block: 'start', behavior: 'instant' });
-    try {
-      animation = cover.animate([
-        { transform: 'rotateX(0deg)', offset: 0 },
-        { transform: 'rotateX(12deg)', offset: .18 },
-        { transform: 'rotateX(95deg) scaleX(.96)', offset: .62 },
-        { transform: 'rotateX(180deg)', offset: 1 },
-      ], { duration: 950, easing: 'cubic-bezier(.35, 0, .2, 1)', fill: 'both' });
-      animation.onfinish = animation.oncancel = () => reveal(true);
-      timer = setTimeout(() => reveal(true), 1250);
-    } catch (error) {
-      console.warn('The notebook turn could not animate; showing all cakes directly.', error);
-      reveal(true);
-    }
-  };
-  const targetIsInside = () => {
-    const target = byId(location.hash.slice(1));
-    return target && gallery.contains(target);
-  };
-  turn.addEventListener('click', open);
-  close.addEventListener('click', () => {
-    if (staticPage() || notebook.dataset.bookState !== 'open') return;
-    gallery.hidden = true;
-    cover.hidden = false;
-    notebook.dataset.bookState = 'closed';
-    turn.setAttribute('aria-expanded', 'false');
-    notebook.scrollIntoView({ block: 'start', behavior: 'instant' });
-    turn.focus({ preventScroll: true });
-    turn.scrollIntoView({ block: 'nearest', behavior: 'instant' });
-  });
-  const preferencesChanged = () => {
-    if (staticPage()) reveal(true);
-  };
-  reducedMotion.addEventListener('change', preferencesChanged);
-  forcedColors.addEventListener('change', preferencesChanged);
-  window.addEventListener('hashchange', () => { if (targetIsInside()) reveal(); });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden && notebook.dataset.bookState === 'opening') reveal();
-  });
-  window.addEventListener('resize', () => {
-    if (notebook.dataset.bookState === 'opening') reveal(true);
-  });
-  window.addEventListener('pagehide', () => {
-    if (notebook.dataset.bookState === 'opening') reveal();
-  });
-  close.hidden = false;
-  if (targetIsInside()) {
-    reveal();
-  } else {
-    notebook.dataset.bookState = 'closed';
-    cover.hidden = false;
-    gallery.hidden = true;
-  }
-}
-
 initGallery();
 initMobileContact();
-initNotebookPages();
-initCakeNotebook();
 const moduleVersion = new URL(import.meta.url).search;
 const versionedModule = name => {
   const url = new URL(name, import.meta.url);
   url.search = moduleVersion;
   return url.href;
 };
+import(versionedModule('./notebooks.mjs'))
+  .then(({ initCategoryNotebooks }) => initCategoryNotebooks())
+  .catch(error => {
+    console.warn('The optional category notebooks are unavailable; keeping all pages visible.', error);
+  });
 Promise.all([
   import(versionedModule('./entrance.mjs')),
   import(versionedModule('./bell.mjs')),

@@ -2,11 +2,14 @@
 :root { --reading-size: 1.125rem; --control-size: 1rem; }
 body { font-size: var(--reading-size); line-height: 1.75; }
 .button, #site-nav > a, .cake-enquire, .photo-dialog button,
-.site-footer a, .mobile-enquire, .story-copy .text-link, .book-close {
+.site-footer a, .mobile-enquire, .story-copy .text-link, .notebook-controls button,
+.notebook-dialog-toolbar button, .notebook-drag-edge, .notebook-static-back {
   font-size: var(--control-size);
   min-height: 48px;
 }
-.eyebrow, .cake-category, .small-note, .site-footer, #photo-counter, .notebook-caption { font-size: var(--control-size); line-height: 1.65; }
+.eyebrow, .small-note, .site-footer, #photo-counter, .notebook-cover-note,
+.notebook-size-note, .notebook-keyboard-help, .notebook-weight-summary,
+.notebook-controls p { font-size: var(--control-size); line-height: 1.65; }
 .hero-description, .section-heading > p, .order-layout > div > p,
 .story-copy > p:not(.eyebrow) { font-size: var(--reading-size); }
 .note-signature { font-size: 1.625rem; }
