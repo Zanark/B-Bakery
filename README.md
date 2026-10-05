@@ -28,7 +28,7 @@ still follows as its own section.
 **Birthday Cakes, Tea cakes, Cream cakes, Decorated cakes, Doll cakes and Chocolates**.
 Each cover has its own category-themed sticker pair rather than repeated hearts
 and bows.
-The notepads have **warm honey covers** with deep-green lettering, so they stand
+The notepads have **soft pastel-blue covers** with deep-green lettering, so they stand
 apart from the cream website background. Inside pages stay cream, with fine sheet
 edges and paired top-wire rings, without a wide left-hand spine.
 Click a category to zoom directly into its photos. **No notebook has a weight page.**
