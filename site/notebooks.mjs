@@ -86,7 +86,7 @@ export function initCategoryNotebooks() {
           active.element.getAnimations?.().length || document.fonts?.status === 'loading') return;
       const page = active.pages[index];
       const bounds = dialog.getBoundingClientRect();
-      const content = [...page.querySelectorAll('img, h4, a, .weight-size')];
+      const content = [...page.querySelectorAll('img, h4, a')];
       const clipped = [dialog, active.stage, page].some(node =>
         node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1
       ) || [...page.querySelectorAll('.cake-card')].some(card =>
@@ -375,7 +375,7 @@ export function initCategoryNotebooks() {
     const fitObserver = new ResizeObserver(scheduleFitCheck);
     fitObserver.observe(dialog);
     for (const book of books) {
-      for (const node of book.element.querySelectorAll('.cake-card-info, .notebook-sheet-copy, .weight-list')) {
+      for (const node of book.element.querySelectorAll('.cake-card-info, .notebook-sheet-copy')) {
         fitObserver.observe(node);
       }
     }
