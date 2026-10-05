@@ -30,9 +30,10 @@ Each cover has its own category-themed sticker pair rather than repeated hearts
 and bows.
 The notepads use clean paper faces, fine sheet edges and paired top-wire rings,
 without a wide left-hand spine.
-Click a category to zoom into its notebook. The image-free first page offers
-**1/2 KG, 1 KG, 1.5 KG, 2 KG, 2.5 KG and 3 KG** as preferred weights; size and
-availability are confirmed personally.
+Click a category to zoom into its notebook. The image-free first page lists
+the cake weights we offer: **1/2 KG, 1 KG, 1.5 KG, 2 KG, 2.5 KG and 3 KG**.
+This is information only: there is nothing to select, and no weight is added to
+an enquiry.
 
 Subsequent pages hold **four photos per page**, with fewer on the final page when
 necessary. Open notebooks fit the screen **without horizontal or vertical scrolling**: images

@@ -1,4 +1,4 @@
-export const WEIGHT_OPTIONS = [
+export const CAKE_WEIGHTS = [
   { grams: 500, label: '1/2 KG' },
   { grams: 1000, label: '1 KG' },
   { grams: 1500, label: '1.5 KG' },
@@ -27,16 +27,6 @@ export function dragCompletesTurn(distance, height) {
   return distance >= Math.min(180, Math.max(72, height * .25));
 }
 
-export function weightedEnquiry(href, grams) {
-  const option = WEIGHT_OPTIONS.find(item => item.grams === grams);
-  if (!option) throw new RangeError('Choose a weight between 1/2 KG and 3 KG in half-kilo steps.');
-  const url = new URL(href);
-  if (url.origin !== 'https://wa.me' || url.username || url.password) return href;
-  const message = url.searchParams.get('text') || '';
-  url.searchParams.set('text', `${message}\n\nPreferred weight: ${option.label}`.trim());
-  return url.href;
-}
-
 export function initCategoryNotebooks() {
   const library = document.getElementById('cake-gallery');
   const overview = document.getElementById('category-notebooks');
@@ -63,22 +53,6 @@ export function initCategoryNotebooks() {
       ![book.title, book.binding, book.stage, book.controls, book.previous, book.next, book.counter, book.announcement, book.dragButton].every(Boolean))) {
     console.warn('The category notebook markup is incomplete; keeping every page visible.');
     return;
-  }
-  const originalEnquiries = new WeakMap();
-  for (const book of books) {
-    const links = [...book.element.querySelectorAll('.cake-enquire')];
-    links.forEach(link => originalEnquiries.set(link, link.href));
-    book.element.addEventListener('change', event => {
-      if (!event.target.matches('input[data-weight]')) return;
-      const grams = Number(event.target.value);
-      const option = WEIGHT_OPTIONS.find(item => item.grams === grams);
-      if (!option) {
-        console.warn('An unknown notebook weight was ignored; enquiry links were not changed.');
-        return;
-      }
-      book.element.querySelector('[data-weight-summary]').textContent = `Preferred weight: ${option.label}`;
-      for (const link of links) link.href = weightedEnquiry(originalEnquiries.get(link), grams);
-    });
   }
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const forcedColors = matchMedia('(forced-colors: active)');
@@ -112,7 +86,7 @@ export function initCategoryNotebooks() {
           active.element.getAnimations?.().length || document.fonts?.status === 'loading') return;
       const page = active.pages[index];
       const bounds = dialog.getBoundingClientRect();
-      const content = [...page.querySelectorAll('img, h4, a, .weight-option')];
+      const content = [...page.querySelectorAll('img, h4, a, .weight-size')];
       const clipped = [dialog, active.stage, page].some(node =>
         node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1
       ) || [...page.querySelectorAll('.cake-card')].some(card =>
@@ -401,7 +375,7 @@ export function initCategoryNotebooks() {
     const fitObserver = new ResizeObserver(scheduleFitCheck);
     fitObserver.observe(dialog);
     for (const book of books) {
-      for (const node of book.element.querySelectorAll('.cake-card-info, .notebook-sheet-copy, .weight-options')) {
+      for (const node of book.element.querySelectorAll('.cake-card-info, .notebook-sheet-copy, .weight-list')) {
         fitObserver.observe(node);
       }
     }

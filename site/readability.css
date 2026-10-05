@@ -8,7 +8,7 @@ body { font-size: var(--reading-size); line-height: 1.75; }
   min-height: 48px;
 }
 .eyebrow, .small-note, .site-footer, #photo-counter, .notebook-cover-note,
-.notebook-size-note, .notebook-keyboard-help, .notebook-weight-summary,
+.notebook-keyboard-help,
 .notebook-controls p { font-size: var(--control-size); line-height: 1.65; }
 .hero-description, .section-heading > p, .order-layout > div > p,
 .story-copy > p:not(.eyebrow) { font-size: var(--reading-size); }
