@@ -257,7 +257,7 @@ export function initCategoryNotebooks() {
     active = book;
     index = 0;
     book.element.classList.add('is-open-notebook');
-    book.controls.hidden = false;
+    book.controls.hidden = book.pages.length < 2;
     dialogTitle.textContent = book.title.textContent;
     finishTurn(0, false);
     try {

@@ -30,16 +30,18 @@ Each cover has its own category-themed sticker pair rather than repeated hearts
 and bows.
 The notepads use clean paper faces, fine sheet edges and paired top-wire rings,
 without a wide left-hand spine.
-Click a category to zoom into its notebook. The image-free first page lists
-the cake weights we offer: **1/2 KG, 1 KG, 1.5 KG, 2 KG, 2.5 KG and 3 KG**.
+Click a category to zoom into its notebook. The five cake notebooks start with
+an image-free list of the weights we offer: **1/2 KG, 1 KG, 1.5 KG, 2 KG, 2.5 KG and 3 KG**.
 This is information only: there is nothing to select, and no weight is added to
 an enquiry.
+**Chocolates has no weight page and opens directly to its photos.**
 
 Subsequent pages hold **four photos per page**, with fewer on the final page when
 necessary. Open notebooks fit the screen **without horizontal or vertical scrolling**: images
 and spacing adapt, with two-by-two pages on desktop/portrait phones and four
 across on short landscape screens. The page count is not reduced to fit.
-Use **Back / Next**, the arrow keys, or drag the bottom **Turn** control upward.
+On multi-page notebooks, use **Back / Next**, the arrow keys, or drag the bottom
+**Turn** control upward. Single-page notebooks do not show unnecessary page controls.
 **All categories** returns to the covers. **Enlarge** opens the full photograph;
 **Ask** opens the direct enquiry link. Full accessible action names are retained.
 Enlarged photographs also fit the screen; their titles and controls wrap without
