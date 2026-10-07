@@ -1,0 +1,107 @@
+.site-header { border-bottom: 3px solid #ab805b; box-shadow: inset 0 5px 0 #e3c9a6; }
+.header-inner { padding-top: 20px; }
+.brand { padding-block: 3px; }
+#site-nav > a:not(.button) { text-decoration-color: #ba8d67; text-underline-offset: 7px; }
+.site-awning { filter: drop-shadow(0 6px 3px rgb(118 84 61 / 9%)); }
+
+.hero-section { position: relative; isolation: isolate; }
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 9px;
+  background: linear-gradient(#ead3b0, #d6b389 38%, #af835b 43%, #d5b58f 63%, #e5ccb0);
+  pointer-events: none;
+}
+.hero { padding-block: 42px 64px; }
+.hero-art { padding: 0 14px 16px; }
+.hero-art::before, .hero-art::after { content: none; }
+.hero-window { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.hero-photo { position: relative; padding: 94px 20px 0; }
+.hero-photo img { filter: drop-shadow(0 13px 7px rgb(93 62 32 / 18%)); }
+.hero-actions .button, #site-nav .nav-cta {
+  box-shadow: inset 0 1px 0 rgb(255 250 241 / 16%), 0 4px 0 rgb(118 84 61 / 15%), 0 8px 16px rgb(118 84 61 / 7%);
+}
+
+.story-section { box-shadow: inset 0 16px 28px rgb(20 35 24 / 8%), inset 0 -16px 28px rgb(20 35 24 / 8%); }
+.story-copy .eyebrow { text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 9px; text-decoration-color: #bda987; }
+.recipe-note {
+  border: 1px solid #d4bd9c;
+  border-radius: 9px 13px 11px 8px;
+  box-shadow: 0 2px 0 #dfcfb8, 0 5px 0 #f4e7d2, 6px 14px 24px rgb(12 25 16 / 23%);
+}
+.recipe-note::after { border-color: #c6ad8b; border-radius: 4px 8px 6px 4px; }
+.note-tape {
+  background-color: #e8d5b6;
+  background-image: repeating-linear-gradient(90deg, transparent 0 10px, rgb(118 84 61 / 10%) 10px 11px);
+  box-shadow: 0 2px 2px rgb(118 84 61 / 8%);
+}
+.bowl-drawing { margin-inline: auto; }
+
+.cake-weight-info { box-shadow: 0 3px 0 #e5d4bd, 0 7px 16px rgb(118 84 61 / 6%); }
+.category-notebooks {
+  position: relative;
+  isolation: isolate;
+  padding: 30px 22px 40px;
+  border-top: 1px solid #ddc8ab;
+  border-bottom: 10px solid #b18a66;
+  background-color: var(--cream);
+  box-shadow: 0 3px 0 #dbc19f, 0 12px 18px rgb(118 84 61 / 8%);
+}
+.category-notebooks::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 11px, rgb(118 84 61 / 2.5%) 11px 12px),
+    repeating-linear-gradient(0deg, transparent 0 11px, rgb(118 84 61 / 2.5%) 11px 12px);
+  pointer-events: none;
+}
+.category-notebooks::after {
+  content: "";
+  position: absolute;
+  inset: 12px 10px;
+  z-index: -1;
+  border: 1px dashed #d1bfa4;
+  pointer-events: none;
+}
+.notebook-cover-action { border-color: #c6ad8d; box-shadow: 0 2px 0 rgb(118 84 61 / 8%); }
+
+.order-section { border-block: 3px double #bba783; box-shadow: inset 0 14px 28px rgb(20 35 24 / 8%); }
+.order-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.order-layout > div { min-width: 0; }
+.order-action { padding: 22px; border: 1px solid #9caa90; border-radius: 8px; }
+.order-action::after { content: ""; position: absolute; inset: 7px; border: 1px dashed rgb(226 223 208 / 24%); border-radius: 4px; pointer-events: none; }
+.order-action .instagram-contact { border-radius: 36px 36px 14px 14px; box-shadow: 0 4px 0 #d7c7ae, 0 10px 18px rgb(12 25 16 / 14%); }
+.bakery-shelf { display: block; width: min(960px, calc(100% - 40px)); height: clamp(52px, 12.5vw, 120px); margin: 22px auto 0; pointer-events: none; }
+.bakery-shelf img { width: 100%; height: 100%; object-fit: contain; }
+.site-footer { border-top: 1px dashed #ccb797; margin-top: 8px; }
+
+@media (max-width: 900px) {
+  .hero { gap: 22px; }
+  .hero-photo { padding: 76px 10px 0; }
+  .category-notebooks { padding-inline: 18px; }
+}
+@media (max-width: 600px) {
+  .header-inner { padding-top: 18px; }
+  .hero { padding-block: 28px 42px; }
+  .hero-art { padding: 0 4px 8px; }
+  .hero-photo { padding: 72px 12px 0; }
+  .category-notebooks { padding: 28px 14px 34px; }
+  .order-layout { grid-template-columns: minmax(0, 1fr); }
+  .order-action { padding: 18px 14px; }
+  .bakery-shelf { margin-top: 12px; }
+}
+@media (forced-colors: active) {
+  .hero-window, .bakery-shelf, .hero-section::after, .category-notebooks::before, .category-notebooks::after, .order-action::after { display: none; }
+  .hero-photo { padding-top: 0; }
+  .category-notebooks { border: 0; box-shadow: none; }
+}
+@media print {
+  .hero-window, .bakery-shelf, .hero-section::after, .category-notebooks::before, .category-notebooks::after, .order-action::after { display: none; }
+  .hero-photo { padding: 0; }
+  .site-header, .story-section, .order-section, .recipe-note { box-shadow: none; }
+}

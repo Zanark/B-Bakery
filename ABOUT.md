@@ -16,12 +16,20 @@ Visit the bakery: **https://zanark.github.io/WhiskAndCrumbs/**
 The padded bakery doorway waits for a click, tap or keyboard activation.
 The doors open, the hanging bell moves and a short local bell sound is attempted
 from that gesture. Transparent illustrated door windows reveal a cosy, layered
-bakery scene that shifts gently with the mouse. A striped, scalloped canopy frames
+bakery scene that shifts gently with the mouse. Warm wooden shelves, trailing plants,
+soft pendant lights and two tiers of cakes fill the glass display. This is original
+decorative illustration, not a photograph of physical premises or an additional menu.
+A striped, scalloped canopy frames
 the entrance, with a matching awning beneath the website header.
 A visible **Skip entrance** link always offers a direct route in.
 
 The website keeps a simple order: **Home, Our little story, Cakes we've made,
 How to order**. Navigation stays visible on mobile.
+
+A sunlit illustrated window sits behind the real hero cake. Small timber edges,
+a layered-paper recipe note, a quiet linen surround beneath the notebooks and
+a kitchen shelf near the footer carry the warm bakery mood through the page.
+These details are static and decorative; reading areas and controls stay clear.
 
 ## Category notebooks
 
@@ -101,7 +109,7 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **160 generated files in `site/`**, including the
+GitHub Pages publishes only the **163 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links those six images to the website. This overview uses
 the same public-ready product images. Authoring sources, original photos,

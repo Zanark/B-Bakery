@@ -121,6 +121,7 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .hero-description { margin-top: 22px; color: var(--muted); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
 .hero-art { position: relative; isolation: isolate; width: min(100%, 470px); justify-self: end; padding: 12px 8px; }
+.hero-window, .bakery-shelf { display: none; }
 .hero-art::before { content: ""; position: absolute; inset: 7% 0 17%; border-radius: 47% 53% 61% 39% / 54% 40% 60% 46%; background: var(--wash); z-index: -2; transform: rotate(-6deg); }
 .hero-art::after { content: ""; position: absolute; inset: -7% -6% 3%; background: url("assets/bakery-doodles.svg") center / 100% 100% no-repeat; z-index: -1; pointer-events: none; }
 .hero-photo picture { display: block; }

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="120" viewBox="0 0 960 120">
+  <title>Decorative quiet bakery shelf</title>
+  <desc>An original small wooden ledge with a ceramic jar, folded linen and spoon at the left, and a mixing bowl, whisk and leafy vase at the right. The center stays empty. Decorative objects only, with no products or business claims.</desc>
+  <defs>
+    <linearGradient id="bakery-shelf-wood" x2="0" y2="1">
+      <stop stop-color="#e1c19a"/>
+      <stop offset=".3" stop-color="#cda377"/>
+      <stop offset="1" stop-color="#b4895e"/>
+    </linearGradient>
+    <linearGradient id="bakery-shelf-ceramic" x2="1" y2=".2">
+      <stop stop-color="#e6d5bc"/>
+      <stop offset=".35" stop-color="#fffaf1"/>
+      <stop offset=".65" stop-color="#f5ebdd"/>
+      <stop offset="1" stop-color="#d6c4a6"/>
+    </linearGradient>
+    <linearGradient id="bakery-shelf-green" x2="1" y2=".2">
+      <stop stop-color="#536b53"/>
+      <stop offset=".4" stop-color="#8f9e7c"/>
+      <stop offset="1" stop-color="#526c52"/>
+    </linearGradient>
+    <linearGradient id="bakery-shelf-pot" x2="1" y2="0">
+      <stop stop-color="#a45137"/>
+      <stop offset=".4" stop-color="#cf9b77"/>
+      <stop offset="1" stop-color="#a56b4d"/>
+    </linearGradient>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g id="shelf-wood-ledge">
+      <path d="M39 92H920V103Q478 108 39 103Z" fill="#876a4c" opacity=".12"/>
+      <path d="M34 87L50 80H910L926 87V98H34Z" fill="url(#bakery-shelf-wood)" stroke="#ac855e" stroke-width="1.8"/>
+      <path d="M38 87Q479 91 922 87" fill="none" stroke="#f6dfbc" stroke-width="2.5"/>
+      <path d="M41 96Q479 98 919 96" fill="none" stroke="#b18a5f" stroke-width="1.3"/>
+      <path d="M264 94Q308 92 352 94M460 94Q524 92 563 94M624 95Q670 92 709 94" fill="none" stroke="#c1996b" stroke-width="1.2" opacity=".6"/>
+    </g>
+    <g id="shelf-ceramic-jar">
+      <ellipse cx="124" cy="83" rx="31" ry="4" fill="#876a4c" opacity=".12"/>
+      <path d="M98 43Q97 37 104 35H143Q150 36 150 43L148 76Q124 86 100 76Z" fill="url(#bakery-shelf-ceramic)" stroke="#a18d70" stroke-width="1.8"/>
+      <path d="M101 61Q124 67 147 61" fill="none" stroke="#b3bea0" stroke-width="4"/>
+      <path d="M106 45Q103 58 107 69" fill="none" stroke="#fffaf1" stroke-width="3"/>
+      <path d="M97 36Q123 30 151 36V42Q124 46 97 42Z" fill="url(#bakery-shelf-green)" stroke="#5b7154" stroke-width="1.7"/>
+      <path d="M119 31Q116 26 120 24Q126 22 130 27L129 32" fill="#bd9c6d" stroke="#957c53" stroke-width="1.5"/>
+      <path d="M101 37Q123 33 147 37" fill="none" stroke="#d0d6b8" stroke-width="1.4" opacity=".7"/>
+    </g>
+    <g id="shelf-linen-and-spoon">
+      <path d="M166 71L222 66L241 84L189 90L165 84Z" fill="#ddd1ba" opacity=".27"/>
+      <path d="M161 68L214 64L236 82L180 88L160 81Z" fill="url(#bakery-shelf-ceramic)" stroke="#cbbba0" stroke-width="1.5"/>
+      <path d="M172 68L190 84M178 67L196 84" fill="none" stroke="#7c8f70" stroke-width="1.2" opacity=".8"/>
+      <path d="M215 66L211 81L231 82" fill="#fffaf1" stroke="#d4c5ad" stroke-width="1.2"/>
+      <path d="M164 78L178 85L226 81" fill="none" stroke="#e7dac3" stroke-width="1.5"/>
+      <path d="M190 78L212 42Q203 33 211 24Q218 16 225 22Q232 28 226 37Q224 41 219 44L196 82Z" fill="#c7a073" stroke="#9c7953" stroke-width="1.6"/>
+      <path d="M194 75L216 42M217 24Q211 29 215 34" fill="none" stroke="#f0d1a5" stroke-width="1.7"/>
+    </g>
+    <g id="shelf-whisk">
+      <path d="M775 72L790 48" fill="none" stroke="#ad8658" stroke-width="5"/>
+      <path d="M790 47C780 29 792 16 803 18C816 19 819 31 808 41L794 51Z" fill="none" stroke="#637562" stroke-width="1.7"/>
+      <path d="M791 48C786 33 797 19 803 18C807 24 806 38 794 50M793 49C803 34 810 27 811 22M790 47C792 34 797 25 802 20" fill="none" stroke="#8a9a80" stroke-width="1.2"/>
+      <path d="M778 68L787 52" fill="none" stroke="#e0bd8a" stroke-width="1.5"/>
+    </g>
+    <g id="shelf-mixing-bowl">
+      <ellipse cx="788" cy="86" rx="48" ry="4" fill="#876a4c" opacity=".12"/>
+      <path d="M742 64Q787 55 834 64L824 81Q789 92 754 81Z" fill="url(#bakery-shelf-green)" stroke="#50674d" stroke-width="1.8"/>
+      <ellipse cx="788" cy="64" rx="46" ry="7" fill="#e0e3cc" stroke="#829270" stroke-width="1.5"/>
+      <ellipse cx="788" cy="64" rx="35" ry="3.7" fill="#bac5a7"/>
+      <path d="M754 71Q763 80 780 82" fill="none" stroke="#ced7b6" stroke-width="2" opacity=".72"/>
+      <path d="M743 63Q788 56 833 63" fill="none" stroke="#f3f0dd" stroke-width="1.7"/>
+    </g>
+    <g id="shelf-vase-and-sprigs">
+      <ellipse cx="880" cy="85" rx="24" ry="4" fill="#876a4c" opacity=".12"/>
+      <path d="M867 53Q880 48 893 53L889 63Q902 78 891 83Q880 88 869 83Q859 78 871 63Z" fill="url(#bakery-shelf-pot)" stroke="#9b674a" stroke-width="1.6"/>
+      <ellipse cx="880" cy="53" rx="13" ry="3.5" fill="#786f4d" stroke="#b98761" stroke-width="1.4"/>
+      <path d="M874 59Q879 67 870 75" fill="none" stroke="#e7bc95" stroke-width="2"/>
+      <path d="M880 52Q875 31 865 22M881 51Q884 30 896 17M878 39Q869 38 860 32" fill="none" stroke="#63764f" stroke-width="1.8"/>
+      <g fill="#879a70" stroke="#5b724f" stroke-width="1.1">
+        <path d="M872 32Q858 33 856 22Q867 17 872 32Z"/>
+        <path d="M878 43Q866 44 861 35Q871 29 878 43Z"/>
+        <path d="M884 36Q883 23 894 21Q901 31 884 36Z"/>
+        <path d="M892 23Q891 11 902 9Q909 19 892 23Z"/>
+        <path d="M885 45Q898 32 905 41Q902 51 885 45Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
