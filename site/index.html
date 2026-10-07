@@ -22,12 +22,12 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
   <link rel="preload" href="assets/fonts/courgette-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=75bf6d822e14">
-  <link rel="stylesheet" href="readability.css?v=75bf6d822e14">
-  <link rel="modulepreload" href="entrance.mjs?v=75bf6d822e14">
-  <link rel="modulepreload" href="bell.mjs?v=75bf6d822e14">
-  <link rel="modulepreload" href="notebooks.mjs?v=75bf6d822e14">
-  <script type="module" src="main.mjs?v=75bf6d822e14"></script>
+  <link rel="stylesheet" href="styles.css?v=ae2b732f127b">
+  <link rel="stylesheet" href="readability.css?v=ae2b732f127b">
+  <link rel="modulepreload" href="entrance.mjs?v=ae2b732f127b">
+  <link rel="modulepreload" href="bell.mjs?v=ae2b732f127b">
+  <link rel="modulepreload" href="notebooks.mjs?v=ae2b732f127b">
+  <script type="module" src="main.mjs?v=ae2b732f127b"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to cakes and ordering</a>
@@ -132,7 +132,15 @@
         <h2 id="cakes-title">Cakes we've <em>made.</em></h2>
         <p>Choose a category, then turn the pages.</p>
       </div>
-      <p class="cake-weight-info" id="cake-weight-info"><strong>Cake weights:</strong> 1/2 KG, 1 KG, 1.5 KG, 2 KG, 2.5 KG, 3 KG</p>
+      <div class="cake-weight-info" id="cake-weight-info">
+        <p class="cake-weight-heading" id="cake-weight-heading"><img src="assets/whisk-and-crumbs-mark.svg" width="32" height="32" alt="" aria-hidden="true">Cake weights</p>
+        <ul class="cake-weight-values" aria-labelledby="cake-weight-heading" role="list"><li>1/2 KG</li>
+<li>1 KG</li>
+<li>1.5 KG</li>
+<li>2 KG</li>
+<li>2.5 KG</li>
+<li>3 KG</li></ul>
+      </div>
       <div class="category-notebooks" id="category-notebooks"><a class="notebook-cover notebook-page" href="#notebook-birthday-cakes" data-open-notebook="notebook-birthday-cakes" data-category="birthday-cakes">
       <span class="spiral-binding" aria-hidden="true"></span>
       <h3>Birthday Cakes</h3>
