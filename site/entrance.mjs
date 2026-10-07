@@ -10,6 +10,7 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const compactView = matchMedia('(max-height: 450px)');
   const forcedColors = matchMedia('(forced-colors: active)');
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const skipReason = reducedMotion.matches ? 'reduced-motion'
     : compactView.matches ? 'short-screen'
       : forcedColors.matches ? 'forced-colors'
@@ -73,9 +74,9 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
     if (document.visibilityState !== 'visible') finish('background');
   }, { signal: events.signal });
   entrance.addEventListener('pointermove', event => {
-    if (entrance.classList.contains('is-entering')) return;
-    const x = ((event.clientX / window.innerWidth) - .5) * 18;
-    const y = ((event.clientY / window.innerHeight) - .5) * 14;
+    if (entrance.classList.contains('is-entering') || !finePointer.matches || event.pointerType === 'touch') return;
+    const x = (Math.max(0, Math.min(1, event.clientX / window.innerWidth)) - .5) * 18;
+    const y = (Math.max(0, Math.min(1, event.clientY / window.innerHeight)) - .5) * 14;
     entrance.style.setProperty('--parallax-x', `${x.toFixed(2)}px`);
     entrance.style.setProperty('--parallax-y', `${y.toFixed(2)}px`);
   }, { passive: true, signal: events.signal });

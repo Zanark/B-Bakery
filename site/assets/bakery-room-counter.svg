@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <title>Decorative bakery room, foreground display</title>
+  <desc>An original wooden glass-front counter containing imaginary small cakes, rolls and loaves. These illustrations are scenery, not catalogue products or availability claims. The upper background is transparent.</desc>
+  <defs>
+    <linearGradient id="room-counter-wood" x2="0" y2="1">
+      <stop stop-color="#c69b75"/>
+      <stop offset="1" stop-color="#a87956"/>
+    </linearGradient>
+    <linearGradient id="room-counter-ledge" x2="0" y2="1">
+      <stop stop-color="#e6c9a4"/>
+      <stop offset="1" stop-color="#b99068"/>
+    </linearGradient>
+    <linearGradient id="room-counter-interior" x2="0" y2="1">
+      <stop stop-color="#fff5df"/>
+      <stop offset="1" stop-color="#eadbc0"/>
+    </linearGradient>
+    <linearGradient id="room-counter-glass" x2=".85" y2="1">
+      <stop stop-color="#fffaf1" stop-opacity=".22"/>
+      <stop offset=".48" stop-color="#e4edde" stop-opacity=".04"/>
+      <stop offset="1" stop-color="#fffaf1" stop-opacity=".2"/>
+    </linearGradient>
+    <linearGradient id="room-counter-loaf" x2="0" y2="1">
+      <stop stop-color="#e5bf82"/>
+      <stop offset="1" stop-color="#b7804d"/>
+    </linearGradient>
+    <clipPath id="room-counter-window">
+      <path d="M210 453Q596 447 991 453V594Q601 601 210 594Z"/>
+    </clipPath>
+  </defs>
+  <g stroke="#82634a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="600" cy="677" rx="511" ry="24" fill="#77563d" stroke="none" opacity=".14"/>
+    <path d="M139 491L175 476H1030L1072 494V660L1047 685H164L139 664Z" fill="#9d7452"/>
+    <path d="M158 497H1053V674H158Z" fill="url(#room-counter-wood)"/>
+    <path d="M169 508H1042V661H169Z" fill="none" stroke="#dbb18a" stroke-width="2"/>
+    <path d="M186 618H1018V652H186Z" fill="#b88b64" stroke="#9b7250" stroke-width="2"/>
+    <path d="M199 628Q404 631 583 628M621 642Q806 638 1001 642" fill="none" stroke="#dbb38a" stroke-width="2" opacity=".6"/>
+    <path d="M240 661V676M463 661V676M731 661V676M978 661V676" fill="none" stroke="#916948" stroke-width="2"/>
+
+    <g id="room-counter-display">
+      <path d="M190 429L226 407H977L1010 429V603H190Z" fill="#b48b64"/>
+      <path d="M209 448L233 430H967L991 448V594H209Z" fill="url(#room-counter-interior)"/>
+      <path d="M215 461Q606 454 986 461" fill="none" stroke="#fffaf1" stroke-width="8" opacity=".8"/>
+      <path d="M204 530Q600 523 997 530V540Q600 535 204 540Z" fill="#c6ad89"/>
+      <path d="M206 530Q600 524 995 530" fill="none" stroke="#fffaf1" stroke-width="3"/>
+      <path d="M214 585Q600 590 987 585V594H214Z" fill="#c7aa83" stroke="none"/>
+
+      <g id="room-counter-left-pastries">
+        <ellipse cx="296" cy="520" rx="56" ry="6" fill="#d6c6a9" stroke="none"/>
+        <path d="M249 517Q242 489 262 478Q277 470 291 481Q305 469 321 480Q340 491 337 517Z" fill="url(#room-counter-loaf)"/>
+        <path d="M261 486L255 501M280 483L272 502M312 485L304 503M326 491L319 504" fill="none" stroke="#f7ddb0" stroke-width="5"/>
+        <path d="M240 520Q294 529 348 520" fill="#fffaf1" stroke="#bbaa8a" stroke-width="2"/>
+
+        <ellipse cx="328" cy="580" rx="83" ry="7" fill="#bba07a" opacity=".18" stroke="none"/>
+        <path d="M250 578Q245 550 269 548Q291 550 287 578Z" fill="url(#room-counter-loaf)"/>
+        <path d="M293 578Q288 551 313 549Q336 552 331 578Z" fill="url(#room-counter-loaf)"/>
+        <path d="M338 578Q333 551 359 549Q382 551 378 578Z" fill="url(#room-counter-loaf)"/>
+        <path d="M265 555L274 566M309 556L318 567M354 556L363 567" fill="none" stroke="#f2d5a1" stroke-width="4"/>
+        <path d="M243 580Q316 587 386 580" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      </g>
+
+      <g id="room-counter-pink-cake">
+        <ellipse cx="477" cy="520" rx="75" ry="7" fill="#d6c6a9" stroke="none"/>
+        <path d="M413 478Q476 466 540 478V507Q477 522 413 507Z" fill="#e9b6c3" stroke="#a47c73"/>
+        <path d="M414 492Q477 504 539 492V501Q477 513 414 501Z" fill="#fff2d7" stroke="none"/>
+        <ellipse cx="477" cy="478" rx="64" ry="12" fill="#fffaf1" stroke="#c1a18c" stroke-width="2"/>
+        <path d="M414 478Q428 484 438 482Q437 495 445 495Q452 494 452 485Q470 488 483 486Q483 497 490 497Q498 496 497 485Q519 485 539 478" fill="#fffaf1" stroke="#c1a18c" stroke-width="2"/>
+        <path d="M423 470Q421 461 431 459Q441 461 441 470M467 466Q466 456 477 454Q488 456 487 466M512 470Q511 461 521 459Q530 461 529 470" fill="#f7dbe4" stroke="#c69e9f" stroke-width="2"/>
+        <path d="M428 458Q423 450 429 447Q436 448 432 458M474 454Q468 446 476 443Q483 445 480 454M518 458Q513 450 520 447Q527 448 523 458" fill="#bb7683" stroke="#9e666e" stroke-width="2"/>
+        <path d="M405 518Q476 529 548 518L540 524Q477 534 413 524Z" fill="#fffaf1" stroke="#baaa8c" stroke-width="2"/>
+      </g>
+
+      <g id="room-counter-butter-cake">
+        <ellipse cx="701" cy="519" rx="69" ry="7" fill="#d6c6a9" stroke="none"/>
+        <path d="M644 480Q700 469 758 480V508Q700 520 644 508Z" fill="#dbb875" stroke="#a98b5e"/>
+        <path d="M646 493Q700 505 756 493" fill="none" stroke="#fff2ce" stroke-width="5"/>
+        <ellipse cx="701" cy="480" rx="57" ry="11" fill="#fff0c9" stroke="#b69a6c" stroke-width="2"/>
+        <path d="M648 478Q658 480 662 486Q667 491 672 483Q682 489 688 483Q699 491 705 483Q716 490 722 482Q733 488 738 481Q749 486 756 478" fill="#fff0c9" stroke="#b69a6c" stroke-width="2"/>
+        <path d="M677 474Q673 464 682 461Q691 464 688 474M712 474Q709 464 718 461Q727 464 723 474" fill="#fffaf1" stroke="#c6ae83" stroke-width="2"/>
+        <path d="M695 465Q687 451 698 446Q709 451 705 465" fill="#e3c17c" stroke="#b49a6e" stroke-width="2"/>
+        <path d="M697 452L702 459" fill="none" stroke="#fff1c5" stroke-width="2"/>
+        <path d="M635 518Q699 528 767 518L758 524Q702 533 644 524Z" fill="#e7e8d4" stroke="#a2ab8b" stroke-width="2"/>
+      </g>
+
+      <g id="room-counter-right-loaves">
+        <path d="M815 514Q812 488 836 480Q855 474 870 486Q887 470 910 482Q932 491 928 513Z" fill="url(#room-counter-loaf)"/>
+        <path d="M836 486L829 502M855 486L847 502M891 487L881 503M908 489L900 503" fill="none" stroke="#f5d9a7" stroke-width="5"/>
+        <path d="M805 520Q867 530 939 520L931 525Q869 535 813 525Z" fill="#fffaf1" stroke="#baaa8c" stroke-width="2"/>
+        <path d="M826 559Q824 547 839 546Q852 548 850 559L846 578H830Z" fill="#e5b2bd" stroke="#ae8384" stroke-width="2"/>
+        <path d="M822 559Q819 550 827 547Q822 539 832 536Q839 527 847 537Q857 538 854 548Q862 553 855 559Z" fill="#fffaf1" stroke="#c6ac94" stroke-width="2"/>
+        <path d="M878 559Q876 547 891 546Q904 548 902 559L898 578H882Z" fill="#dfc28e" stroke="#b69d71" stroke-width="2"/>
+        <path d="M874 559Q871 550 879 547Q874 539 884 536Q891 527 899 537Q909 538 906 548Q914 553 907 559Z" fill="#f7dbe4" stroke="#c7a6a2" stroke-width="2"/>
+        <path d="M818 581H912" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      </g>
+
+      <g id="room-counter-central-lower-tray">
+        <path d="M436 558Q453 543 476 547L490 571Q471 580 444 575Z" fill="#c99c65" stroke="#a17e55" stroke-width="2"/>
+        <path d="M452 550L457 568M465 550L470 570" fill="none" stroke="#f4d8a6" stroke-width="4"/>
+        <path d="M511 558Q522 548 535 554Q542 547 551 554Q563 549 570 560L558 578H523Z" fill="#deb479" stroke="#a48156" stroke-width="2"/>
+        <path d="M522 559L529 570M550 558L546 570" fill="none" stroke="#f5ddb2" stroke-width="4"/>
+        <path d="M610 576V552Q633 544 656 552V576Z" fill="#c8996a" stroke="#a17f5f" stroke-width="2"/>
+        <path d="M611 554Q632 549 655 554V561Q632 556 611 561Z" fill="#fff2d7" stroke="none"/>
+        <path d="M609 552Q631 543 658 552L652 556Q630 550 615 556Z" fill="#f7dbe4" stroke="#c09d90" stroke-width="2"/>
+        <path d="M704 575Q697 551 719 548Q742 550 736 575Z" fill="url(#room-counter-loaf)" stroke="#a17f5f" stroke-width="2"/>
+        <path d="M712 554L722 563M723 553L732 562" fill="none" stroke="#f4d9aa" stroke-width="3"/>
+        <path d="M425 581Q590 587 753 581" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      </g>
+
+      <g clip-path="url(#room-counter-window)" stroke="none">
+        <rect x="210" y="448" width="781" height="153" fill="url(#room-counter-glass)"/>
+        <path d="M219 457H252L335 596H300Z" fill="#fffaf1" opacity=".24"/>
+        <path d="M275 455H284L367 596H357Z" fill="#fffaf1" opacity=".34"/>
+        <path d="M876 451H899L982 596H958Z" fill="#fffaf1" opacity=".2"/>
+      </g>
+      <path d="M201 443Q601 437 1000 443V602Q598 609 201 602Z" fill="none" stroke="#6a775f" stroke-width="9"/>
+      <path d="M211 450Q600 444 991 450M211 594Q602 600 991 594" fill="none" stroke="#e1e0c6" stroke-width="2"/>
+      <path d="M601 443V601" fill="none" stroke="#6a775f" stroke-width="7"/>
+      <path d="M598 450V594" fill="none" stroke="#c5ceb3" stroke-width="2"/>
+      <path d="M190 429L226 407H977L1010 429Q600 436 190 429Z" fill="#e1d8bd" stroke="#75806a"/>
+      <path d="M216 421Q600 426 989 421" fill="none" stroke="#fffaf1" stroke-width="3"/>
+      <path d="M185 430Q600 437 1015 430V443Q600 450 185 443Z" fill="url(#room-counter-ledge)"/>
+      <path d="M188 432Q600 439 1012 432" fill="none" stroke="#f3dcbc" stroke-width="2"/>
+    </g>
+
+    <g id="room-counter-left-jug">
+      <path d="M91 506Q88 482 96 465L91 448Q112 442 132 448L128 465Q140 489 132 506Z" fill="#f7dbe4"/>
+      <path d="M132 464Q151 458 154 477Q153 492 135 493" fill="none" stroke="#b87582" stroke-width="6"/>
+      <path d="M108 447Q106 417 92 399M115 446Q128 419 127 394M111 436Q111 403 108 380" fill="none" stroke="#637451" stroke-width="3"/>
+      <path d="M107 425Q84 425 87 412Q100 410 107 425M119 429Q144 415 146 428Q136 440 119 429M108 409Q91 402 98 394Q108 393 108 409M122 414Q139 400 143 411Q137 421 122 414" fill="#91a179" stroke="#637451" stroke-width="2"/>
+      <path d="M101 384Q89 379 97 369Q103 365 109 373Q114 364 121 372Q125 381 114 385Q108 394 101 384Z" fill="#fffaf1" stroke="#c2aa7e" stroke-width="2"/>
+      <circle cx="108" cy="379" r="4" fill="#dabb74" stroke="none"/>
+      <path d="M85 402Q76 396 83 389Q89 385 94 392Q100 386 105 394Q106 402 97 404Q91 411 85 402Z" fill="#efb7c8" stroke="#c6989c" stroke-width="2"/>
+      <circle cx="93" cy="398" r="3" fill="#dabb74" stroke="none"/>
+      <path d="M120 397Q111 391 118 384Q124 379 129 387Q136 381 141 389Q142 397 133 399Q126 406 120 397Z" fill="#fffaf1" stroke="#c2aa7e" stroke-width="2"/>
+      <circle cx="128" cy="392" r="3" fill="#dabb74" stroke="none"/>
+      <path d="M103 459Q98 478 104 493" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      <ellipse cx="113" cy="508" rx="36" ry="5" fill="#785a43" opacity=".13" stroke="none"/>
+    </g>
+
+    <g id="room-counter-paper-parcels">
+      <path d="M1050 476L1119 473L1131 484V512H1048Z" fill="#ead4ae"/>
+      <path d="M1049 484H1131M1080 478V511" fill="none" stroke="#bca078" stroke-width="2"/>
+      <path d="M1063 454L1121 452L1130 461V476H1062Z" fill="#f7dbe4"/>
+      <path d="M1063 460H1130M1091 454V476" fill="none" stroke="#c7969e" stroke-width="2"/>
+      <path d="M1091 453Q1076 446 1080 440Q1089 437 1093 451Q1097 436 1104 441Q1110 448 1091 453" fill="none" stroke="#b87582" stroke-width="2"/>
+      <path d="M1148 509V477Q1145 471 1152 468H1174Q1182 470 1180 478V509Z" fill="#e3e3cb" stroke="#7c8769"/>
+      <path d="M1157 466L1152 443M1166 466L1170 438" fill="none" stroke="#997951" stroke-width="5"/>
+      <path d="M1147 442Q1139 429 1148 425Q1159 427 1157 441Z" fill="#caa377"/>
+      <path d="M1167 438L1164 417Q1171 411 1178 417L1175 439Z" fill="#fffaf1" stroke="#a4ab8e" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

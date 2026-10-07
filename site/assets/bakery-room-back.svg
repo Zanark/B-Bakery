@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <title>Decorative bakery room, rear layer</title>
+  <desc>An original imaginary cream-walled bakery with quiet brick joints, a softly lit alcove and a warm wooden floor. Decorative scenery, not a depiction of a real shop.</desc>
+  <defs>
+    <linearGradient id="room-back-wall" x2="0" y2="1">
+      <stop stop-color="#fffaf1"/>
+      <stop offset=".68" stop-color="#f5ebdd"/>
+      <stop offset="1" stop-color="#ead8c1"/>
+    </linearGradient>
+    <linearGradient id="room-back-floor" x2="0" y2="1">
+      <stop stop-color="#cba47e"/>
+      <stop offset="1" stop-color="#ad805f"/>
+    </linearGradient>
+    <linearGradient id="room-back-left" x2="1" y2="0">
+      <stop stop-color="#a58b70" stop-opacity=".17"/>
+      <stop offset="1" stop-color="#a58b70" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="room-back-right" x1="1" x2="0" y2="0">
+      <stop stop-color="#a58b70" stop-opacity=".17"/>
+      <stop offset="1" stop-color="#a58b70" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="room-back-light" cx=".5" cy=".23" r=".67">
+      <stop stop-color="#fff1c9" stop-opacity=".84"/>
+      <stop offset=".6" stop-color="#fffaf1" stop-opacity=".26"/>
+      <stop offset="1" stop-color="#fffaf1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="720" fill="#f5ebdd"/>
+  <rect width="1200" height="490" fill="url(#room-back-wall)"/>
+  <path d="M0 0H1200V30Q604 40 0 30Z" fill="#e4d2b8"/>
+  <path d="M0 31Q600 41 1200 31V43Q600 52 0 43Z" fill="#fffaf1"/>
+  <path d="M2 45Q596 54 1198 45" fill="none" stroke="#b89a77" stroke-opacity=".3" stroke-width="2"/>
+  <rect y="48" width="138" height="438" fill="url(#room-back-left)"/>
+  <rect x="1062" y="48" width="138" height="438" fill="url(#room-back-right)"/>
+  <g fill="none" stroke="#c5ac90" stroke-width="2" stroke-linecap="round" opacity=".22">
+    <path d="M32 102H264M42 158H301M27 214H327M39 270H291M24 326H318M38 382H294M28 438H305"/>
+    <path d="M111 76V101M228 76V101M62 105V157M178 105V157M284 115V157M111 161V212M232 161V212M62 218V268M179 218V268M301 219V268M111 274V324M232 274V324M63 330V380M182 330V380M108 386V436M231 386V436"/>
+    <path d="M941 103H1163M911 159H1177M881 215H1168M924 271H1180M899 327H1165M925 383H1173M907 439H1168"/>
+    <path d="M977 77V101M1094 77V101M926 107V157M1039 107V157M1157 107V157M975 163V213M1094 163V213M921 219V269M1041 219V269M1158 219V269M980 275V325M1098 275V325M930 331V381M1043 331V381M1156 331V381M979 387V437M1101 387V437"/>
+  </g>
+  <path d="M324 460V218C324 113 434 64 600 64C766 64 876 113 876 218V460Z" fill="#b69d80" opacity=".08"/>
+  <path d="M338 457V220C338 122 438 79 600 79C762 79 862 122 862 220V457Z" fill="#fffaf1" stroke="#e0ccb0" stroke-width="3"/>
+  <path d="M350 444V221C350 133 449 92 600 92C751 92 850 133 850 221V444" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/>
+  <ellipse cx="600" cy="265" rx="267" ry="198" fill="url(#room-back-light)"/>
+  <g fill="none" stroke="#ddcbb3" stroke-width="2" stroke-linecap="round" opacity=".35">
+    <path d="M376 305H457M755 305H824M365 360H423M772 360H837M399 415H474M727 415H803"/>
+    <path d="M402 280V303M790 280V303M391 334V358M811 334V358"/>
+  </g>
+  <path d="M0 464Q590 468 1200 464V486H0Z" fill="#af9474"/>
+  <path d="M0 464Q590 468 1200 464V471Q590 475 0 471Z" fill="#ddc9ad"/>
+  <path d="M0 486H1200V720H0Z" fill="url(#room-back-floor)"/>
+  <path d="M0 487H1200V502Q585 491 0 502Z" fill="#785b43" opacity=".14"/>
+  <g fill="none" stroke="#785b43" stroke-width="2.5" stroke-linecap="round" opacity=".36">
+    <path d="M7 552L358 488M7 632L422 488M93 717L485 488M347 717L548 488M600 717V488M853 717L652 488M1107 717L715 488M1193 632L778 488M1193 552L842 488"/>
+    <path d="M18 529Q603 525 1182 529M16 590Q594 584 1184 590M15 670Q601 663 1185 670"/>
+  </g>
+  <g fill="none" stroke="#efd4b1" stroke-width="2" stroke-linecap="round" opacity=".36">
+    <path d="M152 637L330 562M374 664L455 604M663 567L674 593M762 565L919 644M950 559L1090 596"/>
+    <path d="M140 654L195 631M386 675L415 653M819 608L857 629M980 576L1018 588"/>
+  </g>
+  <g fill="none" stroke="#806047" stroke-width="2" opacity=".22">
+    <path d="M239 601Q247 597 255 600Q247 605 239 601Z"/>
+    <path d="M917 680Q929 675 941 680Q929 686 917 680Z"/>
+    <path d="M683 527Q689 524 695 527Q689 531 683 527Z"/>
+  </g>
+</svg>

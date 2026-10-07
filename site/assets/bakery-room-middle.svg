@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <title>Decorative bakery room, shelves and light</title>
+  <desc>Original rounded jars, simple shelves, tied boxes, an oven, utensils and a flowering jug beneath a warm pendant. The background is transparent for layered decorative scenery.</desc>
+  <defs>
+    <linearGradient id="room-middle-wood" x2="0" y2="1">
+      <stop stop-color="#cfaa82"/>
+      <stop offset="1" stop-color="#a87d59"/>
+    </linearGradient>
+    <linearGradient id="room-middle-cabinet" x2="0" y2="1">
+      <stop stop-color="#637462"/>
+      <stop offset="1" stop-color="#435744"/>
+    </linearGradient>
+    <linearGradient id="room-middle-jar" x2="1" y2=".3">
+      <stop stop-color="#fffaf1" stop-opacity=".91"/>
+      <stop offset=".58" stop-color="#fffaf1" stop-opacity=".57"/>
+      <stop offset="1" stop-color="#d9dec8" stop-opacity=".83"/>
+    </linearGradient>
+    <linearGradient id="room-middle-shade" x2="0" y2="1">
+      <stop stop-color="#7c896b"/>
+      <stop offset="1" stop-color="#34483a"/>
+    </linearGradient>
+    <radialGradient id="room-middle-glow">
+      <stop stop-color="#fff0bf" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#fff0bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g stroke="#82674e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <g id="room-middle-pendant">
+      <ellipse cx="600" cy="196" rx="160" ry="117" fill="url(#room-middle-glow)" stroke="none"/>
+      <path d="M600 3Q598 46 600 94" fill="none" stroke="#34483a" stroke-width="4"/>
+      <path d="M586 96Q600 90 614 96L620 113H580Z" fill="#bba170" stroke="#34483a"/>
+      <path d="M576 108Q546 114 526 146Q598 160 674 146Q653 114 624 108Z" fill="url(#room-middle-shade)" stroke="#34483a"/>
+      <path d="M571 117Q550 125 541 138" fill="none" stroke="#b9c1a2" stroke-opacity=".65"/>
+      <ellipse cx="600" cy="147" rx="74" ry="12" fill="#cfb97e" stroke="#34483a"/>
+      <ellipse cx="600" cy="147" rx="59" ry="7" fill="#fff0bf" stroke="none"/>
+      <path d="M591 150Q589 165 600 167Q611 165 609 150" fill="#fff3d0" stroke="none"/>
+    </g>
+
+    <g id="room-middle-left-shelves">
+      <path d="M109 234V261L135 235M299 234V261L273 235" fill="#ae8764"/>
+      <rect x="84" y="226" width="257" height="17" rx="4" fill="#82674e" opacity=".1" stroke="none"/>
+      <path d="M85 215Q206 212 341 215V229Q207 232 85 229Z" fill="url(#room-middle-wood)"/>
+      <path d="M97 219Q204 217 330 219" fill="none" stroke="#ebd1ae" stroke-width="2"/>
+      <path d="M110 169Q109 160 119 158H159Q170 159 169 170L168 208Q148 214 112 208Z" fill="url(#room-middle-jar)"/>
+      <path d="M113 179Q142 183 167 178V208Q141 214 113 208Z" fill="#e5ce9d" stroke="none"/>
+      <rect x="115" y="151" width="49" height="12" rx="4" fill="#b8936b"/>
+      <path d="M122 171V194" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      <path d="M188 164Q186 156 196 154H229Q239 156 238 165L237 208Q216 214 189 208Z" fill="#f7dbe4"/>
+      <rect x="192" y="146" width="42" height="13" rx="4" fill="#b87582"/>
+      <rect x="200" y="172" width="26" height="21" rx="5" fill="#fffaf1" stroke="#d8b7ac" stroke-width="2"/>
+      <path d="M257 204V147Q256 141 263 140L297 136Q305 135 306 143L312 205Z" fill="#fffaf1"/>
+      <path d="M266 152L295 149M268 161L296 158" fill="none" stroke="#d5c2a7" stroke-width="2"/>
+      <path d="M275 193Q283 176 292 165M283 181Q268 184 270 172Q279 171 283 181M287 174Q289 159 298 162Q301 171 287 174" fill="#a1ad8a" stroke="#63775d" stroke-width="2"/>
+
+      <path d="M111 348V371L134 347M303 347V371L280 347" fill="#ae8764"/>
+      <path d="M91 335Q211 332 337 335V348H91Z" fill="url(#room-middle-wood)"/>
+      <path d="M120 296Q160 286 199 296L189 327Q160 337 130 327Z" fill="#f7dbe4"/>
+      <ellipse cx="159" cy="296" rx="39" ry="8" fill="#fffaf1"/>
+      <path d="M135 308Q158 315 184 308" fill="none" stroke="#d99cac" stroke-width="2"/>
+      <path d="M162 291L175 258" fill="none" stroke="#a1805b" stroke-width="7"/>
+      <path d="M179 255Q165 245 174 232Q182 224 190 234Q197 246 184 258Z" fill="#cfaa82"/>
+      <path d="M229 309V286Q250 281 272 286V310Q253 326 231 310Z" fill="#fffaf1"/>
+      <path d="M272 289Q291 286 290 298Q289 309 273 307" fill="none"/>
+      <path d="M220 328Q252 334 283 328" fill="none" stroke="#b9ab8e" stroke-width="5"/>
+      <path d="M306 333L301 294M305 309Q288 302 291 293Q303 295 305 309M306 319Q320 307 324 315Q320 325 306 319" fill="#7a8b68" stroke="#52664f" stroke-width="2"/>
+    </g>
+
+    <g id="room-middle-right-shelves">
+      <path d="M884 219V244L908 218M1089 219V244L1065 218" fill="#ae8764"/>
+      <rect x="862" y="211" width="262" height="17" rx="4" fill="#82674e" opacity=".1" stroke="none"/>
+      <path d="M859 203Q986 200 1120 203V218H859Z" fill="url(#room-middle-wood)"/>
+      <path d="M872 207Q989 205 1108 207" fill="none" stroke="#ebd1ae" stroke-width="2"/>
+      <path d="M882 165Q881 155 891 153H923Q934 155 933 166L931 196Q910 204 884 196Z" fill="url(#room-middle-jar)"/>
+      <path d="M886 175Q910 179 930 174V196Q907 203 886 196Z" fill="#e5baae" stroke="none"/>
+      <rect x="886" y="146" width="44" height="12" rx="4" fill="#bb976f"/>
+      <path d="M895 166V187" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      <path d="M954 183Q984 187 1012 182M951 189Q982 194 1015 188M950 196Q984 201 1017 195" fill="none" stroke="#9a9e80" stroke-width="6"/>
+      <path d="M956 181Q983 185 1009 180M953 188Q983 192 1012 187M952 195Q982 199 1014 193" fill="none" stroke="#fffaf1" stroke-width="3"/>
+      <path d="M1051 166L1047 136Q1070 140 1090 136L1085 167Z" fill="#f7dbe4"/>
+      <path d="M1069 137Q1060 118 1070 108M1068 132Q1086 117 1094 123M1066 122Q1047 119 1045 105" fill="none" stroke="#63775d"/>
+      <path d="M1070 113Q1060 102 1067 93Q1082 93 1070 113M1086 124Q1095 108 1104 117Q1107 129 1086 124M1052 115Q1036 117 1037 105Q1047 101 1052 115" fill="#8f9e79" stroke="#63775d" stroke-width="2"/>
+      <path d="M1053 169Q1042 179 1040 198M1084 169Q1096 185 1090 199" fill="none" stroke="#63775d" stroke-width="2"/>
+      <path d="M1046 181Q1034 173 1031 184Q1037 192 1046 181M1092 186Q1106 178 1106 191Q1098 199 1092 186" fill="#8f9e79" stroke="#63775d" stroke-width="2"/>
+
+      <path d="M866 346Q989 343 1115 346V359H866Z" fill="url(#room-middle-wood)"/>
+      <path d="M889 356V380L911 356M1087 356V380L1066 356" fill="#ae8764"/>
+      <path d="M891 301L960 299L969 308V342H890Z" fill="#edc9b5"/>
+      <path d="M890 307H969M923 301V341" fill="none" stroke="#b98d71" stroke-width="2"/>
+      <path d="M883 281L949 280L957 288V300H883Z" fill="#f7dbe4"/>
+      <path d="M883 288H957M916 282V299" fill="none" stroke="#c7989e" stroke-width="2"/>
+      <path d="M914 281Q900 272 907 268Q916 266 918 280Q921 265 930 270Q935 278 914 281" fill="none" stroke="#b87582" stroke-width="2"/>
+      <path d="M995 308L989 274Q1008 269 1029 274L1024 310Z" fill="#fffaf1"/>
+      <path d="M1009 274L1004 252M1009 274L1018 242M1010 262Q1028 254 1033 266Q1023 272 1010 262M1007 259Q991 253 992 243Q1007 240 1007 259" fill="#8b9a75" stroke="#52664f" stroke-width="2"/>
+      <path d="M997 308Q1009 314 1022 308" fill="none" stroke="#b87582" stroke-width="3"/>
+      <path d="M1061 338Q1056 327 1068 313Q1080 303 1092 313Q1104 327 1095 338Z" fill="#cda275"/>
+      <path d="M1074 314L1069 325M1086 314L1081 328" fill="none" stroke="#f3dbb2" stroke-width="4"/>
+    </g>
+
+    <g id="room-middle-central-shelf">
+      <rect x="386" y="281" width="438" height="14" rx="6" fill="#82674e" stroke="none" opacity=".12"/>
+      <path d="M415 281V309L442 281M787 281V309L760 281" fill="#a7805d"/>
+      <path d="M383 267Q599 262 827 267V282Q598 286 383 282Z" fill="url(#room-middle-wood)"/>
+      <path d="M395 271Q602 268 814 271" fill="none" stroke="#ecd3af" stroke-width="2"/>
+      <path d="M410 205Q408 195 420 192H453Q464 194 463 206L460 261Q436 267 412 260Z" fill="url(#room-middle-jar)"/>
+      <path d="M414 225Q434 229 459 224V260Q438 266 414 260Z" fill="#e6c78e" stroke="none"/>
+      <rect x="414" y="185" width="46" height="13" rx="4" fill="#af8c63"/>
+      <path d="M423 209V245" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      <rect x="426" y="226" width="25" height="19" rx="4" fill="#fffaf1" stroke="#cebc9a" stroke-width="2"/>
+
+      <path d="M484 224Q482 211 496 209H527Q538 211 537 225L535 260Q511 267 486 260Z" fill="#f7dbe4"/>
+      <rect x="489" y="202" width="44" height="13" rx="4" fill="#b87582"/>
+      <path d="M493 224V241" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      <rect x="500" y="229" width="23" height="17" rx="4" fill="#fffaf1" stroke="#d5b3ad" stroke-width="2"/>
+
+      <path d="M561 197Q560 186 573 183H611Q624 186 623 198L621 260Q592 268 564 260Z" fill="url(#room-middle-jar)"/>
+      <path d="M566 225Q582 218 595 226Q609 221 620 225V260Q591 267 566 260Z" fill="#efddbc" stroke="none"/>
+      <rect x="566" y="176" width="53" height="13" rx="5" fill="#a7ac8b"/>
+      <path d="M574 200V242" fill="none" stroke="#fffaf1" stroke-width="4"/>
+      <rect x="577" y="219" width="32" height="24" rx="5" fill="#fffaf1" stroke="#d4c6aa" stroke-width="2"/>
+      <path d="M586 230Q592 235 601 228" fill="none" stroke="#bdad8c" stroke-width="2"/>
+
+      <path d="M645 224Q644 214 655 212H685Q695 214 695 225L694 260Q669 267 647 260Z" fill="url(#room-middle-jar)"/>
+      <path d="M649 237Q668 231 691 236V260Q669 266 649 260Z" fill="#b48861" stroke="none"/>
+      <rect x="649" y="206" width="43" height="12" rx="4" fill="#c39876"/>
+      <path d="M655 227V249" fill="none" stroke="#fffaf1" stroke-width="3"/>
+      <path d="M667 247L672 243M680 249L684 246" fill="none" stroke="#e8c7a2" stroke-width="3"/>
+
+      <path d="M718 213Q718 204 728 202H759Q770 204 770 214L766 260Q743 267 721 260Z" fill="#e1e4cf"/>
+      <rect x="722" y="195" width="44" height="13" rx="4" fill="#7c8c6c"/>
+      <rect x="730" y="219" width="28" height="23" rx="5" fill="#fffaf1" stroke="#b7bea0" stroke-width="2"/>
+      <path d="M734 249Q744 253 756 248" fill="none" stroke="#b7bea0" stroke-width="2"/>
+    </g>
+
+    <g id="room-middle-worktop">
+      <ellipse cx="602" cy="523" rx="314" ry="19" fill="#775b45" stroke="none" opacity=".1"/>
+      <path d="M331 389H873V512H331Z" fill="url(#room-middle-cabinet)" stroke="#34483a"/>
+      <path d="M345 405H430V493H345ZM654 405H748V493H654ZM764 405H856V493H764Z" fill="none" stroke="#a3ad8c" stroke-opacity=".4" stroke-width="2"/>
+      <path d="M349 391V510M639 391V510M754 391V510" fill="none" stroke="#34483a" stroke-width="3"/>
+      <path d="M407 424H419M665 424H677M777 424H789" fill="none" stroke="#e4c997" stroke-width="4"/>
+      <path d="M320 374L337 362H861L881 375L878 392H322Z" fill="url(#room-middle-wood)"/>
+      <path d="M321 376Q600 381 880 376" fill="none" stroke="#edd5b6" stroke-width="3"/>
+
+      <path d="M450 353Q449 345 458 345H618Q626 345 626 354V502H450Z" fill="#e5d8bd" stroke="#6d735d"/>
+      <path d="M455 349H619" fill="none" stroke="#fffaf1" stroke-width="3"/>
+      <path d="M470 340Q480 334 494 340M577 340Q591 334 605 340" fill="none" stroke="#58634e" stroke-width="4"/>
+      <path d="M466 366H610" fill="none" stroke="#b3a88d" stroke-width="2"/>
+      <circle cx="477" cy="363" r="7" fill="#65735d" stroke="#34483a" stroke-width="2"/>
+      <circle cx="503" cy="363" r="7" fill="#65735d" stroke="#34483a" stroke-width="2"/>
+      <circle cx="594" cy="363" r="7" fill="#65735d" stroke="#34483a" stroke-width="2"/>
+      <path d="M477 360V364M503 360V364M594 360V364" fill="none" stroke="#f5ebdd" stroke-width="2"/>
+      <rect x="465" y="385" width="146" height="100" rx="10" fill="#52604d" stroke="#34483a"/>
+      <rect x="479" y="402" width="119" height="66" rx="8" fill="#7c7359" stroke="none"/>
+      <path d="M485 449H592M485 461H592" fill="none" stroke="#bcac89" stroke-width="2"/>
+      <path d="M491 439Q487 423 501 421Q516 423 513 439M529 439Q525 423 540 421Q555 423 551 439M568 439Q564 424 578 422Q593 424 591 439" fill="#caa16e" stroke="#ddbd89" stroke-width="2"/>
+      <path d="M483 394H594" fill="none" stroke="#dfd0ad" stroke-width="5"/>
+      <path d="M486 409L503 404M486 421L532 405" fill="none" stroke="#fffaf1" stroke-opacity=".14" stroke-width="3"/>
+
+      <path d="M675 356Q677 330 697 331Q714 332 714 347" fill="none" stroke="#6b7868" stroke-width="7"/>
+      <path d="M676 355Q678 332 698 333" fill="none" stroke="#c4cbb6" stroke-width="2"/>
+      <ellipse cx="710" cy="366" rx="47" ry="6" fill="#a9ae97" stroke="#6b7868" stroke-width="2"/>
+      <path d="M785 357L780 324Q796 317 812 324L807 358Z" fill="#f7dbe4"/>
+      <path d="M791 322L786 289M800 322L813 289" fill="none" stroke="#6e7e59" stroke-width="2"/>
+      <path d="M788 307Q773 302 775 294Q786 292 788 307M805 310Q821 298 824 308Q818 318 805 310" fill="#91a076" stroke="#6e7e59" stroke-width="2"/>
+      <path d="M779 287Q773 281 779 276Q783 273 787 279Q790 272 795 277Q801 283 791 288Q787 295 779 287Z" fill="#fffaf1" stroke="#c5ab7f" stroke-width="2"/>
+      <circle cx="786" cy="284" r="3" fill="#dcbb73" stroke="none"/>
+      <path d="M807 287Q800 282 806 276Q812 273 815 279Q821 273 825 280Q828 287 819 289Q813 295 807 287Z" fill="#f7dbe4" stroke="#c69696" stroke-width="2"/>
+      <circle cx="814" cy="284" r="3" fill="#dcbb73" stroke="none"/>
+    </g>
+
+    <g id="room-middle-hanging-utensils">
+      <path d="M346 111V175M816 111V175" fill="none" stroke="#8e785c" stroke-width="2"/>
+      <path d="M338 172H372M798 172H834" fill="none" stroke="#9d815c" stroke-width="5"/>
+      <path d="M348 173V214M821 173V215" fill="none" stroke="#a88a65" stroke-width="6"/>
+      <path d="M348 213C335 220 335 245 348 250C361 244 360 220 348 213Z" fill="none" stroke="#63725e" stroke-width="2"/>
+      <path d="M348 214Q340 235 348 250Q356 235 348 214" fill="none" stroke="#63725e" stroke-width="2"/>
+      <path d="M817 213Q804 223 810 238Q820 248 830 237Q837 222 825 213Z" fill="#c7a076"/>
+      <path d="M819 221Q814 228 818 234" fill="none" stroke="#e2c5a1" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

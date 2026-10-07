@@ -22,12 +22,13 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
   <link rel="preload" href="assets/fonts/courgette-regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=f7af8892c51b">
-  <link rel="stylesheet" href="readability.css?v=f7af8892c51b">
-  <link rel="modulepreload" href="entrance.mjs?v=f7af8892c51b">
-  <link rel="modulepreload" href="bell.mjs?v=f7af8892c51b">
-  <link rel="modulepreload" href="notebooks.mjs?v=f7af8892c51b">
-  <script type="module" src="main.mjs?v=f7af8892c51b"></script>
+  <link rel="stylesheet" href="styles.css?v=74180cf4cd35">
+  <link rel="stylesheet" href="entrance-shop.css?v=74180cf4cd35">
+  <link rel="stylesheet" href="readability.css?v=74180cf4cd35">
+  <link rel="modulepreload" href="entrance.mjs?v=74180cf4cd35">
+  <link rel="modulepreload" href="bell.mjs?v=74180cf4cd35">
+  <link rel="modulepreload" href="notebooks.mjs?v=74180cf4cd35">
+  <script type="module" src="main.mjs?v=74180cf4cd35"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to cakes and ordering</a>
@@ -38,7 +39,7 @@
         <div class="entrance-sign">
           <img src="assets/whisk-and-crumbs-logo.png" width="380" height="86" alt="">
         </div>
-        <div class="entrance-awning"></div>
+        <div class="entrance-awning"><img src="assets/bakery-awning.svg" width="1200" height="128" alt="" decoding="async"></div>
         <div class="entrance-doorway">
           <div class="entrance-bell-mount"></div>
           <svg class="entrance-bell" viewBox="0 0 64 68" width="64" height="68" fill="none" focusable="false">
@@ -49,6 +50,11 @@
             <circle cx="32" cy="54" r="5" fill="#76543d"/>
           </svg>
           <div class="entrance-doorframe">
+            <div class="entrance-room">
+              <img class="entrance-room-layer entrance-room-back" src="assets/bakery-room-back.svg" width="1200" height="720" alt="" decoding="async">
+              <img class="entrance-room-layer entrance-room-middle" src="assets/bakery-room-middle.svg" width="1200" height="720" alt="" decoding="async">
+              <img class="entrance-room-layer entrance-room-counter" src="assets/bakery-room-counter.svg" width="1200" height="720" alt="" decoding="async">
+            </div>
             <div class="entrance-door entrance-door-left">
               <div class="entrance-glass"><img src="assets/whisk-and-crumbs-mark.svg" width="82" height="82" alt=""></div>
               <span class="entrance-door-panel"></span><span class="entrance-handle"></span>
@@ -82,6 +88,7 @@
       </nav>
     </div>
   </header>
+  <div class="site-awning" aria-hidden="true"><img src="assets/bakery-awning.svg" width="1200" height="128" alt="" decoding="async"></div>
 
   <main id="main" tabindex="-1">
     <section class="hero-section" id="home" aria-labelledby="hero-title">

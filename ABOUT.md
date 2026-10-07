@@ -15,7 +15,10 @@ Visit the bakery: **https://zanark.github.io/WhiskAndCrumbs/**
 
 The padded bakery doorway waits for a click, tap or keyboard activation.
 The doors open, the hanging bell moves and a short local bell sound is attempted
-from that gesture. A visible **Skip entrance** link always offers a direct route in.
+from that gesture. Transparent illustrated door windows reveal a cosy, layered
+bakery scene that shifts gently with the mouse. A striped, scalloped canopy frames
+the entrance, with a matching awning beneath the website header.
+A visible **Skip entrance** link always offers a direct route in.
 
 The website keeps a simple order: **Home, Our little story, Cakes we've made,
 How to order**. Navigation stays visible on mobile.
@@ -30,7 +33,7 @@ still follows as its own section.
 **Birthday Cakes, Tea cakes, Cream cakes, Decorated cakes, Doll cakes and Chocolates**.
 Each cover has its own category-themed sticker pair rather than repeated hearts
 and bows.
-The notepads have **light-pink covers** with deep-green lettering, so they stand
+The notepads have **very light blush-pink covers** with deep-green lettering, so they stand
 apart from the cream website background. Inside pages stay cream, with fine sheet
 edges and paired top-wire rings, without a wide left-hand spine.
 Click a category to zoom directly into its photos. **No notebook has a weight page.**
@@ -46,6 +49,8 @@ On multi-page notebooks, use **Back / Next**, the arrow keys, or drag the bottom
 **Turn** control upward. Single-page notebooks do not show unnecessary page controls.
 **All categories** returns to the covers. **Enlarge** opens the full photograph;
 **Ask** opens the direct enquiry link. Full accessible action names are retained.
+The notebook actions look like translucent sticky page tabs, with readable labels
+and generous click/tap areas.
 Enlarged photographs also fit the screen; their titles and controls wrap without
 forcing sideways scrolling.
 
@@ -96,8 +101,8 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **155 generated files in `site/`**, including the
-category-notebook module and six landscape website showcase images.
+GitHub Pages publishes only the **160 generated files in `site/`**, including the
+category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links those six images to the website. This overview uses
 the same public-ready product images. Authoring sources, original photos,
 the account export, masks, private reviews and detailed maintenance guides remain

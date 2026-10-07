@@ -5,7 +5,7 @@
 :root {
   --cream: #f5ebdd;
   --paper: #fffaf1;
-  --cover-paper: #efb7c8;
+  --cover-paper: #f7dbe4;
   --green: #34483a;
   --accent: #a45137;
   --wash: #e8decd;
@@ -502,8 +502,8 @@ html:has(:target) .bakery-entrance { display: none; }
 .is-open-notebook .cake-grid { min-width: 0; min-height: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); gap: 8px 16px; }
 .is-open-notebook .cake-grid:has(.cake-card:nth-child(3)) { grid-template-rows: repeat(2, minmax(0, 1fr)); }
 .is-open-notebook .cake-card { min-height: 0; grid-template-rows: minmax(0, 1fr) auto; }
-.is-open-notebook .cake-card figure { min-height: 0; }
-.is-open-notebook .photo-link { display: grid; grid-template-rows: minmax(0, 1fr) auto; height: 100%; min-height: 48px; }
+.is-open-notebook .cake-card figure { min-width: 0; min-height: 0; }
+.is-open-notebook .photo-link { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; height: 100%; min-width: 0; min-height: 48px; }
 .is-open-notebook .photo-link::after { content: "Enlarge"; min-height: 24px; padding: 2px 0; line-height: 1.1; justify-content: center; }
 .is-open-notebook .cake-card picture, .is-open-notebook .cake-card[data-orientation="portrait"] picture { min-height: 0; height: 100%; }
 .is-open-notebook .cake-card img, .is-open-notebook .cake-card[data-orientation="portrait"] img { min-height: 0; height: 100%; width: 100%; object-fit: contain; }
@@ -519,7 +519,80 @@ html:has(:target) .bakery-entrance { display: none; }
 .is-open-notebook .notebook-drag-edge[hidden] { display: none; }
 .is-open-notebook [data-page-counter] { font-size: 1rem; line-height: 1.1; color: var(--brown); }
 .is-open-notebook .notebook-turn-label { font-size: 1rem; line-height: 1.1; }
-.is-open-notebook .page-corner { width: 18px; height: 18px; border-radius: 0; }
+.is-open-notebook .page-corner { width: 10px; height: 10px; right: 1px; bottom: 3px; border-radius: 0; filter: none; background: linear-gradient(135deg, transparent 46%, rgb(52 72 58 / 14%) 49%, rgb(255 250 241 / 85%) 52%); }
+
+/* The coloured flag is slender; its transparent hit area remains at least 48px. */
+.category-notebook, .notebook-dialog-toolbar {
+  --tab-pink: 238 180 198;
+  --tab-butter: 237 215 148;
+  --tab-blue: 182 210 229;
+  --tab-lilac: 211 197 227;
+}
+.category-notebook .cake-enquire,
+.category-notebook .notebook-static-back,
+.category-notebook .notebook-controls button,
+.notebook-dialog-toolbar button {
+  position: relative;
+  isolation: isolate;
+  min-height: 48px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.category-notebook .cake-enquire { --tab-color: var(--tab-pink); width: fit-content; max-width: 100%; justify-content: center; }
+.category-notebook .notebook-static-back, .notebook-dialog-toolbar button { --tab-color: var(--tab-lilac); }
+.category-notebook [data-page-previous] { --tab-color: var(--tab-blue); }
+.category-notebook [data-page-next] { --tab-color: var(--tab-pink); }
+.category-notebook .notebook-drag-edge { --tab-color: var(--tab-butter); --tab-inset: 2px; text-decoration: none; }
+.category-notebook .cake-enquire::before,
+.category-notebook .notebook-static-back::before,
+.category-notebook .notebook-controls button::before,
+.notebook-dialog-toolbar button::before {
+  content: "";
+  position: absolute;
+  inset: var(--tab-inset, clamp(2px, calc(14px - .375em), 8px)) 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.category-notebook .cake-enquire::before,
+.category-notebook .notebook-static-back::before,
+.category-notebook .notebook-controls button::before,
+.notebook-dialog-toolbar button::before,
+.category-notebook .photo-link::after {
+  box-sizing: border-box;
+  border: 1px solid rgb(52 72 58 / 18%);
+  border-left-color: rgb(52 72 58 / 7%);
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, transparent 17px, rgb(52 72 58 / 10%) 17px 18px, rgb(255 255 255 / 55%) 18px 19px, transparent 19px),
+    linear-gradient(90deg, rgb(var(--tab-color) / 16%), rgb(var(--tab-color) / 28%) 12px, rgb(var(--tab-color) / 78%) 24px, rgb(var(--tab-color) / 94%) 36px);
+  background-color: var(--cream);
+  box-shadow: 1px 2px 2px rgb(52 72 58 / 10%), inset 0 1px 0 rgb(255 255 255 / 55%);
+}
+.category-notebook .photo-link::after { --tab-color: var(--tab-blue); width: fit-content; max-width: 100%; margin-left: auto; padding-inline: 8px; text-decoration: underline; text-underline-offset: 3px; }
+.is-open-notebook .cake-enquire { align-self: flex-start; min-width: min(100%, 6rem); }
+.is-open-notebook .notebook-controls button { width: fit-content; max-width: 100%; min-width: min(100%, 6rem); justify-self: start; }
+.is-open-notebook .notebook-drag-edge { justify-self: center; }
+.is-open-notebook [data-page-next] { justify-self: end; }
+.is-open-notebook [data-page-counter] { color: inherit; }
+.category-notebook .notebook-controls button:disabled { --tab-color: 216 210 198; color: var(--muted); text-decoration: none; }
+.category-notebook .cake-enquire:hover,
+.category-notebook .notebook-static-back:hover,
+.category-notebook .notebook-controls button:enabled:hover,
+.notebook-dialog-toolbar button:hover { text-decoration-thickness: 2px; }
+.category-notebook :is(.cake-enquire, .notebook-static-back, .photo-link, .notebook-controls button):focus-visible,
+.notebook-dialog-toolbar button:focus-visible { outline-offset: 2px; }
+@media (forced-colors: active) {
+  .category-notebook .cake-enquire::before,
+  .category-notebook .notebook-static-back::before,
+  .category-notebook .notebook-controls button::before,
+  .notebook-dialog-toolbar button::before,
+  .category-notebook .photo-link::after { background: Canvas; border: 1px solid ButtonText; box-shadow: none; }
+}
 .photo-dialog[open] {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
