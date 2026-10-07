@@ -70,11 +70,8 @@ Cream cover.
 
 The cream, deep-green and terracotta palette, clear handwritten headings and
 readable body text are retained. Ruled lines stay away from reading text.
-On a mouse-equipped screen, moving through the open background leaves smooth,
-whipped-cream-style ridges and little peaks. They keep their shape for the page
-visit instead of dissolving, and stay anchored when you scroll. Text, cakes,
-controls and green sections remain untouched. Reduced motion, touch-only devices,
-forced colours and unavailable enhancements keep the original static background.
+The cream background and quiet bakery outlines stay static. The experimental
+pointer-reactive cream effect has been removed and parked for a possible future revisit.
 The notebooks support click, touch, Enter and Space, with visible keyboard focus.
 Reduced motion, forced colours, missing enhancements and no JavaScript show the
 complete category pages directly. An extreme screen/text-size combination also
@@ -99,8 +96,8 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **156 generated files in `site/`**, including the
-category-notebook and optional cream-surface modules and six landscape website showcase images.
+GitHub Pages publishes only the **155 generated files in `site/`**, including the
+category-notebook module and six landscape website showcase images.
 The image-only README links those six images to the website. This overview uses
 the same public-ready product images. Authoring sources, original photos,
 the account export, masks, private reviews and detailed maintenance guides remain

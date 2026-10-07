@@ -112,11 +112,6 @@ import(versionedModule('./notebooks.mjs'))
   .catch(error => {
     console.warn('The optional category notebooks are unavailable; keeping all pages visible.', error);
   });
-import(versionedModule('./cream.mjs'))
-  .then(({ initCreamSurface }) => initCreamSurface())
-  .catch(error => {
-    console.warn('The optional cream surface is unavailable; keeping the static background.', error);
-  });
 Promise.all([
   import(versionedModule('./entrance.mjs')),
   import(versionedModule('./bell.mjs')),
