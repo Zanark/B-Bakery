@@ -70,10 +70,11 @@ Cream cover.
 
 The cream, deep-green and terracotta palette, clear handwritten headings and
 readable body text are retained. Ruled lines stay away from reading text.
-On a mouse-equipped screen, the open cream background gently follows the pointer
-with soft, slow-settling folds. Text, cakes, controls and the green sections remain
-untouched. Reduced motion, touch-only devices, forced colours and unavailable
-enhancements keep the original static background.
+On a mouse-equipped screen, moving through the open background leaves smooth,
+whipped-cream-style ridges and little peaks. They keep their shape for the page
+visit instead of dissolving, and stay anchored when you scroll. Text, cakes,
+controls and green sections remain untouched. Reduced motion, touch-only devices,
+forced colours and unavailable enhancements keep the original static background.
 The notebooks support click, touch, Enter and Space, with visible keyboard focus.
 Reduced motion, forced colours, missing enhancements and no JavaScript show the
 complete category pages directly. An extreme screen/text-size combination also
