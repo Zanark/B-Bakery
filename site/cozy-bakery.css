@@ -43,7 +43,17 @@
 .shop-sign .brand-descriptor { color: var(--cream); font-size: 1.125rem; margin-top: 12px; text-shadow: 0 2px 2px rgb(25 15 7 / 75%); }
 .shop-sign .brand:focus-visible { outline-color: var(--paper); outline-offset: 6px; }
 .site-header #site-nav { width: min(1200px, calc(100% - 40px)); margin-inline: auto; padding-block: 14px; justify-content: center; gap: 12px 24px; }
-#site-nav > a:not(.button) { text-decoration-color: #ba8d67; text-underline-offset: 7px; }
+.site-header #site-nav > a { color: var(--cream); font-size: 1.125rem; line-height: 1.4; text-shadow: 0 2px 2px rgb(25 15 7 / 75%); }
+.site-header #site-nav > a:not(.button) { font-weight: 400; text-decoration-color: #e1bc84; text-underline-offset: 7px; }
+.site-header #site-nav .nav-cta {
+  padding: 10px 22px;
+  border: 2px solid #c79b65;
+  border-radius: 7px;
+  background: #62432f var(--sign-wood) 60% 75% / 360px 160px;
+  box-shadow: inset 0 1px 0 #d5b082, inset 0 -2px 0 #3d291d, 0 4px 0 #352419, 0 7px 10px rgb(14 8 3 / 30%);
+}
+.site-header #site-nav .nav-cta:hover { border-color: var(--cream); text-decoration: underline; text-underline-offset: 4px; }
+.site-header #site-nav > a:focus-visible { outline-color: var(--paper); outline-offset: 5px; }
 .site-awning { filter: drop-shadow(0 6px 3px rgb(118 84 61 / 9%)); }
 
 .hero-section { position: relative; isolation: isolate; }
@@ -62,7 +72,7 @@
 .hero-art::before, .hero-art::after { content: none; }
 .hero-photo { position: relative; }
 .hero-photo img { filter: drop-shadow(0 13px 7px rgb(93 62 32 / 18%)); }
-.hero-actions .button, #site-nav .nav-cta {
+.hero-actions .button {
   box-shadow: inset 0 1px 0 rgb(255 250 241 / 16%), 0 4px 0 rgb(118 84 61 / 15%), 0 8px 16px rgb(118 84 61 / 7%);
 }
 
@@ -146,6 +156,9 @@
   .shop-sign .wordmark, .shop-sign .brand-descriptor { color: CanvasText; text-shadow: none; }
   .shop-sign .brand > img { box-shadow: none; }
   .shop-sign .brand:focus-visible { outline-color: Highlight; }
+  .site-header #site-nav > a { color: LinkText; text-shadow: none; }
+  .site-header #site-nav .nav-cta { color: ButtonText; background: ButtonFace; border-color: ButtonText; box-shadow: none; }
+  .site-header #site-nav > a:focus-visible { outline-color: Highlight; }
   .bakery-shelf, .hero-section::after, .category-notebooks::before, .category-notebooks::after, .order-action::after { display: none; }
   .category-notebooks { border: 0; box-shadow: none; }
 }
@@ -154,6 +167,8 @@
   .shop-sign::before, .shop-sign::after { display: none; }
   .shop-sign .wordmark, .shop-sign .brand-descriptor { color: var(--green); text-shadow: none; }
   .shop-sign .brand > img { box-shadow: none; }
+  .site-header #site-nav > a { color: var(--green); text-shadow: none; }
+  .site-header #site-nav .nav-cta { background: var(--cream); border-color: var(--green); box-shadow: none; }
   .bakery-shelf, .hero-section::after, .category-notebooks::before, .category-notebooks::after, .order-action::after { display: none; }
   .site-header, .story-section, .order-section, .recipe-note { box-shadow: none; }
 }

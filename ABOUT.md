@@ -13,9 +13,12 @@ Visit the bakery: **https://zanark.github.io/WhiskAndCrumbs/**
 
 ## Step inside
 
-The padded bakery doorway waits for a click, tap or keyboard activation.
+The padded entrance is a complete illustrated bakery building: a tiled roof and
+upper windows, warm plaster, a wooden illuminated fascia, substantial framing,
+recessed glazing and a stone threshold meeting the paved ground.
+Small original plants soften the edges. The building waits for a click, tap or keyboard activation.
 The doors open, the hanging bell moves and a short local bell sound is attempted
-from that gesture. Transparent door windows reveal an original three-dimensional
+from that gesture. Transparent door and display windows reveal one continuous original three-dimensional
 bakery with layered painted materials, richly stocked walnut shelves and greenery.
 Golden sunlight enters through the side window, with window-frame shadows,
 soft contact shading and warm reflected light baked from the room's geometry.
@@ -25,9 +28,12 @@ outer storefront stays steady. Touch keeps a centered view, and static illustrat
 from the same room remain available without the graphics enhancement.
 This is decorative illustration, not a photograph of physical premises or an additional menu.
 A small cream-and-green **We are OPEN** plaque hangs behind the right door's
-glass, with a cord and a little heart. It moves with the door, not the room camera.
+glass, with a small cord and brass details. It moves with the door, not the room camera.
 It is a welcoming illustration, not a business-hours notice.
 A taller sloped striped canopy with a deeper hanging scalloped edge frames the entrance.
+Wide layouts have fixed display bays beside the paired doors. Narrow layouts keep
+the doorway and a separately composed upper floor, rather than squeezing all the
+wide-building details into the same space.
 The matching awning beneath the website header spans the full page width,
 without inset side margins.
 On the main page, the fabric ripples locally near the cursor and flutters gently
@@ -42,8 +48,10 @@ How to order**. Navigation stays visible on mobile.
 At the top, the original whisk mark and Courgette shop name form a larger,
 centered wooden sign with continuous visible grain, raised lettering and a warm,
 steady backlit glow. Distinct cast shadows give the name and logo depth without
-fading the wood behind them. The three navigation
-links sit underneath on cream, above the full-width canopy. The glow does not
+fading the wood behind them. The three navigation links now sit on the same
+continuous wooden board, with cream lettering like the descriptor and a raised
+wooden **How to order** button. There is no cream strip between the wood and canopy.
+The glow does not
 flash or animate; the original font and logo artwork are retained.
 
 The real hero cake sits directly on the cream canvas, without an illustrated
@@ -136,7 +144,7 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **170 generated files in `site/`**, including the
+GitHub Pages publishes only the **174 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links six coordinated launch images to the website. Each
 uses real, complete desktop and mobile browser viewport captures, with original
