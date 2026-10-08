@@ -24,13 +24,22 @@ Golden sunlight enters through the side window, with window-frame shadows,
 soft contact shading and warm reflected light baked from the room's geometry.
 The display cabinet reaches the floor; its cakes, shelves and shadows share one
 perspective. Mouse movement gives a much stronger look around the room while the
-outer storefront stays steady. Touch keeps a centered view, and static illustrations
-from the same room remain available without the graphics enhancement.
+outer storefront stays steady. Phones start with a centered view.
+On supported phones, tap **Phone tilt**, allow motion access if asked, and hold the
+phone comfortably while it calibrates. Gentle tilting then controls the same
+look-around; tap **Tilt on** to turn it off. Motion stops when you enter, skip,
+leave the page or enable reduced motion. The website uses motion readings locally
+and does not save or upload them. Browser support and permission policies vary;
+ordinary entry and Skip remain available if tilt cannot start.
+Static illustrations from the same room remain available without the graphics enhancement.
 This is decorative illustration, not a photograph of physical premises or an additional menu.
 A small cream-and-green **We are OPEN** plaque hangs behind the right door's
 glass, with a small cord and brass details. It moves with the door, not the room camera.
 It is a welcoming illustration, not a business-hours notice.
-A taller sloped striped canopy with a deeper hanging scalloped edge frames the entrance.
+A longer sloping canopy with forty narrower reddish-pink and cream stripes frames
+the entrance. Its deep scalloped edge is retained. Visible bolted wall brackets
+and angled tension rods support the projecting front bar; they stay rigid while
+the cloth moves.
 Wide layouts have fixed display bays beside the paired doors. Narrow layouts keep
 the doorway and a separately composed upper floor, rather than squeezing all the
 wide-building details into the same space.
@@ -144,7 +153,7 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **174 generated files in `site/`**, including the
+GitHub Pages publishes only the **175 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links six coordinated launch images to the website. Each
 uses real, complete desktop and mobile browser viewport captures, with original

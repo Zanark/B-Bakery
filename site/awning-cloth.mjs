@@ -1,6 +1,6 @@
-export const AWNING_GEOMETRY = Object.freeze({ height: 240, topRailBottom: 16, frontBarTop: 122, frontBarBottom: 130, hemBottom: 234 });
+export const AWNING_GEOMETRY = Object.freeze({ height: 300, topRailBottom: 16, frontBarTop: 182, frontBarBottom: 190, hemBottom: 294 });
 export const CLOTH_ROWS = Object.freeze([
-  0, 16, 28, 42, 58, 76, 94, 110, 122, 130, 146, 164, 184, 206, 226, 236, 240,
+  0, 16, 34, 58, 84, 112, 138, 164, 182, 190, 206, 224, 244, 266, 286, 296, 300,
 ].map((value) => value / AWNING_GEOMETRY.height));
 
 const NEAR_DISTANCE = 72;

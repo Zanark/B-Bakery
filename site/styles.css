@@ -360,8 +360,11 @@ body.has-notebook-dialog .mobile-enquire { display: none; }
 .entrance-enter { position: absolute; inset: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: center; padding: 24px; }
 .entrance-enter > span { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 24px; border: 1px solid var(--green); border-radius: 999px; background: var(--paper); color: var(--green); box-shadow: 0 5px 0 rgb(52 72 58 / 13%); font: 600 1rem/1.4 var(--sans); }
 .entrance-enter:hover > span { background: var(--wash); }
-.entrance-skip { position: absolute; z-index: 4; top: 18px; right: 20px; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 11px 18px; border: 1px solid var(--green); border-radius: 999px; background: var(--paper); color: var(--green); font: 600 1rem/1.4 var(--sans); }
-.entrance-skip:hover { background: var(--wash); }
+.entrance-tools { position: absolute; z-index: 4; top: 18px; left: 20px; right: 20px; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: flex-start; gap: 8px; pointer-events: none; }
+.entrance-skip, .entrance-motion { display: inline-flex; align-items: center; justify-content: center; max-width: 100%; min-height: 48px; padding: 11px 18px; border: 1px solid var(--green); border-radius: 999px; background: var(--paper); color: var(--green); font: 600 1rem/1.4 var(--sans); pointer-events: auto; }
+.entrance-motion { margin-right: auto; }
+.entrance-motion[aria-pressed="true"] { background: var(--green); color: var(--paper); }
+.entrance-skip:hover, .entrance-motion:not([aria-pressed="true"]):hover { background: var(--wash); }
 html:has(:target) .bakery-entrance { display: none; }
 .bakery-entrance.is-entering { animation: entrance-dismiss .12s linear 1.68s forwards; }
 .bakery-entrance.is-entering .entrance-backdrop { animation: entrance-backdrop-fade .55s ease-out .7s both; }
@@ -370,7 +373,8 @@ html:has(:target) .bakery-entrance { display: none; }
 .bakery-entrance.is-entering .entrance-doorframe::before { animation: entrance-backdrop-fade .5s ease-out .75s both; }
 .bakery-entrance.is-entering .entrance-door-left { animation: entrance-open-left .95s cubic-bezier(.4, 0, .2, 1) .08s both; }
 .bakery-entrance.is-entering .entrance-door-right { animation: entrance-open-right .95s cubic-bezier(.4, 0, .2, 1) .08s both; }
-.bakery-entrance.is-entering .entrance-enter, .bakery-entrance.is-entering .entrance-skip { pointer-events: none; opacity: 0; transition: opacity .12s; }
+.bakery-entrance.is-entering .entrance-enter, .bakery-entrance.is-entering .entrance-tools { pointer-events: none; opacity: 0; transition: opacity .12s; }
+.bakery-entrance.is-entering .entrance-tools > * { pointer-events: none; }
 @keyframes entrance-open-left { from { transform: rotateY(0); } to { transform: rotateY(-106deg); } }
 @keyframes entrance-open-right { from { transform: rotateY(0); } to { transform: rotateY(106deg); } }
 @keyframes entrance-bell-swing { 0%, 100% { transform: rotate(0); } 15% { transform: rotate(18deg); } 35% { transform: rotate(-15deg); } 55% { transform: rotate(10deg); } 75% { transform: rotate(-5deg); } }

@@ -1,9 +1,10 @@
-.site-awning { --awning-fabric-ready: 1; position: relative; z-index: 1; width: 100%; height: clamp(120px, 18vw, 270px); background: var(--cream); pointer-events: none; }
+.site-awning { --awning-fabric-ready: 1; position: relative; z-index: 1; width: 100%; height: clamp(150px, 22.5vw, 337.5px); background: var(--cream); pointer-events: none; }
 .site-awning img { width: 100%; max-width: none; height: 100%; object-fit: fill; }
 .awning-fabric { position: absolute; inset: -20px 0; width: 100%; height: calc(100% + 40px); pointer-events: none; }
 .awning-fixed-rail { position: absolute; inset: 0; background-size: 100% 100%; background-repeat: no-repeat; pointer-events: none; }
 .site-awning.is-fabric-active > img { opacity: 0; }
-.entrance-art { padding: 82px clamp(12px, 4vw, 72px) 100px; }
+.awning-supports { position: absolute; z-index: 3; inset: 0; background-size: 100% 100%; background-repeat: no-repeat; pointer-events: none; }
+.entrance-art { padding: max(82px, var(--entrance-tools-space, 0px)) clamp(12px, 4vw, 72px) 100px; }
 .entrance-backdrop { inset: 0; transform: none; transition: none; background: radial-gradient(ellipse at 24% 18%, #fff8e9, transparent 62%), linear-gradient(#f5ebdd 72%, #e6dac3); }
 .entrance-shop { display: block; width: min(1100px, 100%); height: min(790px, 100%); transform: none; transition: none; isolation: isolate; container-type: size; }
 .bakery-entrance.is-entering .entrance-shop { animation: none; }
@@ -63,7 +64,7 @@
 .entrance-step { position: absolute; z-index: 3; left: 8%; right: 8%; bottom: 6.7%; height: 2.5%; background: linear-gradient(#e6d8bc, #cfbd9f 48%, #a89172 52%, #b9a283); border: 1px solid #b8a180; box-shadow: 0 4px 3px rgb(55 45 32 / 18%); }
 .entrance-pavement { position: absolute; z-index: 2; bottom: 0; left: 0; width: 100%; height: 14%; object-fit: fill; pointer-events: none; }
 @media (max-width: 600px) {
-  .entrance-art { padding: max(84px, calc(2.5rem + 16px)) 12px max(112px, calc(6.25rem - 12px)); }
+  .entrance-art { padding: max(84px, calc(2.5rem + 16px), var(--entrance-tools-space, 0px)) 12px max(112px, calc(6.25rem - 12px)); }
   .entrance-shop { width: 100%; height: min(770px, 100%); }
   .entrance-upper-storey { height: 27%; }
   .entrance-masonry { top: 24%; left: 3%; right: 3%; }
@@ -80,7 +81,7 @@
   .entrance-door-right { right: 0; }
   .entrance-fixed-bay { display: none; }
   .entrance-glass { inset-inline: 5px; border-radius: 6px 6px 2px 2px; }
-  .entrance-open-sign { width: min(96px, calc(100% - 12px)); }
+  .entrance-open-sign { width: min(90px, calc(100% - 12px)); }
   .entrance-bell { width: 32px; height: 34px; left: calc(50% - 16px); top: 0; }
   .entrance-pier { top: 40%; width: 3%; }
   .entrance-pier-left { left: 3%; }
@@ -89,7 +90,7 @@
   .entrance-step { left: 3%; right: 3%; }
 }
 @media (max-height: 600px) {
-  .entrance-art { padding-top: max(74px, calc(2.5rem + 16px)); padding-bottom: 104px; }
+  .entrance-art { padding-top: max(74px, calc(2.5rem + 16px), var(--entrance-tools-space, 0px)); padding-bottom: 104px; }
   .entrance-shop { width: min(800px, 100%); }
   .entrance-upper-storey { height: 24%; }
   .entrance-sign { top: 23%; height: 17%; padding-block: 4px; }
@@ -132,8 +133,11 @@
   .entrance-open-sign .open-sign-cord { height: 5px; }
   .open-sign-board { padding-block: 0; }
 }
-@media (prefers-reduced-motion: reduce), (forced-colors: active), (hover: none) {
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
   .entrance-room-poster { transform: none; transition: none; }
+}
+@media (hover: none) {
+  .bakery-entrance:not([data-tilt-view="on"]) .entrance-room-poster { transform: none; transition: none; }
 }
 @media print {
   .site-awning, .bakery-entrance { display: none; }

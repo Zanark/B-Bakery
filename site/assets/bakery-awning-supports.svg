@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" preserveAspectRatio="none">
+  <title>Original fixed wall brackets and canopy tension rods</title>
+  <desc>Two bolted wall plates carry rigid angled tension rods above the cloth, connected to clamps on the projecting front bar. Hardware is separate from the flexible fabric and never deforms with it.</desc>
+  <defs>
+    <g id="awning-tension-support">
+      <path d="M162 18 92 188" fill="none" stroke="#35291e" stroke-opacity=".22" stroke-width="9" stroke-linecap="round"/>
+      <rect x="150" y="1" width="20" height="24" rx="2" fill="#34483a" stroke="#24392c" stroke-width="1.5"/>
+      <path d="M160 16 90 186" fill="none" stroke="#263b2b" stroke-width="6" stroke-linecap="round"/>
+      <path d="M158.5 16 88.5 186" fill="none" stroke="#91a38a" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M123 101 116.5 117" fill="none" stroke="#536850" stroke-width="9" stroke-linecap="round"/>
+      <rect x="77" y="179" width="27" height="14" rx="2" fill="#34483a" stroke="#24392c" stroke-width="1.5"/>
+      <path d="M79 182H102" stroke="#91a38a" stroke-width="1.4"/>
+      <g fill="#d7b783" stroke="#6d583f" stroke-width=".8"><circle cx="160" cy="7" r="2.4"/><circle cx="160" cy="20" r="2.4"/><circle cx="90" cy="187" r="2.8"/></g>
+    </g>
+  </defs>
+  <g id="awning-support-left"><use href="#awning-tension-support"/></g>
+  <g id="awning-support-right" transform="translate(1200 0) scale(-1 1)"><use href="#awning-tension-support"/></g>
+</svg>

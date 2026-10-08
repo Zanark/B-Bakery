@@ -3,7 +3,7 @@ const NEAR_DISTANCE = 72;
 
 function createRenderer(canvas, image, width, height) {
   const gl = canvas.getContext('webgl', {
-    alpha: true, antialias: true, depth: false, premultipliedAlpha: false,
+    alpha: true, antialias: true, depth: false, premultipliedAlpha: true,
     preserveDrawingBuffer: false, powerPreference: 'low-power',
   });
   if (!gl) return null;
@@ -47,13 +47,13 @@ function createRenderer(canvas, image, width, height) {
       }
     `);
     compile(gl.FRAGMENT_SHADER, `
-      precision mediump float;
+      precision highp float;
       uniform sampler2D u_cloth;
       varying vec2 v_uv;
       varying float v_shade;
       void main() {
         vec4 fabric = texture2D(u_cloth, v_uv);
-        gl_FragColor = vec4(fabric.rgb * v_shade, fabric.a);
+        gl_FragColor = vec4(min(fabric.rgb * v_shade, vec3(fabric.a)), fabric.a);
       }
     `);
     gl.linkProgram(program);
@@ -79,6 +79,8 @@ function createRenderer(canvas, image, width, height) {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    // Filter associated color and alpha together so transparent edges do not darken.
+    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, raster);
     if (gl.getError() !== gl.NO_ERROR) throw new Error('Awning texture upload failed.');
     gl.viewport(0, 0, canvas.width, canvas.height);
