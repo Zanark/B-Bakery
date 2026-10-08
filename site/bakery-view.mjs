@@ -45,7 +45,7 @@ export function bakeryView(width, height, lookX = 0, lookY = 0) {
 }
 
 export function bakeryLight() {
-  const eye = [-7, 4.7, -3.8], target = [0, 2.5, -2];
+  const eye = [-7, 4.7, -3.8], target = [0, 1.2, -0.1];
   const near = .1, far = 24;
   const projection = new Float32Array([
     1 / 9, 0, 0, 0, 0, 1 / 8, 0, 0, 0, 0, -2 / (far - near), 0,

@@ -18,6 +18,7 @@ function initGallery() {
   let photos = galleryPhotos;
   let index = 0;
   let opener;
+  let openerPhoto;
 
   image.addEventListener('load', () => {
     if (image.naturalWidth > 0) {
@@ -41,24 +42,35 @@ function initGallery() {
     counter.textContent = `Photo ${index + 1} of ${photos.length}`;
     image.src = photo.href;
   };
+  const openPhoto = (link, trigger, event) => {
+    if (!plainClick(event)) return;
+    const notebook = link.closest('.category-notebook');
+    photos = notebook ? [...notebook.querySelectorAll('a[data-photo]')] : galleryPhotos;
+    const position = photos.findIndex(photo => photo.href === link.href);
+    if (position < 0) return;
+    previous.disabled = next.disabled = photos.length < 2;
+    showPhoto(position);
+    try {
+      dialog.showModal();
+    } catch (failure) {
+      console.warn('The photo viewer is unavailable; opening the image link instead.', failure);
+      if (trigger !== link) location.assign(link.href);
+      return;
+    }
+    opener = trigger;
+    openerPhoto = link;
+    event.preventDefault();
+  };
   for (const link of links) {
-    link.addEventListener('click', event => {
-      if (!plainClick(event)) return;
-      const notebook = link.closest('.category-notebook');
-      photos = notebook ? [...notebook.querySelectorAll('a[data-photo]')] : galleryPhotos;
-      const position = photos.findIndex(photo => photo.href === link.href);
-      if (position < 0) return;
-      previous.disabled = next.disabled = photos.length < 2;
-      showPhoto(position);
-      try {
-        dialog.showModal();
-      } catch (failure) {
-        console.warn('The photo viewer is unavailable; opening the image link instead.', failure);
-        return;
-      }
-      opener = link;
-      event.preventDefault();
-    });
+    link.addEventListener('click', event => openPhoto(link, link, event));
+  }
+  for (const button of document.querySelectorAll('[data-enlarge-photo]')) {
+    const card = button.closest('.cake-card');
+    const link = card?.querySelector('a[data-photo]');
+    if (!link || !links.includes(link)) continue;
+    button.addEventListener('click', event => openPhoto(link, button, event));
+    button.hidden = false;
+    card.classList.add('has-photo-enlarge');
   }
   previous.disabled = next.disabled = photos.length < 2;
   previous.addEventListener('click', () => showPhoto(index - 1));
@@ -77,7 +89,10 @@ function initGallery() {
     if (event.clientX < bounds.left || event.clientX > bounds.right ||
         event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
   });
-  dialog.addEventListener('close', () => opener?.focus({ preventScroll: true }));
+  dialog.addEventListener('close', () => {
+    const target = opener?.getClientRects().length ? opener : openerPhoto;
+    target?.focus({ preventScroll: true });
+  });
 }
 
 function initMobileContact() {

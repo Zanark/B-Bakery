@@ -15,3 +15,13 @@ body { font-size: var(--reading-size); line-height: 1.75; }
 .note-signature { font-size: 1.625rem; }
 .order-action > p.small-note { font-size: var(--control-size); }
 .order-layout > div > a:not(.button) { display: inline-flex; align-items: center; min-height: 48px; font-size: var(--control-size); }
+.category-notebook .cake-card-info h4,
+.category-notebook .cake-card-actions > :is(a, button),
+.category-notebook .notebook-controls button,
+.notebook-dialog .notebook-dialog-toolbar button,
+.photo-dialog button, #photo-title { font-size: 1.25rem; line-height: 1.25; }
+.category-notebook .photo-link::after { font-size: 1.25rem; line-height: 1.25; }
+.notebook-dialog .notebook-dialog-toolbar > p { font-size: 1.625rem; line-height: 1.2; }
+.category-notebook .notebook-sheet-copy h4 { font-size: 1.5rem; line-height: 1.25; }
+.category-notebook [data-page-counter], .category-notebook .notebook-turn-label,
+.category-notebook .notebook-empty-note, #notebook-fit-note, #photo-counter { font-size: 1.125rem; line-height: 1.25; }

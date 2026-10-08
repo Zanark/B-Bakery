@@ -79,6 +79,11 @@ export function initCategoryNotebooks() {
   let suppressClick = false;
   let fitFrame;
 
+  const focusPageTitle = page => {
+    const title = page.querySelector('[data-page-title]');
+    (title.getClientRects().length ? title : dialogTitle).focus({ preventScroll: true });
+  };
+
   const scheduleFitCheck = () => {
     cancelAnimationFrame(fitFrame);
     fitFrame = requestAnimationFrame(() => {
@@ -86,19 +91,34 @@ export function initCategoryNotebooks() {
           active.element.getAnimations?.().length || document.fonts?.status === 'loading') return;
       const page = active.pages[index];
       const bounds = dialog.getBoundingClientRect();
-      const content = [...page.querySelectorAll('img, h4, a')];
-      const clipped = [dialog, active.stage, page].some(node =>
-        node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1
-      ) || [...page.querySelectorAll('.cake-card')].some(card =>
+      const content = [...page.querySelectorAll('img, h4, a, button'),
+        closeButton, ...active.controls.querySelectorAll('button')].filter(node => node.getClientRects().length);
+      const problems = [];
+      for (const node of [dialog, active.stage, page]) {
+        if (node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1) {
+          problems.push({ reason: 'content exceeds available space', element: node.className || node.id,
+            available: [node.clientWidth, node.clientHeight], required: [node.scrollWidth, node.scrollHeight] });
+        }
+      }
+      if ([...page.querySelectorAll('.cake-card')].some(card =>
         card.querySelector('.photo-link').getBoundingClientRect().bottom >
           card.querySelector('.cake-card-info').getBoundingClientRect().top + 1
-      ) || content.some(node => {
+      )) problems.push({ reason: 'photograph and caption overlap' });
+      for (const node of content) {
         const box = node.getBoundingClientRect();
-        return box.top < bounds.top || box.bottom > bounds.bottom ||
-          box.left < bounds.left || box.right > bounds.right ||
-          (node.tagName === 'IMG' && box.height < 24);
-      });
-      if (!clipped) return;
+        if (box.top < bounds.top || box.bottom > bounds.bottom || box.left < bounds.left || box.right > bounds.right) {
+          problems.push({ reason: 'content would leave the viewport', element: node.tagName,
+            size: [box.width, box.height] });
+        }
+        if (node.tagName === 'IMG' && (box.height < 24 || box.width < 24)) {
+          problems.push({ reason: 'contained photograph would be smaller than 24px', size: [box.width, box.height] });
+        }
+        if (node.matches('a, button') && node.scrollWidth > node.clientWidth + 1) {
+          problems.push({ reason: 'readable action text would overflow', element: node.className || node.id,
+            available: node.clientWidth, required: node.scrollWidth });
+        }
+      }
+      if (!problems.length) return;
       const title = page.querySelector('[data-page-title]');
       console.warn('Four photos cannot fit this viewport/text size safely; showing the complete static notebooks.');
       restoreStatic();
@@ -111,6 +131,7 @@ export function initCategoryNotebooks() {
         notice.textContent = 'For this screen or text size, photos are shown below so nothing is cut off.';
         overview.before(notice);
       }
+      notice.dataset.fitReasons = JSON.stringify(problems);
       title.focus();
     });
   };
@@ -163,7 +184,7 @@ export function initCategoryNotebooks() {
     updateControls();
     scheduleFitCheck();
     if (moveFocus && hadFocus) {
-      active.pages[index].querySelector('[data-page-title]').focus({ preventScroll: true });
+      focusPageTitle(active.pages[index]);
       dialog.scrollTo({ top: 0, behavior: 'instant' });
     }
   };
@@ -175,7 +196,7 @@ export function initCategoryNotebooks() {
     newPage.hidden = false;
     const height = Math.max(currentHeight, newPage.offsetHeight);
     active.stage.style.height = `${height}px`;
-    if (oldPage.contains(document.activeElement)) active.title.focus({ preventScroll: true });
+    if (oldPage.contains(document.activeElement)) dialogTitle.focus({ preventScroll: true });
     for (const page of [oldPage, newPage]) {
       page.inert = true;
       page.setAttribute('aria-hidden', 'true');
@@ -270,7 +291,7 @@ export function initCategoryNotebooks() {
     document.body.classList.add('has-notebook-dialog');
     scheduleFitCheck();
     dialog.scrollTo({ top: 0, behavior: 'instant' });
-    book.pages[0].querySelector('[data-page-title]').focus({ preventScroll: true });
+    focusPageTitle(book.pages[0]);
     if (!wantsStatic() && typeof book.element.animate === 'function') {
       const end = book.element.getBoundingClientRect();
       const scale = Math.max(.1, Math.min(.95, start.width / end.width));
@@ -374,8 +395,9 @@ export function initCategoryNotebooks() {
   if (typeof ResizeObserver === 'function') {
     const fitObserver = new ResizeObserver(scheduleFitCheck);
     fitObserver.observe(dialog);
+    fitObserver.observe(closeButton);
     for (const book of books) {
-      for (const node of book.element.querySelectorAll('.cake-card-info, .notebook-sheet-copy')) {
+      for (const node of book.element.querySelectorAll('.cake-card-info, .cake-card-actions, .notebook-sheet-copy, .notebook-controls')) {
         fitObserver.observe(node);
       }
     }

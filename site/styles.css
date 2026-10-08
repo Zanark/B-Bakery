@@ -213,7 +213,7 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .notebook-cover:nth-child(3n + 2) { --cover-angle: 1deg; }
 .notebook-cover:nth-child(3n) { --cover-angle: -.5deg; }
 .notebook-cover-tabs { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.notebook-cover-tab { position: absolute; top: var(--flag-top); left: calc(100% - 16px); width: calc(16px + var(--flag-out)); height: var(--flag-height); border: 1px solid rgb(52 72 58 / 20%); border-radius: 0 2px 2px 0; background: linear-gradient(90deg, rgb(var(--tab-color) / 22%) 0 14px, rgb(52 72 58 / 18%) 15px, rgb(var(--tab-color) / 96%) 17px); box-shadow: 1px 3px 3px rgb(52 72 58 / 15%), inset 0 1px 0 rgb(255 250 241 / 65%); pointer-events: none; }
+.notebook-cover-tab { position: absolute; top: var(--flag-top); left: 100%; width: var(--flag-out); height: var(--flag-height); border: 1px solid rgb(52 72 58 / 20%); border-radius: 0 2px 2px 0; background: rgb(var(--tab-color) / 96%); box-shadow: 1px 3px 3px rgb(52 72 58 / 15%), inset 0 1px 0 rgb(255 250 241 / 65%); pointer-events: none; }
 .notebook-cover-tab[data-tab-color="pink"] { --tab-color: var(--tab-pink); }
 .notebook-cover-tab[data-tab-color="butter"] { --tab-color: var(--tab-butter); }
 .notebook-cover-tab[data-tab-color="blue"] { --tab-color: var(--tab-blue); }
@@ -281,17 +281,20 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 body.has-notebook-dialog { overflow: hidden; }
 body.has-notebook-dialog .mobile-enquire { display: none; }
 .cake-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 32px; }
-.cake-card { min-width: 0; display: grid; grid-template-rows: auto 1fr; }
+.cake-card { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
 .photo-link { display: block; }
 .photo-link::after { content: "View larger photo"; position: relative; z-index: 1; display: flex; justify-content: flex-end; align-items: center; min-height: 48px; padding: 8px 2px; background: var(--cream); color: var(--green); font: 600 1rem/1.5 var(--sans); }
 .photo-link:hover::after { text-decoration: underline; text-underline-offset: 5px; }
 .cake-card picture { display: flex; align-items: center; justify-content: center; height: 270px; }
 .cake-card img { width: 100%; height: 100%; object-fit: contain; }
 .cake-card-info { display: flex; flex-direction: column; align-items: flex-start; padding: 15px 2px 0; }
-.cake-card-info h4 { font-size: 1.6rem; margin-bottom: 16px; }
+.cake-card-info h4 { max-width: 100%; overflow-wrap: anywhere; font-size: 1.6rem; margin-bottom: 16px; }
 .cake-enquire { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; border: 1px solid #a5ad99; border-radius: 999px; color: var(--green); background: var(--paper); margin-top: auto; padding: 11px 14px; font-weight: 600; }
 .cake-enquire:hover { background: var(--wash); }
 .enquiry-compact-label { display: none; }
+.cake-enlarge { display: none; }
+.cake-card-actions { position: relative; z-index: 2; min-width: 0; margin-top: auto; }
+.cake-card-actions .enquiry-full-label { min-width: 0; overflow-wrap: anywhere; }
 .order-section { background: var(--green); color: var(--cream); padding-block: 62px; border-block: 2px dashed #7e8b79; }
 .story-section, .order-section { background-image: url("assets/bakery-pattern-green.svg"); background-size: 640px 480px; background-repeat: repeat; }
 .order-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center; }
@@ -485,7 +488,7 @@ html:has(:target) .bakery-entrance { display: none; }
 }
 .notebook-dialog[open] {
   --book-edge-gutter: 24px;
-  --book-tab-attachment: 16px;
+  --book-tab-attachment: 8px;
   --book-tab-height: 56px;
   --book-action-height: 52px;
   display: grid;
@@ -655,6 +658,102 @@ html:has(:target) .bakery-entrance { display: none; }
 @media (min-width: 600px) and (max-height: 540px) {
   .notebook-dialog[open] { gap: 16px; padding-bottom: 12px; }
   .is-open-notebook .cake-grid, .is-open-notebook .cake-grid:has(.cake-card:nth-child(3)) { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); }
+}
+/* Only the cream paper is painted; all index-flag gutters remain transparent. */
+.notebook-dialog[open] {
+  --book-edge-gutter: 6rem;
+  --book-left-gutter: var(--book-edge-gutter);
+  --book-sheet-inset: 16px;
+  --photo-tab-footer: 0px;
+  --binding-gap: 24px;
+  gap: var(--binding-gap);
+  padding: 8px 8px 18px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+.notebook-dialog:has(.notebook-sheet:not([hidden]) .cake-card:only-child) { --book-left-gutter: 0px; }
+.notebook-dialog .notebook-dialog-toolbar {
+  display: grid;
+  grid-template-columns: var(--book-left-gutter) minmax(0, 1fr) var(--book-edge-gutter);
+  align-items: center;
+  gap: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.notebook-dialog-toolbar::before { content: ""; position: absolute; z-index: -1; inset: 0 var(--book-edge-gutter) calc(-1 * var(--binding-gap)) var(--book-left-gutter); background: var(--cream); pointer-events: none; }
+.notebook-dialog .notebook-dialog-toolbar > p { grid-column: 2; padding: 8px; }
+.notebook-dialog .notebook-dialog-toolbar button { grid-column: 3; grid-row: 1; width: calc(100% + 16px); max-width: none; margin: 0 0 0 -16px; padding: 8px 2px; --tab-attachment: 16px; }
+.is-open-notebook .notebook-heading { margin-inline: var(--book-left-gutter) var(--book-edge-gutter); }
+.is-open-notebook > .spiral-binding { left: calc(var(--book-left-gutter) + 10px); right: calc(var(--book-edge-gutter) + 10px); }
+.is-open-notebook .notebook-stage { position: relative; isolation: isolate; background: transparent; box-shadow: none; }
+.is-open-notebook .notebook-stage::before { content: ""; position: absolute; z-index: -1; inset: 0 var(--book-edge-gutter) var(--photo-tab-footer) var(--book-left-gutter); background: var(--cream); box-shadow: 0 2px 0 #c8bba7, 0 4px 0 var(--cream), 0 6px 0 #c8bba7, 0 9px 0 2px var(--green); pointer-events: none; }
+.is-open-notebook .notebook-sheet { padding-inline: calc(var(--book-left-gutter) + var(--book-sheet-inset)) calc(var(--book-edge-gutter) + var(--book-sheet-inset)); background: transparent; }
+.is-open-notebook .notebook-sheet::before { content: ""; position: absolute; z-index: -1; inset: 0 var(--book-edge-gutter) var(--photo-tab-footer) var(--book-left-gutter); background: repeating-linear-gradient(0deg, transparent 0 31px, rgb(52 72 58 / 4%) 31px 32px), var(--cream); pointer-events: none; }
+.is-open-notebook .notebook-sheet.is-turning-sheet { box-shadow: none; }
+.is-open-notebook .notebook-sheet.is-turning-sheet::before { box-shadow: 0 12px 20px rgb(74 55 35 / 15%); }
+.is-open-notebook .notebook-sheet:has(.cake-grid) { grid-template-rows: minmax(0, 1fr); padding-inline: 0; }
+.is-open-notebook .notebook-sheet:has(.cake-grid) > .notebook-sheet-copy { display: none; }
+.is-open-notebook .cake-grid { column-gap: 12px; padding-inline: calc(var(--book-left-gutter) + var(--book-sheet-inset)) calc(var(--book-edge-gutter) + var(--book-sheet-inset)); }
+.is-open-notebook .cake-grid:has(> .cake-card:only-child) { grid-template-columns: minmax(0, 1fr); }
+.is-open-notebook .cake-card { position: relative; min-width: 0; min-height: 112px; }
+.is-open-notebook .has-photo-enlarge .photo-link { grid-template-rows: minmax(0, 1fr); }
+.is-open-notebook .has-photo-enlarge .photo-link::after { content: none; }
+.is-open-notebook .cake-card-actions {
+  position: absolute;
+  display: grid;
+  gap: 8px;
+  width: calc(var(--book-edge-gutter) + 16px);
+  left: calc(-1 * (var(--book-left-gutter) + var(--book-sheet-inset)));
+  top: 50%;
+  margin: 0;
+  transform: translateY(-50%);
+  --tab-direction: 270deg;
+}
+.is-open-notebook .cake-card:nth-child(even) .cake-card-actions,
+.is-open-notebook .cake-card:only-child .cake-card-actions { left: auto; right: calc(-1 * (var(--book-edge-gutter) + var(--book-sheet-inset))); --tab-direction: 90deg; }
+.is-open-notebook .cake-card-actions > :is(.cake-enlarge, .cake-enquire) {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  min-height: 52px;
+  padding: 6px 4px;
+  margin: 0;
+  gap: 4px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  --tab-attachment: 16px;
+}
+.is-open-notebook .cake-enlarge { --tab-color: var(--tab-blue); }
+.is-open-notebook .cake-enlarge::before { content: ""; position: absolute; z-index: -1; inset: 0; border: 1px solid rgb(52 72 58 / 18%); border-radius: 2px; background: linear-gradient(var(--tab-direction, 90deg), rgb(182 210 229 / 28%), rgb(182 210 229 / 94%) 32px), var(--cream); box-shadow: 1px 2px 2px rgb(52 72 58 / 10%); pointer-events: none; }
+.is-open-notebook .cake-enlarge:focus-visible { outline-offset: 2px; }
+.is-open-notebook .notebook-controls { padding-inline: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (min-width: 600px) and (max-height: 540px) {
+  .notebook-dialog[open] { --book-left-gutter: 0px; --photo-tab-footer: 56px; --binding-gap: 16px; padding-bottom: 12px; }
+  .is-open-notebook { grid-template-rows: auto minmax(0, 1fr); }
+  .is-open-notebook:has(.notebook-controls:not([hidden])) .notebook-stage { padding-bottom: 0; }
+  .is-open-notebook .cake-grid { column-gap: 4px; padding-inline: 4px calc(var(--book-edge-gutter) + 20px); }
+  .is-open-notebook .cake-card { grid-template-rows: minmax(48px, 1fr) auto 56px; }
+  .is-open-notebook .cake-card-actions,
+  .is-open-notebook .cake-card:nth-child(even) .cake-card-actions,
+  .is-open-notebook .cake-card:only-child .cake-card-actions { position: relative; top: auto; left: auto; right: auto; width: min(100%, 12rem); transform: none; align-self: end; grid-template-columns: minmax(0, 1fr) minmax(48px, .65fr); gap: 2px; --tab-direction: 180deg; }
+  .is-open-notebook .cake-card-actions > :is(.cake-enlarge, .cake-enquire) { min-height: 56px; padding-inline: 2px; }
+  .is-open-notebook .cake-enquire > span:last-child { display: none; }
+  .is-open-notebook .notebook-controls { position: absolute; top: 20px; right: 0; width: calc(var(--book-edge-gutter) + 16px); grid-template-columns: minmax(0, 1fr); margin: 0; gap: 8px; padding: 0; }
+  .is-open-notebook .notebook-controls button { width: 100%; min-width: 0; --tab-direction: 90deg; --tab-attachment: 16px; }
+}
+@media (forced-colors: active) {
+  .is-open-notebook .cake-enlarge::before { background: Canvas; border-color: ButtonText; box-shadow: none; }
 }
 @media print {
   .category-notebooks, .notebook-controls, .notebook-drag-edge, .notebook-static-back,

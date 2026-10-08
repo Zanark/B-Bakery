@@ -195,10 +195,10 @@ export function createBakeryScene() {
     // Adjacent boards share Y=0; there is no raised floor hidden beneath the furniture.
     for (let column = 0; column < 20; column++) {
       const x = -4.4 + column * 0.44;
-      const offset = column % 2 ? 1.1 : 0;
-      for (let row = -1; row < 5; row++) {
-        const z = Math.max(-7, -7 + row * 2.2 + offset);
-        const Z = Math.min(3, -7 + (row + 1) * 2.2 + offset);
+      const offset = column % 2 ? 0.275 : 0;
+      for (let row = -1; row < 19; row++) {
+        const z = Math.max(-7, -7 + row * 0.55 + offset);
+        const Z = Math.min(3, -7 + (row + 1) * 0.55 + offset);
         if (Z <= z) continue;
         const tint = 0.90 + ((column * 7 + row * 3 + 21) % 7) * 0.012;
         quad([[x, 0, z], [x + 0.44, 0, z], [x + 0.44, 0, Z], [x, 0, Z]],
@@ -312,9 +312,59 @@ export function createBakeryScene() {
     dome([x, y, z], 0.30 * size, 0.19 * size, MATERIALS.bread, WHITE, 16, [1.35, 0.68], yaw);
   }
 
+  function scoredLoaf(x, y, z, yaw, size, round = false) {
+    const rx = (round ? 0.22 : 0.34) * size, rz = 0.17 * size, h = 0.20 * size;
+    dome([x, y, z], 0.25 * size, h, MATERIALS.bread, [0.96, 0.91 + size * 0.035, 0.84, 1],
+      12, [rx / (0.25 * size), rz / (0.25 * size)], yaw);
+    const point = (u, v) => [x + u * Math.cos(yaw) - v * Math.sin(yaw),
+      y + h * Math.sqrt(Math.max(0, 1 - (u / rx) ** 2 - (v / rz) ** 2)),
+      z + u * Math.sin(yaw) + v * Math.cos(yaw)];
+    for (const offset of [-0.4, 0, 0.4]) {
+      for (let i = 0; i < 3; i++) {
+        const v = (i - 1.5) * rz * 0.32;
+        rod(point(offset * rx + v * 0.3, v), point(offset * rx + (v + rz * 0.32) * 0.3, v + rz * 0.32),
+          0.013 * size, MATERIALS.icing, [0.91, 0.81, 0.64, 1], 5);
+      }
+    }
+  }
+
+  function crescent(x, y, z, size, yaw) {
+    const rings = [];
+    for (let i = 0; i <= 8; i++) {
+      const t = i / 8, a = -1.05 + t * 2.1;
+      const r = (0.016 + Math.sin(t * Math.PI) * 0.067) * size;
+      const center = [Math.sin(a) * 0.26 * size, r, (Math.cos(a) - 0.4) * 0.20 * size];
+      const tangent = unit([Math.cos(a) * 0.26, 0, -Math.sin(a) * 0.20]);
+      const side = cross(tangent, [0, 1, 0]);
+      rings.push(Array.from({ length: 8 }, (_, j) => {
+        const angle = j * TAU / 8;
+        const p = add(center, add(scale(side, Math.cos(angle) * r), [0, Math.sin(angle) * r, 0]));
+        return [x + p[0] * Math.cos(yaw) - p[2] * Math.sin(yaw), y + p[1],
+          z + p[0] * Math.sin(yaw) + p[2] * Math.cos(yaw)];
+      }));
+    }
+    for (let i = 0; i < 8; i++) for (let j = 0; j < 8; j++) {
+      const k = (j + 1) % 8;
+      triangle([rings[i][j], rings[i + 1][j], rings[i + 1][k]], MATERIALS.bread,
+        i % 2 ? [1, 0.96, 0.88, 1] : [0.96, 0.90, 0.80, 1]);
+      triangle([rings[i][j], rings[i + 1][k], rings[i][k]], MATERIALS.bread);
+    }
+    for (const [index, reverse] of [[0, false], [8, true]]) {
+      const center = rings[index].reduce((sum, p) => add(sum, scale(p, 1 / 8)), [0, 0, 0]);
+      for (let i = 0; i < 8; i++) {
+        const points = [center, rings[index][i], rings[index][(i + 1) % 8]];
+        triangle(reverse ? points.reverse() : points, MATERIALS.bread);
+      }
+    }
+  }
+
   group('back-shelves', false, () => {
     for (const x of [-3.48, -1.04, 1.04, 3.36]) {
-      bevelBox([x, 1.07, -6.69], [x + 0.1, 3.31, -6.42], MATERIALS.darkWood, 0.018);
+      bevelBox([x, 1.07, -6.69], [x + 0.1, 3.94, -6.20], MATERIALS.darkWood, 0.018);
+    }
+    for (const [left, right] of [[-3.54, -0.9], [0.94, 3.54]]) {
+      box([left, 1.07, -6.735], [right, 3.94, -6.70], MATERIALS.darkWood, [0.80, 0.85, 0.91, 1]);
+      bevelBox([left - 0.03, 3.87, -6.76], [right + 0.03, 4.01, -6.13], MATERIALS.wood, 0.024);
     }
     for (const y of [1.55, 2.34, 3.10]) {
       for (const [left, right] of [[-3.54, -0.9], [0.94, 3.54]]) {
@@ -343,6 +393,34 @@ export function createBakeryScene() {
     loaf(2.03, 1.11, -6.22, -0.08);
   });
 
+  group('bread-alcove', false, () => {
+    box([-0.88, 1.07, -6.73], [0.88, 3.69, -6.68], MATERIALS.darkWood, [0.84, 0.89, 0.95, 1]);
+    for (const x of [-0.92, 0.83]) {
+      bevelBox([x, 1.07, -6.71], [x + 0.09, 3.76, -6.12], MATERIALS.wood, 0.02);
+    }
+    for (const y of [1.48, 2.10, 2.72, 3.34]) {
+      bevelBox([-0.94, y - 0.075, -6.73], [0.94, y, -6.10], MATERIALS.wood, 0.018);
+    }
+    bevelBox([-0.98, 3.69, -6.76], [0.98, 3.80, -6.08], MATERIALS.darkWood, 0.02);
+    group('stocked-original-breads', false, () => {
+      for (const [row, y] of [[0, 1.48], [1, 2.10], [2, 2.72], [3, 3.34]]) {
+        for (const [column, x] of [[0, -0.51], [1, 0.06], [2, 0.59]]) {
+          const size = 0.66 + ((row + column) % 3) * 0.065;
+          if (row % 2) crescent(x, y, -6.39, size * 1.13, -0.18 + column * 0.14);
+          else scoredLoaf(x, y, -6.40, -0.14 + column * 0.12, size, row === 2);
+        }
+      }
+      for (const [x, y, size] of [[-3.11, 3.10, 0.63], [-1.63, 3.10, 0.69],
+        [1.48, 3.10, 0.70], [2.19, 3.10, 0.61], [2.85, 2.34, 0.65]]) {
+        scoredLoaf(x, y, -6.38, 0.10, size);
+      }
+      for (const [x, y] of [[-2.39, 1.55], [-1.30, 1.55], [2.07, 1.55], [3.17, 1.55]]) {
+        dome([x, y, -6.33], 0.12, 0.13, MATERIALS.bread, [0.94, 0.87, 0.77, 1], 10);
+      }
+    });
+    landmarkPoints.breadAlcoveShelf = [0, 2.72, -6.3];
+  });
+
   group('counter-cabinet', true, () => {
     group('counter-footing', true, () => {
       box([-2.43, 0, -1.83], [2.43, 0.18, -0.51], MATERIALS.darkWood);
@@ -350,7 +428,7 @@ export function createBakeryScene() {
         for (const z of [-1.89, -0.63]) box([x, 0, z], [x + 0.18, 0.29, z + 0.18], MATERIALS.wood);
       }
     });
-    box([-2.51, 0.16, -1.88], [2.51, 1.04, -0.47], MATERIALS.greenPaint);
+    box([-2.51, 0.16, -1.88], [2.51, 1.04, -0.47], MATERIALS.wood, [0.94, 0.93, 0.91, 1]);
     for (const x of [-2.36, -1.18, 0, 1.18]) {
       bevelBox([x, 0.27, -0.485], [x + 1.08, 0.89, -0.425], MATERIALS.wood, 0.02);
       bevelBox([x + 0.055, 0.325, -0.43], [x + 1.025, 0.835, -0.398], MATERIALS.greenPaint, 0.008);

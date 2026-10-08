@@ -16,12 +16,17 @@ Visit the bakery: **https://zanark.github.io/WhiskAndCrumbs/**
 The padded bakery doorway waits for a click, tap or keyboard activation.
 The doors open, the hanging bell moves and a short local bell sound is attempted
 from that gesture. Transparent door windows reveal an original three-dimensional
-bakery with painterly materials, warm window light, wooden shelves and greenery.
+bakery with layered painted materials, richly stocked walnut shelves and greenery.
+Golden sunlight enters through the side window, with window-frame shadows,
+soft contact shading and warm reflected light baked from the room's geometry.
 The display cabinet reaches the floor; its cakes, shelves and shadows share one
 perspective. Mouse movement gives a much stronger look around the room while the
 outer storefront stays steady. Touch keeps a centered view, and static illustrations
 from the same room remain available without the graphics enhancement.
 This is decorative illustration, not a photograph of physical premises or an additional menu.
+A small cream-and-green **We are OPEN** plaque hangs behind the right door's
+glass, with a cord and a little heart. It moves with the door, not the room camera.
+It is a welcoming illustration, not a business-hours notice.
 A taller sloped striped canopy with a deeper hanging scalloped edge frames the entrance.
 The matching awning beneath the website header spans the full page width,
 without inset side margins.
@@ -60,7 +65,8 @@ and bows.
 The notepads have **extra-pale blush-pink covers** with deep-green lettering, so they stand
 apart from the cream website background. Inside pages stay cream, with fine sheet
 edges and paired top-wire rings, without a wide left-hand spine.
-Text-free pastel index tabs peek from the right side of each closed cover.
+Text-free pastel index tabs peek from the right side of each closed cover;
+their attachment rectangles no longer show over the pink paper.
 Click a category to zoom directly into its photos. **No notebook has a weight page.**
 The cake weights we offer are mentioned once, above the notebook covers:
 **1/2 KG, 1 KG, 1.5 KG, 2 KG, 2.5 KG and 3 KG**. This is information only;
@@ -74,9 +80,10 @@ On multi-page notebooks, use **Back / Next**, the arrow keys, or drag the bottom
 **Turn** control upward. Single-page notebooks do not show unnecessary page controls.
 **All categories** returns to the covers. **Enlarge** opens the full photograph;
 **Ask** opens the direct enquiry link. Full accessible action names are retained.
-The notebook actions use larger translucent sticky index tabs, with readable labels
-and generous click/tap areas. Book-level tabs attach at the paper edges and project
-outward into reserved space.
+The notebook's surrounding dialog is transparent: its visible paper ends before
+the exposed sticky tabs. **All categories**, page controls and each photo's
+**Enlarge / Ask** tabs project beyond that outline, with generous click/tap areas.
+Captions and action text are larger, with a clear book heading.
 Enlarged photographs also fit the screen; their titles and controls wrap without
 forcing sideways scrolling.
 
@@ -106,7 +113,9 @@ pointer-reactive cream effect has been removed and parked for a possible future 
 The notebooks support click, touch, Enter and Space, with visible keyboard focus.
 Reduced motion, forced colours, missing enhancements and no JavaScript show the
 complete category pages directly. An extreme screen/text-size combination also
-uses that readable full-page fallback rather than clipping content.
+uses that readable full-page fallback rather than clipping content. Small screens
+and enlarged text may need this fallback for the four-photo Decorated notebook;
+the page is never silently reduced to fewer photographs.
 Automated browser checks are not final visual
 or native-device approval.
 
@@ -127,12 +136,15 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **169 generated files in `site/`**, including the
+GitHub Pages publishes only the **170 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links six coordinated launch images to the website. Each
 uses real, complete desktop and mobile browser viewport captures, with original
 editorial device framing rather than cropped sections presented as screens.
 The device frames are illustrations, not photographs of physical hardware.
+The separate six-post **3:4 Instagram launch kit** uses phone-and-website
+compositions only on the first and last posts. Its middle four posts focus on
+genuine website features without phone mockups. Creating the kit does not post it.
 This overview uses
 the same public-ready product images. Authoring sources, original photos,
 the account export, masks, private reviews and detailed maintenance guides remain
