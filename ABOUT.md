@@ -127,7 +127,11 @@ The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
 GitHub Pages publishes only the **168 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
-The image-only README links those six images to the website. This overview uses
+The image-only README links six coordinated launch images to the website. Each
+uses real, complete desktop and mobile browser viewport captures, with original
+editorial device framing rather than cropped sections presented as screens.
+The device frames are illustrations, not photographs of physical hardware.
+This overview uses
 the same public-ready product images. Authoring sources, original photos,
 the account export, masks, private reviews and detailed maintenance guides remain
 local; the public snapshot is not their backup.
