@@ -120,6 +120,17 @@ Promise.all([
   .catch(error => {
     console.warn('The optional fabric awning is unavailable; keeping the original static artwork.', error);
   });
+if (!location.hash && !document.hidden && innerHeight > 450 &&
+    !matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(forced-colors: active)').matches) {
+  Promise.all([
+    import(versionedModule('./bakery-interior.mjs')),
+    import(versionedModule('./bakery-scene.mjs')),
+  ])
+    .then(([{ initBakeryInterior }, { createBakeryScene }]) => initBakeryInterior({ createBakeryScene }))
+    .catch(error => {
+      console.warn('The optional painted bakery room is unavailable; retaining its static illustration.', error);
+    });
+}
 Promise.all([
   import(versionedModule('./entrance.mjs')),
   import(versionedModule('./bell.mjs')),

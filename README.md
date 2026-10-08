@@ -1,6 +1,6 @@
 [![Whisk & Crumbs: a large wooden shop sign, navigation beneath and a full-width fabric canopy that responds to cursor and scroll.](site/assets/showcase/01-welcome.jpg)](https://zanark.github.io/WhiskAndCrumbs/)
 
-[![Step inside: a sloped fabric canopy and warm cake displays behind transparent bakery doors.](site/assets/showcase/02-bakery-entrance.jpg)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Step inside: an original painterly 3D bakery with a floor-supported display cabinet, window light and stronger look-around.](site/assets/showcase/02-bakery-entrance.jpg)](https://zanark.github.io/WhiskAndCrumbs/)
 
 [![Our little story: the original home-baking story with a warm, layered-paper recipe note.](site/assets/showcase/03-our-story.jpg)](https://zanark.github.io/WhiskAndCrumbs/#story)
 

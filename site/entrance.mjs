@@ -27,11 +27,15 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
   let finished = false;
   let bell;
   let fallbackTimer;
+  let enteredFromControl = false;
   const events = new AbortController();
   entrance.dataset.state = 'waiting';
 
   const finish = reason => {
     if (finished) return;
+    const focused = document.activeElement;
+    const returnFocus = focused === skip || focused === enter ||
+      (reason === 'finished' && enteredFromControl && focused === document.body);
     finished = true;
     clearTimeout(fallbackTimer);
     events.abort();
@@ -39,7 +43,7 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
     entrance.hidden = true;
     entrance.dataset.state = reason;
     if (entrance.dataset.audio === 'waiting') entrance.dataset.audio = 'skipped';
-    if (document.activeElement === skip || document.activeElement === enter) {
+    if (returnFocus) {
       document.getElementById('main')?.focus({ preventScroll: true });
     }
   };
@@ -47,6 +51,7 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
   const beginEntrance = event => {
     event?.preventDefault();
     if (finished || entrance.classList.contains('is-entering')) return;
+    enteredFromControl = document.activeElement === enter || document.activeElement === skip;
     entrance.classList.add('is-entering');
     entrance.dataset.state = 'opening';
     try {
@@ -75,14 +80,14 @@ export function initBakeryEntrance({ tryRingBell } = {}) {
   }, { signal: events.signal });
   entrance.addEventListener('pointermove', event => {
     if (entrance.classList.contains('is-entering') || !finePointer.matches || event.pointerType === 'touch') return;
-    const x = (Math.max(0, Math.min(1, event.clientX / window.innerWidth)) - .5) * 18;
-    const y = (Math.max(0, Math.min(1, event.clientY / window.innerHeight)) - .5) * 14;
-    entrance.style.setProperty('--parallax-x', `${x.toFixed(2)}px`);
-    entrance.style.setProperty('--parallax-y', `${y.toFixed(2)}px`);
+    const x = Math.max(-1, Math.min(1, (event.clientX / window.innerWidth - .5) * 3.2));
+    const y = Math.max(-1, Math.min(1, (event.clientY / window.innerHeight - .5) * 3.2));
+    entrance.style.setProperty('--look-x', x.toFixed(4));
+    entrance.style.setProperty('--look-y', y.toFixed(4));
   }, { passive: true, signal: events.signal });
   entrance.addEventListener('pointerleave', () => {
-    entrance.style.setProperty('--parallax-x', '0px');
-    entrance.style.setProperty('--parallax-y', '0px');
+    entrance.style.setProperty('--look-x', '0');
+    entrance.style.setProperty('--look-y', '0');
   }, { signal: events.signal });
   for (const preference of [reducedMotion, compactView, forcedColors]) {
     preference.addEventListener('change', event => {

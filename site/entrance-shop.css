@@ -11,12 +11,12 @@
 .entrance-bell { top: -42px; }
 .entrance-doorframe { isolation: isolate; background: #eadcc4; }
 .entrance-doorframe::before { content: none; }
-.entrance-room { position: absolute; inset: 0; overflow: hidden; background: #f2e6d0; border-radius: 3px 3px 0 0; }
+.entrance-room { --bakery-scene-ready: 1; position: absolute; inset: 0; overflow: hidden; background: #f2e6d0; border-radius: 3px 3px 0 0; }
 .entrance-room::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 45px rgb(91 64 34 / 16%); pointer-events: none; }
-.entrance-room-layer { position: absolute; inset: -5%; width: 110%; height: 110%; max-width: none; object-fit: cover; transition: transform .18s ease-out; pointer-events: none; }
-.entrance-room-back { transform: translate(calc(var(--parallax-x) * -1.6), calc(var(--parallax-y) * -1.05)); }
-.entrance-room-middle { transform: translate(calc(var(--parallax-x) * -.75), calc(var(--parallax-y) * -.45)); }
-.entrance-room-counter { transform: translate(calc(var(--parallax-x) * .38), calc(-14% + var(--parallax-y) * .22)); }
+.entrance-room-poster { display: block; position: absolute; inset: -5%; width: 110%; height: 110%; transform: translate(calc(var(--look-x, 0) * -3%), calc(var(--look-y, 0) * -3%)); transition: transform .12s ease-out; pointer-events: none; }
+.entrance-room-poster img { width: 100%; height: 100%; object-fit: cover; }
+.bakery-interior { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.entrance-room.is-3d-ready .entrance-room-poster { visibility: hidden; }
 .entrance-door { z-index: 2; overflow: hidden; background: transparent; border: 2px solid var(--green); }
 .entrance-glass { inset: 14px 12px 31%; display: flex; align-items: flex-end; justify-content: center; background-color: transparent; background-image: linear-gradient(125deg, rgb(255 250 241 / 18%), transparent 28% 45%, rgb(255 250 241 / 10%) 46% 50%, transparent 51%); border: 3px double #ded8ba; border-radius: 42px 42px 5px 5px; box-shadow: 0 0 0 420px var(--green), inset 0 0 12px rgb(255 250 241 / 12%); }
 .entrance-glass img, .entrance-glass svg { width: 34px; max-width: 20%; height: auto; margin-bottom: 13px; opacity: .7; }
@@ -28,7 +28,6 @@
   .entrance-awning { height: 57px; }
   .entrance-doorway { width: 94%; margin-top: 38px; }
   .entrance-glass { inset-inline: 7px; border-radius: 27px 27px 4px 4px; }
-  .entrance-room-layer { inset: -5% -7%; width: 114%; }
 }
 @media (max-height: 600px) {
   .entrance-sign img { height: 44px; }
@@ -38,11 +37,10 @@
   .entrance-bell-mount { top: -41px; }
 }
 @media (prefers-reduced-motion: reduce), (forced-colors: active), (hover: none) {
-  .entrance-room-layer { transform: none; transition: none; }
-  .entrance-room-counter { transform: translateY(-14%); }
+  .entrance-room-poster { transform: none; transition: none; }
 }
 @media print {
-  .site-awning { display: none; }
+  .site-awning, .bakery-entrance { display: none; }
 }
 @media (prefers-reduced-motion: reduce), (forced-colors: active) {
   .awning-fabric { display: none !important; }
