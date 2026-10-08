@@ -1,4 +1,4 @@
-[![Whisk & Crumbs: a large wooden shop sign with warm backlit lettering, navigation beneath and a full-width striped canopy.](site/assets/showcase/01-welcome.jpg)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Whisk & Crumbs: a large wooden shop sign, navigation beneath and a full-width fabric canopy that responds to cursor and scroll.](site/assets/showcase/01-welcome.jpg)](https://zanark.github.io/WhiskAndCrumbs/)
 
 [![Step inside: a sloped fabric canopy and warm cake displays behind transparent bakery doors.](site/assets/showcase/02-bakery-entrance.jpg)](https://zanark.github.io/WhiskAndCrumbs/)
 

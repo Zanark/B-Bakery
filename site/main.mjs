@@ -113,6 +113,14 @@ import(versionedModule('./notebooks.mjs'))
     console.warn('The optional category notebooks are unavailable; keeping all pages visible.', error);
   });
 Promise.all([
+  import(versionedModule('./awning.mjs')),
+  import(versionedModule('./awning-cloth.mjs')),
+])
+  .then(([{ initAwningFabric }, { createAwningCloth }]) => initAwningFabric({ createAwningCloth }))
+  .catch(error => {
+    console.warn('The optional fabric awning is unavailable; keeping the original static artwork.', error);
+  });
+Promise.all([
   import(versionedModule('./entrance.mjs')),
   import(versionedModule('./bell.mjs')),
 ])

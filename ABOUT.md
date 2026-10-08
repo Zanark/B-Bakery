@@ -22,6 +22,10 @@ decorative illustration, not a photograph of physical premises or an additional 
 A sloped striped canopy with a hanging scalloped edge frames the entrance.
 The matching awning beneath the website header spans the full page width,
 without inset side margins.
+On the main page, the fabric ripples locally near the cursor and flutters gently
+with scrolling. Its rails stay fixed and the cloth settles back into place.
+Reduced-motion settings and browsers without the enhancement keep the static
+canopy. This effect stays on the awning, not behind the reading text.
 A visible **Skip entrance** link always offers a direct route in.
 
 The website keeps a simple order: **Home, Our little story, Cakes we've made,
@@ -118,7 +122,7 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **162 generated files in `site/`**, including the
+GitHub Pages publishes only the **164 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links those six images to the website. This overview uses
 the same public-ready product images. Authoring sources, original photos,

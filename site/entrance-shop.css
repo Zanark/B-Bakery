@@ -1,5 +1,7 @@
-.site-awning { position: relative; z-index: 1; width: 100%; height: clamp(80px, 12vw, 180px); background: var(--cream); pointer-events: none; }
+.site-awning { --awning-fabric-ready: 1; position: relative; z-index: 1; width: 100%; height: clamp(80px, 12vw, 180px); background: var(--cream); pointer-events: none; }
 .site-awning img { width: 100%; max-width: none; height: 100%; object-fit: fill; }
+.awning-fabric { position: absolute; inset: -20px 0; width: 100%; height: calc(100% + 40px); pointer-events: none; }
+.site-awning.is-fabric-active > img { opacity: 0; }
 .entrance-sign { width: min(680px, 76%); padding: 9px 18px; border-width: 3px; border-radius: 13px; }
 .entrance-sign img { width: auto; max-width: 100%; height: clamp(44px, 9vh, 90px); margin-inline: auto; object-fit: contain; }
 .entrance-awning { width: 100%; height: clamp(44px, 9vh, 86px); margin-top: 12px; border: 0; border-radius: 0; background: none; position: relative; z-index: 4; }
@@ -41,4 +43,8 @@
 }
 @media print {
   .site-awning { display: none; }
+}
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
+  .awning-fabric { display: none !important; }
+  .site-awning.is-fabric-active > img { opacity: 1; }
 }
