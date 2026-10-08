@@ -3,7 +3,7 @@ export const CLOTH_ROWS = Object.freeze([
   0, 16, 34, 58, 84, 112, 138, 164, 182, 190, 206, 224, 244, 266, 286, 296, 300,
 ].map((value) => value / AWNING_GEOMETRY.height));
 
-const NEAR_DISTANCE = 72;
+const NEAR_DISTANCE = 112;
 const FIXED_STEP = 1 / 120;
 const MAX_SUBSTEPS = 8;
 const MAX_SCROLL_DELTA = 240;
@@ -36,12 +36,12 @@ export function createAwningCloth({ width, height, columns = 96 }) {
   const compliance = new Float32Array(CLOTH_ROWS.length);
   const scrollShape = new Float32Array(count);
   const pinned = new Uint8Array(CLOTH_ROWS.length);
-  const maxDisplacement = Math.min(14, Math.fround(height * 0.075));
+  const maxDisplacement = Math.min(26, Math.fround(height * 0.14));
   const maxVelocity = maxDisplacement * 12;
-  const radiusX = clamp(width * 0.1, 80, 130);
-  const radiusY = clamp(height * 0.42, 60, 85);
-  const horizontalSpring = clamp((150 / (width / columns)) ** 2, 24, 160);
-  const verticalSpring = 65;
+  const radiusX = clamp(width * 0.18, 120, 240);
+  const radiusY = clamp(height * 0.55, 80, 120);
+  const horizontalSpring = clamp((220 / (width / columns)) ** 2, 48, 720);
+  const verticalSpring = 95;
   const positionEpsilon = maxDisplacement * 0.0005;
   const velocityEpsilon = maxDisplacement * 0.005;
   const accelerationEpsilon = maxDisplacement * 0.04;
@@ -55,8 +55,8 @@ export function createAwningCloth({ width, height, columns = 96 }) {
     if (pinned[row]) continue;
     const y = CLOTH_ROWS[row] * AWNING_GEOMETRY.height;
     compliance[row] = row < 8
-      ? 0.55 * Math.sin(Math.PI * (y - AWNING_GEOMETRY.topRailBottom) / (AWNING_GEOMETRY.frontBarTop - AWNING_GEOMETRY.topRailBottom))
-      : 0.35 + 0.65 * (y - AWNING_GEOMETRY.frontBarBottom) / (AWNING_GEOMETRY.height - AWNING_GEOMETRY.frontBarBottom);
+      ? 0.85 * Math.sin(Math.PI * (y - AWNING_GEOMETRY.topRailBottom) / (AWNING_GEOMETRY.frontBarTop - AWNING_GEOMETRY.topRailBottom))
+      : 0.48 + 0.52 * (y - AWNING_GEOMETRY.frontBarBottom) / (AWNING_GEOMETRY.height - AWNING_GEOMETRY.frontBarBottom);
     for (let column = 1; column < columns; column++) {
       const x = column / columns;
       scrollShape[row * stride + column] = compliance[row] * Math.sin(Math.PI * x) *
@@ -81,7 +81,7 @@ export function createAwningCloth({ width, height, columns = 96 }) {
       return;
     }
     const kick = clamp(speed, 0, MAX_POINTER_SPEED) / MAX_POINTER_SPEED *
-      maxDisplacement * 3;
+      maxDisplacement * 6;
     if (pointer?.x === x && pointer?.y === y && kick === 0) return;
     pointer = { x, y };
     active = true;
@@ -95,7 +95,7 @@ export function createAwningCloth({ width, height, columns = 96 }) {
         const influence = distanceSquared < 4
           ? (Math.exp(-distanceSquared) - GAUSSIAN_EDGE) / (1 - GAUSSIAN_EDGE)
           : 0;
-        target[index] = maxDisplacement * 0.78 * compliance[row] * influence;
+        target[index] = maxDisplacement * 0.94 * compliance[row] * influence;
         velocity[index] = clamp(
           velocity[index] + kick * compliance[row] * influence, -maxVelocity, maxVelocity,
         );
@@ -122,8 +122,8 @@ export function createAwningCloth({ width, height, columns = 96 }) {
     let largestDisplacement = 0;
     for (let row = 0; row < CLOTH_ROWS.length; row++) {
       if (pinned[row]) continue;
-      const restSpring = row < 8 ? 64 : 32;
-      const damping = row < 8 ? 9 : 6.5;
+      const restSpring = row < 8 ? 46 : 22;
+      const damping = row < 8 ? 4.4 : 2.6;
       for (let column = 1; column < columns; column++) {
         const index = row * stride + column;
         const position = displacement[index];

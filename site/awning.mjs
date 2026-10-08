@@ -1,5 +1,5 @@
 const PADDING = 20;
-const NEAR_DISTANCE = 72;
+const NEAR_DISTANCE = 112;
 
 function createRenderer(canvas, image, width, height) {
   const gl = canvas.getContext('webgl', {
@@ -281,7 +281,7 @@ export async function initAwningFabric({ createAwningCloth }) {
       return;
     }
     const now = performance.now();
-    const speed = pointer ? Math.min(1800, Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y) /
+    const speed = pointer ? Math.min(2400, Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y) /
       Math.max(.016, (now - pointer.time) / 1000)) : 0;
     pointer = { x: event.clientX, y: event.clientY, time: now };
     model.setPointer(x, y, speed);
