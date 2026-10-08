@@ -19,15 +19,17 @@ from that gesture. Transparent illustrated door windows reveal a cosy, layered
 bakery scene that shifts gently with the mouse. Warm wooden shelves, trailing plants,
 soft pendant lights and two tiers of cakes fill the glass display. This is original
 decorative illustration, not a photograph of physical premises or an additional menu.
-A striped, scalloped canopy frames
-the entrance, with a matching awning beneath the website header.
+A sloped striped canopy with a hanging scalloped edge frames the entrance.
+The matching awning beneath the website header spans the full page width,
+without inset side margins.
 A visible **Skip entrance** link always offers a direct route in.
 
 The website keeps a simple order: **Home, Our little story, Cakes we've made,
 How to order**. Navigation stays visible on mobile.
 
-A sunlit illustrated window sits behind the real hero cake. Small timber edges,
-a layered-paper recipe note, a quiet linen surround beneath the notebooks and
+The real hero cake sits directly on the cream canvas, without an illustrated
+window behind it. Small timber edges, a layered-paper recipe note,
+a quiet linen surround beneath the notebooks and
 a kitchen shelf near the footer carry the warm bakery mood through the page.
 These details are static and decorative; reading areas and controls stay clear.
 
@@ -44,6 +46,7 @@ and bows.
 The notepads have **very light blush-pink covers** with deep-green lettering, so they stand
 apart from the cream website background. Inside pages stay cream, with fine sheet
 edges and paired top-wire rings, without a wide left-hand spine.
+Text-free pastel index tabs peek from the right side of each closed cover.
 Click a category to zoom directly into its photos. **No notebook has a weight page.**
 The cake weights we offer are mentioned once, above the notebook covers:
 **1/2 KG, 1 KG, 1.5 KG, 2 KG, 2.5 KG and 3 KG**. This is information only;
@@ -57,8 +60,9 @@ On multi-page notebooks, use **Back / Next**, the arrow keys, or drag the bottom
 **Turn** control upward. Single-page notebooks do not show unnecessary page controls.
 **All categories** returns to the covers. **Enlarge** opens the full photograph;
 **Ask** opens the direct enquiry link. Full accessible action names are retained.
-The notebook actions look like translucent sticky page tabs, with readable labels
-and generous click/tap areas.
+The notebook actions use larger translucent sticky index tabs, with readable labels
+and generous click/tap areas. Book-level tabs attach at the paper edges and project
+outward into reserved space.
 Enlarged photographs also fit the screen; their titles and controls wrap without
 forcing sideways scrolling.
 
@@ -109,7 +113,7 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **163 generated files in `site/`**, including the
+GitHub Pages publishes only the **162 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links those six images to the website. This overview uses
 the same public-ready product images. Authoring sources, original photos,

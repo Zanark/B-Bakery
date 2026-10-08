@@ -1,73 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="128" viewBox="0 0 1200 128">
-  <title>Decorative cream and light-pink shop awning</title>
-  <desc>An original shallow fabric canopy with sixteen converging panels, stitched seams, rounded scalloped flaps and a dark upper rail. No lettering or business claims.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="180" viewBox="0 0 1200 180" preserveAspectRatio="none">
+  <title>Decorative full-width striped bakery canopy</title>
+  <desc>Original cream and blush fabric slopes from a wall-mounted green rail to a projecting front bar, with stitched stripes and a hanging scalloped valance. The front spans the full artwork width without transparent side gutters. No reference imagery or lettering.</desc>
   <defs>
-    <linearGradient id="awning-light" x2="0" y2="1">
-      <stop stop-color="#ffffff" stop-opacity=".35"/>
-      <stop offset=".36" stop-color="#ffffff" stop-opacity=".08"/>
-      <stop offset="1" stop-color="#856548" stop-opacity=".14"/>
+    <linearGradient id="awning-slope-shade" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#654d3b" stop-opacity=".24"/>
+      <stop offset=".15" stop-color="#654d3b" stop-opacity=".09"/>
+      <stop offset=".45" stop-color="#ffffff" stop-opacity=".08"/>
+      <stop offset=".8" stop-color="#ffffff" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#654d3b" stop-opacity=".2"/>
     </linearGradient>
-    <linearGradient id="awning-flap" x2="0" y2="1">
-      <stop stop-color="#7d5a43" stop-opacity=".15"/>
-      <stop offset=".23" stop-color="#7d5a43" stop-opacity="0"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity=".13"/>
+    <linearGradient id="awning-valance-shade" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#654d3b" stop-opacity=".24"/>
+      <stop offset=".35" stop-color="#654d3b" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".16"/>
     </linearGradient>
-    <linearGradient id="awning-rail" x2="0" y2="1">
-      <stop stop-color="#5e6852"/>
-      <stop offset="1" stop-color="#34483a"/>
+    <linearGradient id="awning-rail" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#71816b"/>
+      <stop offset=".3" stop-color="#415743"/>
+      <stop offset="1" stop-color="#283e30"/>
     </linearGradient>
-    <clipPath id="awning-canopy">
-      <path d="M102 13H1098Q1104 13 1108 20L1180 76Q1186 81 1182 85H18Q14 81 20 76L92 20Q96 13 102 13Z"/>
+    <clipPath id="awning-slope-clip">
+      <path d="M12 13H1188L1194 78Q1195 102 1200 124H0Q5 102 6 78Z"/>
     </clipPath>
-    <clipPath id="awning-valance">
-      <path d="M16 83H1184V91Q1184 113 1147.5 113Q1111 113 1111 91Q1111 113 1074.5 113Q1038 113 1038 91Q1038 113 1001.5 113Q965 113 965 91Q965 113 928.5 113Q892 113 892 91Q892 113 855.5 113Q819 113 819 91Q819 113 782.5 113Q746 113 746 91Q746 113 709.5 113Q673 113 673 91Q673 113 636.5 113Q600 113 600 91Q600 113 563.5 113Q527 113 527 91Q527 113 490.5 113Q454 113 454 91Q454 113 417.5 113Q381 113 381 91Q381 113 344.5 113Q308 113 308 91Q308 113 271.5 113Q235 113 235 91Q235 113 198.5 113Q162 113 162 91Q162 113 125.5 113Q89 113 89 91Q89 113 52.5 113Q16 113 16 91Z"/>
-    </clipPath>
+    <pattern id="awning-hanging-panels" width="100" height="180" patternUnits="userSpaceOnUse">
+      <path d="M0 128H50V151Q50 174 25 174Q0 174 0 151Z" fill="#fffaf1"/>
+      <path d="M50 128H100V151Q100 174 75 174Q50 174 50 151Z" fill="#f7dbe4"/>
+      <path d="M0 132V151Q0 174 25 174Q50 174 50 151V132M50 151Q50 174 75 174Q100 174 100 151V132" fill="none" stroke="#a78171" stroke-width="1.2"/>
+      <path d="M4 150Q4 169 25 169Q46 169 46 150M54 150Q54 169 75 169Q96 169 96 150" fill="none" stroke="#b99b88" stroke-width=".8" opacity=".6"/>
+    </pattern>
+    <mask id="awning-valance-mask" maskUnits="userSpaceOnUse" x="0" y="128" width="1200" height="48">
+      <rect y="128" width="1200" height="48" fill="url(#awning-hanging-panels)"/>
+    </mask>
   </defs>
-  <path d="M24 89H1176V96Q1176 119 1143 119Q1111 119 1111 99Q1111 119 1075 119Q1038 119 1038 99Q1038 119 1002 119Q965 119 965 99Q965 119 929 119Q892 119 892 99Q892 119 856 119Q819 119 819 99Q819 119 783 119Q746 119 746 99Q746 119 710 119Q673 119 673 99Q673 119 637 119Q600 119 600 99Q600 119 564 119Q527 119 527 99Q527 119 491 119Q454 119 454 99Q454 119 418 119Q381 119 381 99Q381 119 345 119Q308 119 308 99Q308 119 272 119Q235 119 235 99Q235 119 199 119Q162 119 162 99Q162 119 126 119Q89 119 89 99Q89 119 57 119Q24 119 24 96Z" fill="#785a43" opacity=".12"/>
-  <path d="M25 79L100 25L106 74L28 93Q17 92 25 79Z" fill="#a57272" stroke="#916c60" stroke-width="2"/>
-  <path d="M1175 79L1100 25L1094 74L1172 93Q1183 92 1175 79Z" fill="#b87582" stroke="#916c60" stroke-width="2"/>
-  <g clip-path="url(#awning-canopy)">
-    <rect x="16" y="13" width="1168" height="73" fill="#fffaf1"/>
+  <g id="awning-sloped-fabric" clip-path="url(#awning-slope-clip)">
+    <rect y="13" width="1200" height="112" fill="#fffaf1"/>
     <g fill="#f7dbe4">
-      <path d="M162.5 13H225L162 85H89Z"/>
-      <path d="M287.5 13H350L308 85H235Z"/>
-      <path d="M412.5 13H475L454 85H381Z"/>
-      <path d="M537.5 13H600V85H527Z"/>
-      <path d="M662.5 13H725L746 85H673Z"/>
-      <path d="M787.5 13H850L892 85H819Z"/>
-      <path d="M912.5 13H975L1038 85H965Z"/>
-      <path d="M1037.5 13H1100L1184 85H1111Z"/>
+      <path d="M61 13H110L105 78Q104 102 100 124H50Q54 102 55 78Z"/>
+      <path d="M159 13H208L204 78Q203 102 200 124H150Q153 102 154 78Z"/>
+      <path d="M257 13H306L303 78Q302 102 300 124H250Q252 102 253 78Z"/>
+      <path d="M355 13H404L402 78Q401 102 400 124H350Q352 102 352 78Z"/>
+      <path d="M453 13H502L501 78Q500 102 500 124H450Q451 102 451 78Z"/>
+      <path d="M551 13H600V124H550Q550 102 550.5 78Z"/>
+      <path d="M649 13H698L699 78Q700 102 700 124H650Q650 102 649.5 78Z"/>
+      <path d="M747 13H796L798 78Q799 102 800 124H750Q749 102 749 78Z"/>
+      <path d="M845 13H894L897 78Q898 102 900 124H850Q848 102 848 78Z"/>
+      <path d="M943 13H992L996 78Q997 102 1000 124H950Q948 102 947 78Z"/>
+      <path d="M1041 13H1090L1095 78Q1096 102 1100 124H1050Q1047 102 1046 78Z"/>
+      <path d="M1139 13H1188L1194 78Q1195 102 1200 124H1150Q1146 102 1145 78Z"/>
     </g>
-    <path d="M100 13H1100L1184 85H16Z" fill="url(#awning-light)"/>
-    <g fill="none" stroke="#b59486" stroke-width="1.2" opacity=".58">
-      <path d="M162.5 17L89 82M225 17L162 82M287.5 17L235 82M350 17L308 82M412.5 17L381 82M475 17L454 82M537.5 17L527 82M600 17V82M662.5 17L673 82M725 17L746 82M787.5 17L819 82M850 17L892 82M912.5 17L965 82M975 17L1038 82M1037.5 17L1111 82"/>
+    <rect y="13" width="1200" height="112" fill="url(#awning-slope-shade)"/>
+    <g fill="none" stroke="#ad8b79" stroke-width=".8" opacity=".5">
+      <path d="M61 16L55 78Q54 102 50 122M110 16L105 78Q104 102 100 122M159 16L154 78Q153 102 150 122M208 16L204 78Q203 102 200 122"/>
+      <path d="M257 16L253 78Q252 102 250 122M306 16L303 78Q302 102 300 122M355 16L352 78Q352 102 350 122M404 16L402 78Q401 102 400 122"/>
+      <path d="M453 16L451 78Q451 102 450 122M502 16L501 78Q500 102 500 122M551 16L550.5 78Q550 102 550 122M600 16V122"/>
+      <path d="M649 16L649.5 78Q650 102 650 122M698 16L699 78Q700 102 700 122M747 16L749 78Q749 102 750 122M796 16L798 78Q799 102 800 122"/>
+      <path d="M845 16L848 78Q848 102 850 122M894 16L897 78Q898 102 900 122M943 16L947 78Q948 102 950 122M992 16L996 78Q997 102 1000 122"/>
+      <path d="M1041 16L1046 78Q1047 102 1050 122M1090 16L1095 78Q1096 102 1100 122M1139 16L1145 78Q1146 102 1150 122"/>
     </g>
-    <path d="M87 28Q600 37 1113 28" fill="none" stroke="#fffaf1" stroke-width="2" opacity=".55"/>
-    <path d="M41 65Q598 71 1158 65" fill="none" stroke="#fffaf1" stroke-width="2" opacity=".3"/>
+    <path d="M5 110H1195" fill="none" stroke="#fffaf1" stroke-width="2" opacity=".36"/>
   </g>
-  <path d="M99 15Q601 19 1101 15M22 78L96 19M1178 78L1104 19" fill="none" stroke="#9e7c69" stroke-width="2" stroke-linecap="round"/>
-  <g clip-path="url(#awning-valance)">
-    <rect x="16" y="82" width="1168" height="32" fill="#fffaf1"/>
-    <g fill="#f7dbe4">
-      <rect x="89" y="82" width="73" height="32"/>
-      <rect x="235" y="82" width="73" height="32"/>
-      <rect x="381" y="82" width="73" height="32"/>
-      <rect x="527" y="82" width="73" height="32"/>
-      <rect x="673" y="82" width="73" height="32"/>
-      <rect x="819" y="82" width="73" height="32"/>
-      <rect x="965" y="82" width="73" height="32"/>
-      <rect x="1111" y="82" width="73" height="32"/>
-    </g>
-    <rect x="16" y="83" width="1168" height="31" fill="url(#awning-flap)"/>
-    <g fill="none" stroke="#b59486" stroke-width="1.2" opacity=".5">
-      <path d="M89 84V91M162 84V91M235 84V91M308 84V91M381 84V91M454 84V91M527 84V91M600 84V91M673 84V91M746 84V91M819 84V91M892 84V91M965 84V91M1038 84V91M1111 84V91"/>
-    </g>
+  <g id="awning-hanging-valance">
+    <rect y="128" width="1200" height="48" fill="url(#awning-hanging-panels)"/>
+    <rect y="128" width="1200" height="48" fill="url(#awning-valance-shade)" mask="url(#awning-valance-mask)"/>
   </g>
-  <path d="M16 84V91Q16 113 52.5 113Q89 113 89 91Q89 113 125.5 113Q162 113 162 91Q162 113 198.5 113Q235 113 235 91Q235 113 271.5 113Q308 113 308 91Q308 113 344.5 113Q381 113 381 91Q381 113 417.5 113Q454 113 454 91Q454 113 490.5 113Q527 113 527 91Q527 113 563.5 113Q600 113 600 91Q600 113 636.5 113Q673 113 673 91Q673 113 709.5 113Q746 113 746 91Q746 113 782.5 113Q819 113 819 91Q819 113 855.5 113Q892 113 892 91Q892 113 928.5 113Q965 113 965 91Q965 113 1001.5 113Q1038 113 1038 91Q1038 113 1074.5 113Q1111 113 1111 91Q1111 113 1147.5 113Q1184 113 1184 91V84" fill="none" stroke="#ad8677" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M19 83Q599 89 1181 83" fill="none" stroke="#b87582" stroke-width="4" stroke-linecap="round"/>
-  <path d="M20 80Q600 86 1180 80" fill="none" stroke="#fffaf1" stroke-width="2" stroke-linecap="round" opacity=".9"/>
-  <rect x="88" y="5" width="1024" height="12" rx="6" fill="url(#awning-rail)"/>
-  <path d="M101 8H1099" fill="none" stroke="#a6ad8b" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
-  <circle cx="101" cy="11" r="2" fill="#cfb687"/>
-  <circle cx="1099" cy="11" r="2" fill="#cfb687"/>
+  <g id="awning-front-bar">
+    <rect y="122" width="1200" height="8" fill="#967861"/>
+    <rect y="122" width="1200" height="3" fill="#fff4df"/>
+    <path d="M0 129H1200" stroke="#6b5745" stroke-width="1.2" opacity=".5"/>
+  </g>
+  <g id="awning-wall-rail">
+    <rect width="1200" height="16" fill="url(#awning-rail)"/>
+    <path d="M0 3H1200" stroke="#b3bc9d" stroke-width="1.5" opacity=".65"/>
+    <path d="M0 15H1200" stroke="#263b2b" stroke-width="2"/>
+  </g>
 </svg>
