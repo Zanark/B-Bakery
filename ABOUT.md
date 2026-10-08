@@ -27,6 +27,11 @@ A visible **Skip entrance** link always offers a direct route in.
 The website keeps a simple order: **Home, Our little story, Cakes we've made,
 How to order**. Navigation stays visible on mobile.
 
+At the top, the original whisk mark and Courgette shop name form a larger,
+centered wooden sign with a warm, steady backlit glow. The three navigation
+links sit underneath on cream, above the full-width canopy. The glow does not
+flash or animate; the original font and logo artwork are retained.
+
 The real hero cake sits directly on the cream canvas, without an illustrated
 window behind it. Small timber edges, a layered-paper recipe note,
 a quiet linen surround beneath the notebooks and
