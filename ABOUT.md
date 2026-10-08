@@ -22,7 +22,7 @@ perspective. Mouse movement gives a much stronger look around the room while the
 outer storefront stays steady. Touch keeps a centered view, and static illustrations
 from the same room remain available without the graphics enhancement.
 This is decorative illustration, not a photograph of physical premises or an additional menu.
-A sloped striped canopy with a hanging scalloped edge frames the entrance.
+A taller sloped striped canopy with a deeper hanging scalloped edge frames the entrance.
 The matching awning beneath the website header spans the full page width,
 without inset side margins.
 On the main page, the fabric ripples locally near the cursor and flutters gently

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="180" viewBox="0 0 1200 180" preserveAspectRatio="none">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="240" viewBox="0 0 1200 240" preserveAspectRatio="none">
   <title>Decorative full-width striped bakery canopy</title>
-  <desc>Original cream and blush fabric slopes from a wall-mounted green rail to a projecting front bar, with stitched stripes and a hanging scalloped valance. The front spans the full artwork width without transparent side gutters. No reference imagery or lettering.</desc>
+  <desc>Original cream and blush fabric slopes from a wall-mounted green rail to a projecting front bar, with stitched stripes and an extended deep scalloped valance. The front spans the full artwork width without transparent side gutters. No reference imagery or lettering.</desc>
   <defs>
     <linearGradient id="awning-slope-shade" x1="0" y1="0" x2="0" y2="1">
       <stop stop-color="#654d3b" stop-opacity=".24"/>
@@ -22,14 +22,14 @@
     <clipPath id="awning-slope-clip">
       <path d="M12 13H1188L1194 78Q1195 102 1200 124H0Q5 102 6 78Z"/>
     </clipPath>
-    <pattern id="awning-hanging-panels" width="100" height="180" patternUnits="userSpaceOnUse">
-      <path d="M0 128H50V151Q50 174 25 174Q0 174 0 151Z" fill="#fffaf1"/>
-      <path d="M50 128H100V151Q100 174 75 174Q50 174 50 151Z" fill="#f7dbe4"/>
-      <path d="M0 132V151Q0 174 25 174Q50 174 50 151V132M50 151Q50 174 75 174Q100 174 100 151V132" fill="none" stroke="#a78171" stroke-width="1.2"/>
-      <path d="M4 150Q4 169 25 169Q46 169 46 150M54 150Q54 169 75 169Q96 169 96 150" fill="none" stroke="#b99b88" stroke-width=".8" opacity=".6"/>
+    <pattern id="awning-hanging-panels" width="100" height="240" patternUnits="userSpaceOnUse">
+      <path d="M0 128H50V181Q50 234 25 234Q0 234 0 181Z" fill="#fffaf1"/>
+      <path d="M50 128H100V181Q100 234 75 234Q50 234 50 181Z" fill="#f7dbe4"/>
+      <path d="M0 132V181Q0 234 25 234Q50 234 50 181V132M50 181Q50 234 75 234Q100 234 100 181V132" fill="none" stroke="#a78171" stroke-width="1.2"/>
+      <path d="M4 180Q4 229 25 229Q46 229 46 180M54 180Q54 229 75 229Q96 229 96 180" fill="none" stroke="#b99b88" stroke-width=".8" opacity=".6"/>
     </pattern>
-    <mask id="awning-valance-mask" maskUnits="userSpaceOnUse" x="0" y="128" width="1200" height="48">
-      <rect y="128" width="1200" height="48" fill="url(#awning-hanging-panels)"/>
+    <mask id="awning-valance-mask" maskUnits="userSpaceOnUse" x="0" y="128" width="1200" height="108">
+      <rect y="128" width="1200" height="108" fill="url(#awning-hanging-panels)"/>
     </mask>
   </defs>
   <g id="awning-sloped-fabric" clip-path="url(#awning-slope-clip)">
@@ -60,8 +60,8 @@
     <path d="M5 110H1195" fill="none" stroke="#fffaf1" stroke-width="2" opacity=".36"/>
   </g>
   <g id="awning-hanging-valance">
-    <rect y="128" width="1200" height="48" fill="url(#awning-hanging-panels)"/>
-    <rect y="128" width="1200" height="48" fill="url(#awning-valance-shade)" mask="url(#awning-valance-mask)"/>
+    <rect y="128" width="1200" height="108" fill="url(#awning-hanging-panels)"/>
+    <rect y="128" width="1200" height="108" fill="url(#awning-valance-shade)" mask="url(#awning-valance-mask)"/>
   </g>
   <g id="awning-front-bar">
     <rect y="122" width="1200" height="8" fill="#967861"/>

@@ -1,6 +1,7 @@
+export const AWNING_GEOMETRY = Object.freeze({ height: 240, topRailBottom: 16, frontBarTop: 122, frontBarBottom: 130, hemBottom: 234 });
 export const CLOTH_ROWS = Object.freeze([
-  0, 16, 28, 42, 58, 76, 94, 110, 122, 130, 142, 154, 166, 176, 180,
-].map((value) => value / 180));
+  0, 16, 28, 42, 58, 76, 94, 110, 122, 130, 146, 164, 184, 206, 226, 236, 240,
+].map((value) => value / AWNING_GEOMETRY.height));
 
 const NEAR_DISTANCE = 72;
 const FIXED_STEP = 1 / 120;
@@ -52,10 +53,10 @@ export function createAwningCloth({ width, height, columns = 96 }) {
     // Both edges of each rigid rail stay fixed, not just the topmost mesh row.
     pinned[row] = row === 0 || row === 1 || row === 8 || row === 9 ? 1 : 0;
     if (pinned[row]) continue;
-    const y = CLOTH_ROWS[row] * 180;
+    const y = CLOTH_ROWS[row] * AWNING_GEOMETRY.height;
     compliance[row] = row < 8
-      ? 0.55 * Math.sin(Math.PI * (y - 16) / 106)
-      : 0.35 + 0.65 * (y - 130) / 50;
+      ? 0.55 * Math.sin(Math.PI * (y - AWNING_GEOMETRY.topRailBottom) / (AWNING_GEOMETRY.frontBarTop - AWNING_GEOMETRY.topRailBottom))
+      : 0.35 + 0.65 * (y - AWNING_GEOMETRY.frontBarBottom) / (AWNING_GEOMETRY.height - AWNING_GEOMETRY.frontBarBottom);
     for (let column = 1; column < columns; column++) {
       const x = column / columns;
       scrollShape[row * stride + column] = compliance[row] * Math.sin(Math.PI * x) *
@@ -189,6 +190,7 @@ export function createAwningCloth({ width, height, columns = 96 }) {
   }
 
   return {
+    geometry: AWNING_GEOMETRY,
     columns,
     rows: CLOTH_ROWS,
     displacement,

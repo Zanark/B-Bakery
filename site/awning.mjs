@@ -164,6 +164,16 @@ export async function initAwningFabric({ createAwningCloth }) {
   canvas.setAttribute('aria-hidden', 'true');
   canvas.hidden = true;
   awning.append(canvas);
+  // Keep rigid rails in the native SVG paint path while the cloth mesh deforms.
+  const fixedRails = ['top', 'front'].map(position => {
+    const rail = document.createElement('div');
+    rail.className = `awning-fixed-rail awning-fixed-rail-${position}`;
+    rail.setAttribute('aria-hidden', 'true');
+    rail.style.backgroundImage = `url("${image.currentSrc}")`;
+    rail.hidden = true;
+    awning.append(rail);
+    return rail;
+  });
   let model, renderer, frame = 0, previousTime = 0, width = 0, height = 0, density = 0;
   let lastScroll = scrollY, pointer = null, disposed = false, failed = false, contextLost = false;
   const events = new AbortController();
@@ -183,6 +193,7 @@ export async function initAwningFabric({ createAwningCloth }) {
     model?.reset();
     pointer = null;
     canvas.hidden = true;
+    fixedRails.forEach(rail => { rail.hidden = true; });
     awning.classList.remove('is-fabric-active');
     awning.dataset.fabricState = state;
   };
@@ -210,6 +221,9 @@ export async function initAwningFabric({ createAwningCloth }) {
     if (reduced.matches || forced.matches || print.matches) return;
     try {
       model = createAwningCloth({ width, height });
+      const { geometry } = model;
+      fixedRails[0].style.clipPath = `inset(0 0 ${100 * (1 - geometry.topRailBottom / geometry.height)}% 0)`;
+      fixedRails[1].style.clipPath = `inset(${100 * geometry.frontBarTop / geometry.height}% 0 ${100 * (1 - geometry.frontBarBottom / geometry.height)}% 0)`;
       renderer = createRenderer(canvas, image, width, height);
       if (!renderer) {
         failed = true;
@@ -245,6 +259,7 @@ export async function initAwningFabric({ createAwningCloth }) {
   const wake = () => {
     if (!renderer || failed || contextLost || blocked() || !visible()) return;
     canvas.hidden = false;
+    fixedRails.forEach(rail => { rail.hidden = false; });
     awning.classList.add('is-fabric-active');
     if (!frame) frame = requestAnimationFrame(tick);
   };
@@ -331,5 +346,6 @@ export async function initAwningFabric({ createAwningCloth }) {
     overlays.disconnect();
     renderer?.dispose();
     canvas.remove();
+    fixedRails.forEach(rail => rail.remove());
   };
 }

@@ -1,6 +1,6 @@
-[![Our little corner is now online: real desktop and mobile views of the continuous wooden panel and raised, warmly backlit Whisk & Crumbs sign.](site/assets/showcase/01-welcome.jpg?v=145b7315a3f2)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Our little corner is now online: real desktop and mobile views of the raised wooden sign and taller cloth roof with its deep scalloped hem.](site/assets/showcase/01-welcome.jpg?v=dc25ecaf41d2)](https://zanark.github.io/WhiskAndCrumbs/)
 
-[![Come on in: complete desktop and mobile browser views of the illustrated bakery entrance, presented on a warm forest-green background.](site/assets/showcase/02-bakery-entrance.jpg?v=167119ccf961)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Come on in: complete desktop and mobile views of the bakery entrance beneath the taller striped canopy and longer hanging scallops.](site/assets/showcase/02-bakery-entrance.jpg?v=f54d5dead2d4)](https://zanark.github.io/WhiskAndCrumbs/)
 
 [![A little care in every layer: the genuine desktop story and mobile recipe-note view, with cream editorial typography and slim device framing.](site/assets/showcase/03-our-story.jpg?v=f5cb96f3bc5d)](https://zanark.github.io/WhiskAndCrumbs/#story)
 
