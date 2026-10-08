@@ -35,7 +35,9 @@ The website keeps a simple order: **Home, Our little story, Cakes we've made,
 How to order**. Navigation stays visible on mobile.
 
 At the top, the original whisk mark and Courgette shop name form a larger,
-centered wooden sign with a warm, steady backlit glow. The three navigation
+centered wooden sign with continuous visible grain, raised lettering and a warm,
+steady backlit glow. Distinct cast shadows give the name and logo depth without
+fading the wood behind them. The three navigation
 links sit underneath on cream, above the full-width canopy. The glow does not
 flash or animate; the original font and logo artwork are retained.
 
@@ -125,7 +127,7 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **168 generated files in `site/`**, including the
+GitHub Pages publishes only the **169 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links six coordinated launch images to the website. Each
 uses real, complete desktop and mobile browser viewport captures, with original

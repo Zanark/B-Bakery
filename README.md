@@ -1,4 +1,4 @@
-[![Our little corner is now online: real desktop and mobile views of the Whisk & Crumbs home page in an original cream launch composition.](site/assets/showcase/01-welcome.jpg?v=f85ddd402c08)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Our little corner is now online: real desktop and mobile views of the continuous wooden panel and raised, warmly backlit Whisk & Crumbs sign.](site/assets/showcase/01-welcome.jpg?v=145b7315a3f2)](https://zanark.github.io/WhiskAndCrumbs/)
 
 [![Come on in: complete desktop and mobile browser views of the illustrated bakery entrance, presented on a warm forest-green background.](site/assets/showcase/02-bakery-entrance.jpg?v=167119ccf961)](https://zanark.github.io/WhiskAndCrumbs/)
 
