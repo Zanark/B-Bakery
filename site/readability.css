@@ -25,5 +25,6 @@ body { font-size: var(--reading-size); line-height: 1.75; }
 .notebook-dialog .notebook-dialog-toolbar > p { font-size: 2.125rem; line-height: 1.2; }
 .category-notebook .cake-card-info h4,
 .category-notebook .notebook-sheet-copy h4, #photo-title { font-size: 1.75rem; line-height: 1.25; }
+.category-notebook .cake-card-info h4 { width: 100%; text-align: center; }
 .category-notebook [data-page-counter], .category-notebook .notebook-turn-label,
 .category-notebook .notebook-empty-note, #notebook-fit-note, #photo-counter { font-size: 1.125rem; line-height: 1.25; }

@@ -107,7 +107,7 @@ strips. Only the space outside its visible outline is transparent, keeping the
 tabs clearly outside the paper. **All categories**, page controls and each photo's
 **Enlarge / Order** tabs project beyond that outline, with generous click/tap areas.
 Cake names and category headings use larger type, with clearly labelled,
-generously sized controls.
+generously sized controls. Each cake name is centered beneath its photograph.
 Enlarged photographs also fit the screen; their titles and controls wrap without
 forcing sideways scrolling.
 
