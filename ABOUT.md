@@ -56,7 +56,9 @@ The matching awning beneath the website header spans the full page width,
 without inset side margins.
 On the main page, the fabric responds strongly near the cursor, sending broader
 waves across the cloth. The reaction lingers for a few seconds before settling,
-and scrolling also makes the fabric flutter. Its rails and metal supports stay fixed.
+while scrolling feeds much stronger, broad wind-like gusts. Those waves keep
+billowing after scrolling stops and ease back to stillness over roughly 20 seconds.
+Its rails and metal supports stay fixed.
 Reduced-motion settings and browsers without the enhancement keep the static
 canopy. This effect stays on the awning, not behind the reading text.
 A visible **Skip entrance** link always offers a direct route in.

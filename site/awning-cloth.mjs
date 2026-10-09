@@ -9,6 +9,7 @@ const MAX_SUBSTEPS = 8;
 const MAX_SCROLL_DELTA = 240;
 const MAX_POINTER_SPEED = 2400;
 const GAUSSIAN_EDGE = Math.exp(-4);
+const WIND_SECONDS = 18;
 
 function finiteNumber(value, name) {
   if (typeof value !== 'number') throw new TypeError(`${name} must be a number.`);
@@ -35,6 +36,7 @@ export function createAwningCloth({ width, height, columns = 96 }) {
   const target = new Float32Array(count);
   const compliance = new Float32Array(CLOTH_ROWS.length);
   const scrollShape = new Float32Array(count);
+  const windShape = new Float32Array(count);
   const pinned = new Uint8Array(CLOTH_ROWS.length);
   const maxDisplacement = Math.min(26, Math.fround(height * 0.14));
   const maxVelocity = maxDisplacement * 12;
@@ -48,6 +50,9 @@ export function createAwningCloth({ width, height, columns = 96 }) {
   let pointer = null;
   let active = false;
   let accumulatedTime = 0;
+  let wind = 0;
+  let windAge = WIND_SECONDS;
+  let windPhase = 0;
 
   for (let row = 0; row < CLOTH_ROWS.length; row++) {
     // Both edges of each rigid rail stay fixed, not just the topmost mesh row.
@@ -59,6 +64,7 @@ export function createAwningCloth({ width, height, columns = 96 }) {
       : 0.48 + 0.52 * (y - AWNING_GEOMETRY.frontBarBottom) / (AWNING_GEOMETRY.height - AWNING_GEOMETRY.frontBarBottom);
     for (let column = 1; column < columns; column++) {
       const x = column / columns;
+      windShape[row * stride + column] = compliance[row] * Math.sin(Math.PI * x);
       scrollShape[row * stride + column] = compliance[row] * Math.sin(Math.PI * x) *
         (0.65 + 0.35 * Math.cos(4 * Math.PI * x + CLOTH_ROWS[row] * 3));
     }
@@ -106,8 +112,11 @@ export function createAwningCloth({ width, height, columns = 96 }) {
   function impulseScroll(deltaPx) {
     finiteNumber(deltaPx, 'scroll delta');
     if (deltaPx === 0) return;
-    const kick = clamp(deltaPx, -MAX_SCROLL_DELTA, MAX_SCROLL_DELTA) /
-      MAX_SCROLL_DELTA * maxDisplacement * 5;
+    const delta = clamp(deltaPx, -MAX_SCROLL_DELTA, MAX_SCROLL_DELTA);
+    if (wind === 0) windPhase = 0;
+    wind = Math.sign(delta) * Math.min(1, Math.abs(wind) + Math.abs(delta) / 80);
+    windAge = 0;
+    const kick = delta / MAX_SCROLL_DELTA * maxDisplacement * 12;
     for (let index = 0; index < count; index++) {
       velocity[index] = clamp(
         velocity[index] + kick * scrollShape[index], -maxVelocity, maxVelocity,
@@ -117,6 +126,14 @@ export function createAwningCloth({ width, height, columns = 96 }) {
   }
 
   function integrate() {
+    let pressure = 0;
+    if (wind !== 0) {
+      windAge = Math.min(WIND_SECONDS, windAge + FIXED_STEP);
+      windPhase += FIXED_STEP;
+      const fade = clamp((WIND_SECONDS - windAge) / 4, 0, 1);
+      pressure = wind * Math.exp(-windAge / 6) * fade * fade * (3 - 2 * fade) * maxDisplacement * 3.5;
+      if (windAge === WIND_SECONDS) wind = 0;
+    }
     let largestAcceleration = 0;
     let largestVelocity = 0;
     let largestDisplacement = 0;
@@ -130,7 +147,12 @@ export function createAwningCloth({ width, height, columns = 96 }) {
         const above = displacement[index - stride];
         // The valance hem is free: a missing lower neighbor contributes no spring.
         const below = row + 1 < CLOTH_ROWS.length ? displacement[index + stride] : position;
-        const acceleration = restSpring * (target[index] - position) +
+        // Travelling pressure keeps the cloth billowing after the scroll impulse ends.
+        const x = column / columns;
+        const gust = pressure === 0 ? 0 : pressure * windShape[index] *
+          (.72 * Math.sin(x * Math.PI * 2 - windPhase * 2.2 + CLOTH_ROWS[row] * .8) +
+           .28 * Math.sin(x * Math.PI * 4 + windPhase * 3.4 + CLOTH_ROWS[row] * 1.3));
+        const acceleration = restSpring * (target[index] + gust - position) +
           horizontalSpring * (displacement[index - 1] + displacement[index + 1] - 2 * position) +
           verticalSpring * (above + below - 2 * position) - damping * velocity[index];
         largestAcceleration = Math.max(largestAcceleration, Math.abs(acceleration));
@@ -157,7 +179,7 @@ export function createAwningCloth({ width, height, columns = 96 }) {
       }
     }
 
-    const settled = largestVelocity <= velocityEpsilon && (pointer
+    const settled = wind === 0 && largestVelocity <= velocityEpsilon && (pointer
       ? largestAcceleration <= accelerationEpsilon
       : largestDisplacement <= positionEpsilon);
     if (settled) {
@@ -165,6 +187,9 @@ export function createAwningCloth({ width, height, columns = 96 }) {
       if (!pointer) displacement.fill(0);
       active = false;
       accumulatedTime = 0;
+      wind = 0;
+      windAge = WIND_SECONDS;
+      windPhase = 0;
     }
   }
 
@@ -187,6 +212,9 @@ export function createAwningCloth({ width, height, columns = 96 }) {
     pointer = null;
     active = false;
     accumulatedTime = 0;
+    wind = 0;
+    windAge = WIND_SECONDS;
+    windPhase = 0;
   }
 
   return {
@@ -197,6 +225,7 @@ export function createAwningCloth({ width, height, columns = 96 }) {
     velocity,
     maxDisplacement,
     get hasPointer() { return pointer !== null; },
+    get hasWind() { return wind !== 0; },
     setPointer,
     clearPointer,
     impulseScroll,
