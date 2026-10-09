@@ -37,6 +37,9 @@ This is decorative illustration, not a photograph of physical premises or an add
 A small cream-and-green **We are OPEN** plaque hangs behind the right door's
 glass, with a small cord and brass details. It moves with the door, not the room camera.
 It is a welcoming illustration, not a business-hours notice.
+The original whisk and heart emblems glow as steady neon signs on the door glass.
+Bright ivory cores and small warm/rose halos move with the doors, beneath their
+reflections; the OPEN plaque stays unlit. There is no flicker or additional sound.
 A longer sloping canopy with forty narrower reddish-pink and cream stripes frames
 the entrance. Each stripe ends in one small semicircular scallop of the same
 width, with a longer straight hanging section above it. The sloped fabric reaches both outer
@@ -105,6 +108,10 @@ there are no per-photo Enlarge, Ask or Order buttons.
 On multi-page notebooks, use the **left/right arrow tags**, both attached to the
 **right side** of the book, or the keyboard arrow keys. The next-page tag also
 supports an optional upward drag. Single-page notebooks hide page controls.
+The sheet lifts bottom-to-top around the actual top spiral over about **1.8 seconds**,
+with perspective, changing paper highlights and moving contact/cast shadows.
+Previous lowers the sheet back down. There is no separate Turn button.
+Reduced-motion, forced-colour and static views keep the complete nonanimated pages.
 The top **Back** button returns to the category covers. Full accessible names
 distinguish it from the **Previous page** and **Next page** arrows.
 The notebook's cream paper and pastel tabs are opaque, including the attachment

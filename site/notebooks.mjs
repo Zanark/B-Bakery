@@ -27,6 +27,43 @@ export function dragCompletesTurn(distance, height) {
   return distance >= Math.min(180, Math.max(72, height * .25));
 }
 
+export const PAGE_TURN_MS = 1800;
+const TURN_STOPS = [[0, 0], [12, .14], [28, .28], [52, .48], [72, .66], [87, .8], [98, .88], [135, .96], [180, 1]];
+
+export function pageTurnFrames(from, to) {
+  if (![from, to].every(angle => Number.isFinite(angle) && angle >= 0 && angle <= 180) || from === to) {
+    throw new RangeError('A paper turn needs distinct angles between zero and 180 degrees.');
+  }
+  const phase = angle => {
+    const upper = TURN_STOPS.findIndex(([stop]) => stop >= angle);
+    if (upper === 0) return 0;
+    const [start, time] = TURN_STOPS[upper - 1], [end, next] = TURN_STOPS[upper];
+    return time + (next - time) * (angle - start) / (end - start);
+  };
+  const angles = [from, ...TURN_STOPS.map(([angle]) => angle).filter(angle =>
+    angle > Math.min(from, to) && angle < Math.max(from, to)), to].sort((a, b) => from < to ? a - b : b - a);
+  return angles.map(angle => ({ angle, offset: (phase(angle) - phase(from)) / (phase(to) - phase(from)) }));
+}
+
+export function paperTurnPose(angle, height) {
+  if (!Number.isFinite(angle) || angle < 0 || angle > 180 || !Number.isFinite(height) || height <= 0) {
+    throw new RangeError('A paper pose needs an angle from zero to 180 and positive height.');
+  }
+  const radians = angle * Math.PI / 180, lift = Math.sin(radians);
+  const face = Math.max(0, Math.min(1, (100 - angle) / 14));
+  const reach = Math.max(.015, Math.cos(radians) + .35 * lift);
+  return {
+    transform: `rotateX(${angle}deg)`,
+    cast: {
+      transform: `skewX(${Math.atan(.1 * lift / reach) * 180 / Math.PI}deg) scaleY(${reach})`,
+      filter: `blur(${1 + Math.min(18, height * .022) * lift}px)`,
+      opacity: .34 * lift * face,
+    },
+    contact: { opacity: .38 * lift * face },
+    sheen: { opacity: .65 * lift, backgroundPosition: `0% ${100 - Math.min(90, angle) / 90 * 100}%` },
+  };
+}
+
 export function initCategoryNotebooks() {
   const library = document.getElementById('cake-gallery');
   const overview = document.getElementById('category-notebooks');
@@ -69,6 +106,8 @@ export function initCategoryNotebooks() {
   let index = 0;
   let pending;
   let effect;
+  let turnEffects = [];
+  let turnArt;
   let timer;
   let zoom;
   let zoomTimer;
@@ -158,11 +197,15 @@ export function initCategoryNotebooks() {
   const finishTurn = (target, moveFocus = true) => {
     if (!active) return;
     clearTimeout(timer);
-    if (effect) {
-      effect.onfinish = effect.oncancel = null;
-      effect.cancel();
-      effect = undefined;
+    for (const animation of [effect, ...turnEffects].filter(Boolean)) {
+      animation.onfinish = animation.oncancel = null;
+      animation.cancel();
     }
+    effect = undefined;
+    turnEffects = [];
+    turnArt?.shadow.remove();
+    turnArt?.sheen.remove();
+    turnArt = undefined;
     const hadFocus = active.element.contains(document.activeElement);
     const gesture = drag;
     drag = undefined;
@@ -172,6 +215,8 @@ export function initCategoryNotebooks() {
     pending = undefined;
     index = target;
     active.stage.style.removeProperty('height');
+    active.stage.style.removeProperty('perspective');
+    active.stage.style.removeProperty('perspective-origin');
     active.element.dataset.turnState = 'idle';
     for (const [number, page] of active.pages.entries()) {
       page.classList.remove('is-turning-sheet');
@@ -205,24 +250,56 @@ export function initCategoryNotebooks() {
     turning.classList.add('is-turning-sheet');
     // The sheet starts below the heading; its hinge stays at the actual spiral slots.
     const bindingLine = active.binding.getBoundingClientRect().bottom - 8;
-    turning.style.transformOrigin = `center ${bindingLine - active.stage.getBoundingClientRect().top}px`;
+    const bounds = active.stage.getBoundingClientRect();
+    const paper = getComputedStyle(turning, '::before');
+    const hingeX = (bounds.width + parseFloat(paper.left) - parseFloat(paper.right)) / 2;
+    const hingeY = bindingLine - bounds.top;
+    turning.style.transformOrigin = `${hingeX}px ${hingeY}px`;
+    active.stage.style.perspectiveOrigin = `${hingeX}px ${hingeY}px`;
+    const span = height - hingeY, screenX = bounds.left + hingeX;
+    const expansion = Math.max(1.001, Math.min(
+      (screenX - 4) / hingeX, (innerWidth - 4 - screenX) / (bounds.width - hingeX)
+    ));
+    const bottomRoom = Math.max(1.001, (innerHeight - 4 - bindingLine) / span);
+    // Bound the projected sheet itself; never clip photographs or the outside tabs.
+    active.stage.style.perspective = `${Math.max(900, span * 4,
+      span * expansion / (expansion - 1), span / Math.sqrt(1 - 1 / bottomRoom ** 2))}px`;
+    const decoration = (className, parent) => {
+      const node = document.createElement('span');
+      node.className = className;
+      node.setAttribute('aria-hidden', 'true');
+      node.inert = true;
+      parent.append(node);
+      return node;
+    };
+    const shadow = decoration('notebook-turn-shadow', active.stage);
+    turnArt = { shadow, height,
+      cast: decoration('notebook-turn-cast', shadow),
+      contact: decoration('notebook-turn-contact', shadow),
+      sheen: decoration('notebook-turn-sheen', turning) };
     pending = target;
     active.element.dataset.turnState = 'turning';
     return turning;
   };
   const animateTurn = (page, from, to, target) => {
-    if (wantsStatic() || typeof page.animate !== 'function') {
+    if (from === to || wantsStatic() || typeof page.animate !== 'function') {
       finishTurn(target);
       return;
     }
     try {
-      effect = page.animate([
-        { transform: `rotateX(${from}deg)` },
-        { transform: `rotateX(${to}deg)` },
-      ], { duration: Math.max(180, 650 * Math.abs(to - from) / 180),
-        easing: 'cubic-bezier(.35, 0, .2, 1)', fill: 'both' });
+      const frames = pageTurnFrames(from, to).map(({ angle, offset }) => ({
+        ...paperTurnPose(angle, turnArt.height), offset,
+      }));
+      const duration = Math.max(360, PAGE_TURN_MS * Math.abs(to - from) / 180);
+      const options = { duration, easing: 'cubic-bezier(.4, 0, .6, 1)', fill: 'both' };
+      effect = page.animate(frames.map(({ transform, offset }) => ({ transform, offset })), options);
+      for (const name of ['cast', 'contact', 'sheen']) {
+        turnEffects.push(turnArt[name].animate(frames.map(frame => ({ ...frame[name], offset: frame.offset })), options));
+      }
+      const start = document.timeline.currentTime;
+      for (const animation of [effect, ...turnEffects]) animation.startTime = start;
       effect.onfinish = effect.oncancel = () => finishTurn(target);
-      timer = setTimeout(() => finishTurn(target), 1000);
+      timer = setTimeout(() => finishTurn(target), duration + 350);
     } catch (error) {
       console.warn('The notebook page could not animate; changing pages without motion.', error);
       finishTurn(target);
@@ -351,7 +428,9 @@ export function initCategoryNotebooks() {
       if (!drag.page) drag.page = prepareTurn(index + 1);
       book.element.dataset.turnState = 'dragging';
       drag.angle = Math.min(175, 180 * drag.distance / Math.max(180, drag.height * .55));
-      drag.page.style.transform = `rotateX(${drag.angle}deg)`;
+      const pose = paperTurnPose(drag.angle, turnArt.height);
+      drag.page.style.transform = pose.transform;
+      for (const name of ['cast', 'contact', 'sheen']) Object.assign(turnArt[name].style, pose[name]);
     });
     const finishDrag = (event, cancelled) => {
       if (!drag || drag.pointerId !== event.pointerId) return;

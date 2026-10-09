@@ -571,6 +571,7 @@ html:has(:target) .bakery-entrance { display: none; }
 .category-notebook :is(.notebook-static-back, .photo-link, .notebook-controls button):focus-visible,
 .notebook-dialog-toolbar button:focus-visible { outline-offset: 2px; }
 @media (forced-colors: active) {
+  .notebook-turn-shadow, .notebook-turn-sheen { display: none !important; }
   .notebook-cover-tab { background: Canvas; border-color: ButtonText; box-shadow: none; }
   .category-notebook .notebook-static-back,
   .category-notebook .notebook-controls button,
@@ -652,7 +653,13 @@ html:has(:target) .bakery-entrance { display: none; }
 .is-open-notebook .notebook-sheet { padding-inline: calc(var(--book-left-gutter) + var(--book-sheet-inset)) calc(var(--book-edge-gutter) + var(--book-sheet-inset)); background: transparent; }
 .is-open-notebook .notebook-sheet::before { content: ""; position: absolute; z-index: -1; inset: 0 var(--book-edge-gutter) var(--photo-tab-footer) var(--book-left-gutter); background: repeating-linear-gradient(0deg, transparent 0 31px, rgb(52 72 58 / 4%) 31px 32px), var(--cream); pointer-events: none; }
 .is-open-notebook .notebook-sheet.is-turning-sheet { box-shadow: none; }
-.is-open-notebook .notebook-sheet.is-turning-sheet::before { box-shadow: 0 12px 20px rgb(74 55 35 / 15%); }
+.is-open-notebook .notebook-sheet.is-turning-sheet::before { box-shadow: 0 1px 0 rgb(74 55 35 / 28%), inset 0 -2px 1px rgb(255 250 241 / 85%); }
+.notebook-turn-shadow, .notebook-turn-sheen { position: absolute; inset: 0 var(--book-edge-gutter) var(--photo-tab-footer) var(--book-left-gutter); pointer-events: none; }
+/* Only the decorative cast shadow is clipped to its receiving paper surface. */
+.notebook-turn-shadow { z-index: 2; overflow: clip; }
+.notebook-turn-cast { position: absolute; inset: 0; transform-origin: center top; background: linear-gradient(180deg, rgb(74 55 35 / 35%), rgb(74 55 35 / 85%)); opacity: 0; }
+.notebook-turn-contact { position: absolute; inset: 0 0 auto; height: 16px; background: linear-gradient(180deg, #4a3723, transparent); opacity: 0; }
+.notebook-turn-sheen { z-index: 4; background: linear-gradient(180deg, transparent 5%, rgb(74 55 35 / 8%) 34%, rgb(255 250 241 / 48%) 58%, rgb(74 55 35 / 20%) 80%, transparent); background-size: 100% 220%; opacity: 0; }
 .is-open-notebook .notebook-sheet:has(.cake-grid) { grid-template-rows: minmax(0, 1fr); padding-inline: 0; }
 .is-open-notebook .notebook-sheet:has(.cake-grid) > .notebook-sheet-copy { display: none; }
 .is-open-notebook .cake-grid { column-gap: 12px; padding-inline: calc(var(--book-left-gutter) + var(--book-sheet-inset)) calc(var(--book-edge-gutter) + var(--book-sheet-inset)); }
@@ -663,6 +670,7 @@ html:has(:target) .bakery-entrance { display: none; }
   .is-open-notebook .cake-grid { column-gap: 8px; }
 }
 @media print {
+  .notebook-turn-shadow, .notebook-turn-sheen { display: none !important; }
   .category-notebooks, .notebook-controls, .notebook-static-back,
   .notebook-dialog-toolbar, .notebook-keyboard-help { display: none !important; }
   #cake-gallery { display: block !important; max-height: none !important; overflow: visible !important; }
@@ -672,6 +680,7 @@ html:has(:target) .bakery-entrance { display: none; }
   body.has-notebook-dialog { overflow: visible; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .notebook-turn-shadow, .notebook-turn-sheen { display: none !important; }
   .bakery-entrance { display: none !important; }
   .notebook-page { transform: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
