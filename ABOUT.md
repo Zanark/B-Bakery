@@ -138,18 +138,20 @@ Image links also work without JavaScript. With enhancement, Enter and Space open
 the viewer; closing it returns focus to the selected image. Modified clicks keep
 the browser's normal image-link behavior.
 
-All six covers now use real, reviewed sticker derivatives. The twelve earlier
-examples are retained, with three new photograph records for Birthday Cakes,
-Tea cakes and Chocolates. The tea photograph contains **two cakes**; the cover
-count describes photos, not individual products. Black Forest remains on the
-Cream cover.
+All six covers use real, reviewed sticker derivatives. The catalogue contains
+**148 photographs**: **35 Birthday, 4 Tea, 32 Cream, 73 Decorated, 3 Doll and
+1 Chocolate assortment**. Earlier examples are retained alongside more reviewed
+past designs, without inventing flavours or prices.
+The Tea cover photograph contains **two cakes**; all counts describe photos,
+not individual products. Black Forest remains on the Cream cover. The Chocolate
+cover uses five individually scattered pieces while the full assortment stays inside.
 
 <p align="center">
   <img src="site/assets/stickers/pastel-celebration-cake-sticker-480.png" width="260" alt="The selected celebration cake with pink and blue piping and its original anniversary topper">
   <img src="site/assets/stickers/round-and-heart-tea-cakes-sticker-480.png" width="300" alt="The round and heart-shaped tea cakes together as a transparent sticker">
-  <img src="site/assets/stickers/assorted-moulded-chocolates-sticker-480.png" width="260" alt="The real assortment of moulded chocolates with the tray removed">
+  <img src="site/assets/stickers/chocolates-five-selected-20261009-480.png" width="260" alt="Five selected chocolates scattered individually: two flowers, two hearts and a spiral">
 </p>
-<p align="center"><em>The Birthday, Tea and Chocolate cover images. The celebration cake keeps its real anniversary topper; both tea cakes and the chocolates' reflective details are retained. Original photographs are unchanged.</em></p>
+<p align="center"><em>The Birthday, Tea and five-piece Chocolate covers. The celebration cake keeps its real anniversary topper; both tea cakes are retained. The full Chocolate assortment and original photographs remain available inside.</em></p>
 
 <p align="center">
   <img src="site/assets/stickers/rainbow-butterfly-cake-sticker-480.png" width="300" alt="A real cake with rainbow piping and a butterfly topper, presented as a transparent white-outlined sticker">
@@ -165,7 +167,7 @@ The notebooks support click, touch, Enter and Space, with visible keyboard focus
 Reduced motion, forced colours, missing enhancements and no JavaScript show the
 complete category pages directly. An extreme screen/text-size combination also
 uses that readable full-page fallback rather than clipping content. Small screens
-and enlarged text may need this fallback for the four-photo Decorated notebook;
+and enlarged text may need this fallback for four-photo notebook pages;
 the page is never silently reduced to fewer photographs.
 Automated browser checks are not final visual
 or native-device approval.
@@ -187,7 +189,7 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **175 generated files in `site/`**, including the
+GitHub Pages publishes only the **1,241 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links six coordinated launch images to the website. Each
 uses real, complete desktop and mobile browser viewport captures, with original
