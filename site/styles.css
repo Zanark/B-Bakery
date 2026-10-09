@@ -213,7 +213,7 @@ em { color: var(--accent); font-weight: inherit; font-style: normal; }
 .notebook-cover:nth-child(3n + 2) { --cover-angle: 1deg; }
 .notebook-cover:nth-child(3n) { --cover-angle: -.5deg; }
 .notebook-cover-tabs { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.notebook-cover-tab { position: absolute; top: var(--flag-top); left: 100%; width: var(--flag-out); height: var(--flag-height); border: 1px solid rgb(52 72 58 / 20%); border-radius: 0 2px 2px 0; background: rgb(var(--tab-color) / 96%); box-shadow: 1px 3px 3px rgb(52 72 58 / 15%), inset 0 1px 0 rgb(255 250 241 / 65%); pointer-events: none; }
+.notebook-cover-tab { position: absolute; top: var(--flag-top); left: 100%; width: var(--flag-out); height: var(--flag-height); border: 1px solid rgb(52 72 58 / 20%); border-radius: 0 2px 2px 0; background: rgb(var(--tab-color)); box-shadow: 1px 3px 3px rgb(52 72 58 / 15%), inset 0 1px 0 rgb(255 250 241 / 65%); pointer-events: none; }
 .notebook-cover-tab[data-tab-color="pink"] { --tab-color: var(--tab-pink); }
 .notebook-cover-tab[data-tab-color="butter"] { --tab-color: var(--tab-butter); }
 .notebook-cover-tab[data-tab-color="blue"] { --tab-color: var(--tab-blue); }
@@ -561,7 +561,7 @@ html:has(:target) .bakery-entrance { display: none; }
   min-height: 48px;
   border: 1px solid transparent;
   border-radius: 2px;
-  background: transparent;
+  background: rgb(var(--tab-color));
   color: var(--green);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -591,12 +591,8 @@ html:has(:target) .bakery-entrance { display: none; }
 .category-notebook .photo-link::after {
   box-sizing: border-box;
   border: 1px solid rgb(52 72 58 / 18%);
-  border-left-color: rgb(52 72 58 / 7%);
   border-radius: 2px;
-  background:
-    linear-gradient(var(--tab-direction, 90deg), transparent calc(var(--tab-attachment, 24px) - 1px), rgb(52 72 58 / 10%) var(--tab-attachment, 24px), rgb(255 255 255 / 55%) calc(var(--tab-attachment, 24px) + 1px), transparent calc(var(--tab-attachment, 24px) + 2px)),
-    linear-gradient(var(--tab-direction, 90deg), rgb(var(--tab-color) / 16%), rgb(var(--tab-color) / 28%) calc(var(--tab-attachment, 24px) - 8px), rgb(var(--tab-color) / 78%) calc(var(--tab-attachment, 24px) + 4px), rgb(var(--tab-color) / 94%) calc(var(--tab-attachment, 24px) + 16px));
-  background-color: var(--cream);
+  background: rgb(var(--tab-color));
   box-shadow: 1px 2px 2px rgb(52 72 58 / 10%), inset 0 1px 0 rgb(255 255 255 / 55%);
 }
 .category-notebook .photo-link::after { --tab-color: var(--tab-blue); width: fit-content; max-width: 100%; margin-left: auto; padding-inline: 4px; text-decoration: underline; text-underline-offset: 3px; }
@@ -615,6 +611,10 @@ html:has(:target) .bakery-entrance { display: none; }
 .notebook-dialog-toolbar button:focus-visible { outline-offset: 2px; }
 @media (forced-colors: active) {
   .notebook-cover-tab { background: Canvas; border-color: ButtonText; box-shadow: none; }
+  .category-notebook .cake-enquire,
+  .category-notebook .notebook-static-back,
+  .category-notebook .notebook-controls button,
+  .notebook-dialog-toolbar button { background: Canvas; }
   .category-notebook .cake-enquire::before,
   .category-notebook .notebook-static-back::before,
   .category-notebook .notebook-controls button::before,
@@ -732,14 +732,14 @@ html:has(:target) .bakery-entrance { display: none; }
   gap: 4px;
   border: 1px solid transparent;
   border-radius: 2px;
-  background: transparent;
+  background: rgb(var(--tab-color));
   color: var(--green);
   text-decoration: underline;
   text-underline-offset: 3px;
   --tab-attachment: 16px;
 }
 .is-open-notebook .cake-enlarge { --tab-color: var(--tab-blue); }
-.is-open-notebook .cake-enlarge::before { content: ""; position: absolute; z-index: -1; inset: 0; border: 1px solid rgb(52 72 58 / 18%); border-radius: 2px; background: linear-gradient(var(--tab-direction, 90deg), rgb(182 210 229 / 28%), rgb(182 210 229 / 94%) 32px), var(--cream); box-shadow: 1px 2px 2px rgb(52 72 58 / 10%); pointer-events: none; }
+.is-open-notebook .cake-enlarge::before { content: ""; position: absolute; z-index: -1; inset: 0; border: 1px solid rgb(52 72 58 / 18%); border-radius: 2px; background: rgb(var(--tab-color)); box-shadow: 1px 2px 2px rgb(52 72 58 / 10%); pointer-events: none; }
 .is-open-notebook .cake-enlarge:focus-visible { outline-offset: 2px; }
 .is-open-notebook .notebook-controls { padding-inline: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (min-width: 600px) and (max-height: 540px) {
@@ -757,6 +757,7 @@ html:has(:target) .bakery-entrance { display: none; }
   .is-open-notebook .notebook-controls button { width: 100%; min-width: 0; --tab-direction: 90deg; --tab-attachment: 16px; }
 }
 @media (forced-colors: active) {
+  .is-open-notebook .cake-card-actions > :is(.cake-enlarge, .cake-enquire) { background: Canvas; }
   .is-open-notebook .cake-enlarge::before { background: Canvas; border-color: ButtonText; box-shadow: none; }
 }
 @media print {
