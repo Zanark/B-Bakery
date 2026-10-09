@@ -72,10 +72,12 @@ export function initCategoryNotebooks() {
   const dialogTitle = document.getElementById('notebook-dialog-title');
   const closeButton = document.getElementById('notebook-close');
   if (![library, overview, dialog, mount, dialogTitle, closeButton].every(Boolean)) return;
+  const toolbar = dialogTitle.parentElement;
   const covers = [...overview.querySelectorAll('[data-open-notebook]')];
   const books = [...library.querySelectorAll('.category-notebook')].map(element => ({
     element,
     title: element.querySelector('.notebook-heading h3'),
+    heading: element.querySelector('.notebook-heading'),
     binding: element.querySelector('.spiral-binding'),
     pages: [...element.querySelectorAll('[data-notebook-page]')],
     stage: element.querySelector('.notebook-stage'),
@@ -87,7 +89,7 @@ export function initCategoryNotebooks() {
     dragButton: element.querySelector('[data-page-drag]'),
   }));
   if (!books.length || books.some(book => !book.pages.length ||
-      ![book.title, book.binding, book.stage, book.controls, book.previous, book.next, book.counter, book.announcement, book.dragButton].every(Boolean))) {
+      ![book.title, book.heading, book.binding, book.stage, book.controls, book.previous, book.next, book.counter, book.announcement, book.dragButton].every(Boolean))) {
     console.warn('The category notebook markup is incomplete; keeping every page visible.');
     return;
   }
@@ -131,8 +133,12 @@ export function initCategoryNotebooks() {
       const page = active.pages[index];
       const bounds = dialog.getBoundingClientRect();
       const content = [...page.querySelectorAll('img, h4, a, button'),
-        closeButton, ...active.controls.querySelectorAll('button, [data-page-counter]')].filter(node => node.getClientRects().length);
+        dialogTitle, active.binding, closeButton,
+        ...active.controls.querySelectorAll('button, [data-page-counter]')].filter(node => node.getClientRects().length);
       const problems = [];
+      if (dialogTitle.getBoundingClientRect().top < active.binding.getBoundingClientRect().bottom + 4) {
+        problems.push({ reason: 'notebook title overlaps the spiral binding' });
+      }
       for (const node of [dialog, active.stage, page, active.controls]) {
         if (node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1) {
           problems.push({ reason: 'content exceeds available space', element: node.className || node.id,
@@ -206,7 +212,7 @@ export function initCategoryNotebooks() {
     turnArt?.shadow.remove();
     turnArt?.sheen.remove();
     turnArt = undefined;
-    const hadFocus = active.element.contains(document.activeElement);
+    const hadFocus = active.element.contains(document.activeElement) && !toolbar.contains(document.activeElement);
     const gesture = drag;
     drag = undefined;
     if (gesture && active.dragButton.hasPointerCapture(gesture.pointerId)) {
@@ -320,6 +326,7 @@ export function initCategoryNotebooks() {
     active = undefined;
     book.controls.hidden = true;
     book.dragButton.hidden = true;
+    dialog.insertBefore(toolbar, mount);
     book.element.classList.remove('is-open-notebook');
     for (const page of book.pages) page.hidden = false;
     placeholder.replaceWith(book.element);
@@ -357,6 +364,7 @@ export function initCategoryNotebooks() {
     book.element.classList.add('is-open-notebook');
     book.controls.hidden = book.pages.length < 2;
     dialogTitle.textContent = book.title.textContent;
+    book.heading.prepend(toolbar);
     finishTurn(0, false);
     try {
       dialog.showModal();
@@ -475,6 +483,7 @@ export function initCategoryNotebooks() {
     const fitObserver = new ResizeObserver(scheduleFitCheck);
     fitObserver.observe(dialog);
     fitObserver.observe(closeButton);
+    fitObserver.observe(dialogTitle);
     for (const book of books) {
       for (const node of book.element.querySelectorAll('.cake-card-info, .notebook-sheet-copy, .notebook-controls')) {
         fitObserver.observe(node);

@@ -98,6 +98,8 @@ and enlarged photograph still show the original full assortment.
 The notepads have **extra-pale blush-pink covers** with deep-green lettering, so they stand
 apart from the cream website background. Inside pages stay cream, with fine sheet
 edges and paired top-wire rings, without a wide left-hand spine.
+The category title sits below the complete spiral in its own reserved space,
+so its paper backing cannot cover the wire loops.
 Text-free pastel index tabs peek from the right side of each closed cover;
 their attachment rectangles no longer show over the pink paper.
 Click a category to zoom directly into its photos. **No notebook has a weight page.**

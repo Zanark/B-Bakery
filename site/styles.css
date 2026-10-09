@@ -626,9 +626,9 @@ html:has(:target) .bakery-entrance { display: none; }
   --book-left-gutter: 0px;
   --book-sheet-inset: 16px;
   --photo-tab-footer: 0px;
-  --binding-gap: 24px;
-  gap: var(--binding-gap);
-  padding: 8px 8px 18px;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 0;
+  padding: 22px 8px 18px;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -636,17 +636,18 @@ html:has(:target) .bakery-entrance { display: none; }
   overflow: visible;
 }
 .notebook-dialog .notebook-dialog-toolbar {
-  display: grid;
-  grid-template-columns: var(--book-left-gutter) minmax(0, 1fr) var(--book-edge-gutter);
-  align-items: center;
-  gap: 0;
+  position: static;
+  display: contents;
   background: transparent;
   box-shadow: none;
 }
-.notebook-dialog-toolbar::before { content: ""; position: absolute; z-index: -1; inset: 0 var(--book-edge-gutter) calc(-1 * var(--binding-gap)) var(--book-left-gutter); background: var(--cream); pointer-events: none; }
-.notebook-dialog .notebook-dialog-toolbar > p { grid-column: 2; padding: 8px; }
-.notebook-dialog .notebook-dialog-toolbar button { grid-column: 3; grid-row: 1; width: calc(100% + 16px); max-width: none; margin: 0 0 0 -16px; padding: 8px 2px; --tab-attachment: 16px; }
-.is-open-notebook .notebook-heading { margin-inline: var(--book-left-gutter) var(--book-edge-gutter); }
+.notebook-dialog-toolbar::before { content: none; }
+.notebook-dialog .notebook-dialog-toolbar button { position: absolute; z-index: 8; top: 24px; right: 0; width: calc(var(--book-edge-gutter) + 16px); max-width: none; margin: 0; padding: 8px 2px; --tab-attachment: 16px; }
+.is-open-notebook .notebook-heading { margin-inline: var(--book-left-gutter) var(--book-edge-gutter); padding: 24px 8px 4px; }
+.is-open-notebook #notebook-dialog-title { min-width: 0; margin: 0; padding: 4px 0; font: 400 1.25rem/1.2 var(--script); overflow-wrap: anywhere; }
+/* Keep keyboard focus rings below the complete coil strip, too. */
+.is-open-notebook #notebook-dialog-title:focus-visible,
+.is-open-notebook .notebook-dialog-toolbar button:focus-visible { outline-offset: 0; }
 .is-open-notebook > .spiral-binding { left: calc(var(--book-left-gutter) + 10px); right: calc(var(--book-edge-gutter) + 10px); }
 .is-open-notebook .notebook-stage { position: relative; isolation: isolate; background: transparent; box-shadow: none; }
 .is-open-notebook .notebook-stage::before { content: ""; position: absolute; z-index: -1; inset: 0 var(--book-edge-gutter) var(--photo-tab-footer) var(--book-left-gutter); background: var(--cream); box-shadow: 0 2px 0 #c8bba7, 0 4px 0 var(--cream), 0 6px 0 #c8bba7, 0 9px 0 2px var(--green); pointer-events: none; }
@@ -666,7 +667,8 @@ html:has(:target) .bakery-entrance { display: none; }
 .is-open-notebook .cake-grid:has(> .cake-card:only-child) { grid-template-columns: minmax(0, 1fr); }
 .is-open-notebook .cake-card { position: relative; min-width: 0; min-height: 0; }
 @media (min-width: 600px) and (max-height: 540px) {
-  .notebook-dialog[open] { --binding-gap: 16px; padding-bottom: 12px; }
+  .notebook-dialog[open] { padding-bottom: 12px; }
+  .is-open-notebook #notebook-dialog-title { padding-block: 0; }
   .is-open-notebook .cake-grid { column-gap: 8px; }
 }
 @media print {
