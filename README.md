@@ -1,6 +1,6 @@
 [![Our little corner is now online: refreshed editorial artwork with larger supporting copy and genuine current desktop and mobile views of the wooden sign, navigation and supported rose-striped canopy.](site/assets/showcase/01-welcome.jpg?v=0737801810cc)](https://zanark.github.io/WhiskAndCrumbs/)
 
-[![Come on in: the current illustrated bakery entrance shown on desktop and mobile, with its complete building, supported rose canopy, wooden fascia and optional Phone tilt control.](site/assets/showcase/02-bakery-entrance.jpg?v=ae1f557079e9)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Come on in: the illustrated bakery entrance on desktop and mobile, with a level, pulled-back interior view, complete building, supported rose canopy and optional Phone tilt control.](site/assets/showcase/02-bakery-entrance.jpg?v=23d48d586cfb)](https://zanark.github.io/WhiskAndCrumbs/)
 
 [![A little care in every layer: current desktop story and mobile recipe-note views with larger readable supporting copy, cream editorial typography and slim device framing.](site/assets/showcase/03-our-story.jpg?v=dbf9a8d31a6a)](https://zanark.github.io/WhiskAndCrumbs/#story)
 

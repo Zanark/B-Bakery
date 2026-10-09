@@ -31,8 +31,8 @@ export function bakeryView(width, height, lookX = 0, lookY = 0) {
     throw new RangeError('Positive view dimensions and finite look coordinates required.');
   }
   const x = Math.max(-1, Math.min(1, lookX)), y = Math.max(-1, Math.min(1, lookY));
-  const eye = [x * 1.05, 2.4 - y * .22, 6.4];
-  const target = [x * 1.45, 1.25 - y * 1.05, -2.5];
+  const eye = [x * 1.3, 1.65 - y * .22, 8.4];
+  const target = [x * 1.8, 1.65 - y * 1.25, -2.5];
   const aspect = width / height;
   const fy = Math.min(1 / Math.tan(17 * Math.PI / 180),
     Math.max(aspect / Math.tan(Math.PI / 6), 1 / Math.tan(29 * Math.PI / 180)));

@@ -23,7 +23,8 @@ bakery with layered painted materials, richly stocked walnut shelves and greener
 Golden sunlight enters through the side window, with window-frame shadows,
 soft contact shading and warm reflected light baked from the room's geometry.
 The display cabinet reaches the floor; its cakes, shelves and shadows share one
-perspective. Mouse movement gives a much stronger look around the room while the
+perspective. The default viewpoint now looks straight ahead from eye level and
+sits farther back, rather than looking down over the counter. Mouse movement gives a strong look around the room while the
 outer storefront stays steady. Phones start with a centered view.
 On supported phones, tap **Phone tilt**, allow motion access if asked, and hold the
 phone comfortably while it calibrates. Gentle tilting then controls the same
