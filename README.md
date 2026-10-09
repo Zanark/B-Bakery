@@ -6,6 +6,6 @@
 
 [![Find your kind of cake: genuine pink-notebook views and readable headings on a single lightly frosted panel, with a unique clustered cream arrangement visible behind the glass.](site/assets/showcase/04-cake-notebooks.jpg?v=f8791960e3bc)](https://zanark.github.io/WhiskAndCrumbs/#cakes)
 
-[![Take a closer look: genuine four-photo notebooks with centered cake names and Enlarge and Order tabs, placed on lightly frosted glass above differently sized, irregular cream clusters.](site/assets/showcase/05-open-notebook.jpg?v=436f8a3dbff5)](https://zanark.github.io/WhiskAndCrumbs/#cakes)
+[![Take a closer look: genuine four-photo notebooks with centered cake names, a Back button to return to categories, and Enlarge and Order tabs, on lightly frosted glass above irregular cream clusters.](site/assets/showcase/05-open-notebook.jpg?v=b5cd53c2de50)](https://zanark.github.io/WhiskAndCrumbs/#cakes)
 
 [![Your next cake starts with hello: genuine desktop and mobile ordering views and sharp green copy on lightly frosted glass, with a separately oriented cream-cluster and droplet background.](site/assets/showcase/06-simple-ordering.jpg?v=efbcf27f804a)](https://zanark.github.io/WhiskAndCrumbs/#order)
