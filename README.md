@@ -1,6 +1,6 @@
-[![Our little corner is now online: current desktop and mobile views of the wooden sign and supported rose canopy, with one matching curved hem for each stripe.](site/assets/showcase/01-welcome.jpg?v=c9ba90c2bd82)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Our little corner is now online: current desktop and mobile views of the wooden sign and supported rose canopy, filled to both side edges with one matching curved hem for each stripe.](site/assets/showcase/01-welcome.jpg?v=ca27e907b83e7)](https://zanark.github.io/WhiskAndCrumbs/)
 
-[![Come on in: the illustrated bakery entrance on desktop and mobile, with a level interior view and evenly aligned rose-and-cream awning stripes and curved ends.](site/assets/showcase/02-bakery-entrance.jpg?v=e291b25949b6)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Come on in: the illustrated bakery entrance on desktop and mobile, with a level interior view and continuous rose-and-cream sloped fabric above evenly aligned stripes and curved ends.](site/assets/showcase/02-bakery-entrance.jpg?v=b8a66c52d7b4)](https://zanark.github.io/WhiskAndCrumbs/)
 
 [![A little care in every layer: current desktop story and mobile recipe-note views with larger readable supporting copy, cream editorial typography and slim device framing.](site/assets/showcase/03-our-story.jpg?v=dbf9a8d31a6a)](https://zanark.github.io/WhiskAndCrumbs/#story)
 

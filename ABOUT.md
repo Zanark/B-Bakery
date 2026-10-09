@@ -39,7 +39,8 @@ glass, with a small cord and brass details. It moves with the door, not the room
 It is a welcoming illustration, not a business-hours notice.
 A longer sloping canopy with forty narrower reddish-pink and cream stripes frames
 the entrance. Each stripe ends in one matching curved flap of exactly the same
-width, retaining the deep scalloped edge. Visible bolted wall brackets and
+width, retaining the deep scalloped edge. The sloped fabric reaches both outer
+edges without uncovered side strips. Visible bolted wall brackets and
 angled tension rods support the projecting front bar; they stay rigid while
 the cloth moves.
 Wide layouts have fixed display bays beside the paired doors. Narrow layouts keep
