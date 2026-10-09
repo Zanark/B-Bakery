@@ -1,11 +1,11 @@
-[![Our little corner is now online: genuine desktop and mobile views of the wooden bakery sign and supported rose canopy, surrounded by sculpted cream blobs in the editorial background.](site/assets/showcase/01-welcome.jpg?v=9370b86a1515)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Our little corner is now online: genuine desktop and mobile bakery views and crisp lettering on lightly frosted glass, above a unique arrangement of irregular cream clusters and small droplets.](site/assets/showcase/01-welcome.jpg?v=01c48b62c4e7)](https://zanark.github.io/WhiskAndCrumbs/)
 
-[![Come on in: the illustrated bakery entrance on desktop and mobile, with its level interior view and rose-and-cream canopy, framed by original cream blobs on a forest-green editorial background.](site/assets/showcase/02-bakery-entrance.jpg?v=5008dc130845)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Come on in: genuine desktop and mobile views of the illustrated bakery entrance on one lightly frosted panel, with an independently arranged creamy background of connected lobes and smaller droplets.](site/assets/showcase/02-bakery-entrance.jpg?v=973735d96d58)](https://zanark.github.io/WhiskAndCrumbs/)
 
-[![A little care in every layer: genuine desktop story and mobile recipe-note views, readable editorial copy and sculpted cream blobs around the unchanged website captures.](site/assets/showcase/03-our-story.jpg?v=92a0c84a1fd3)](https://zanark.github.io/WhiskAndCrumbs/#story)
+[![A little care in every layer: genuine story and recipe-note views with sharp green lettering on lightly frosted glass, above distinct irregular cream clusters and small droplets.](site/assets/showcase/03-our-story.jpg?v=6005ece5f787)](https://zanark.github.io/WhiskAndCrumbs/#story)
 
-[![Find your kind of cake: genuine views of the pink notebooks, larger category titles, real cake stickers and solid pastel tabs, surrounded by cream-blob editorial decoration.](site/assets/showcase/04-cake-notebooks.jpg?v=d36c0d293010)](https://zanark.github.io/WhiskAndCrumbs/#cakes)
+[![Find your kind of cake: genuine pink-notebook views and readable headings on a single lightly frosted panel, with a unique clustered cream arrangement visible behind the glass.](site/assets/showcase/04-cake-notebooks.jpg?v=f8791960e3bc)](https://zanark.github.io/WhiskAndCrumbs/#cakes)
 
-[![Take a closer look: complete desktop and mobile four-photo notebook views with centered cake names and opaque Enlarge and Order tabs, framed by softly lit cream blobs outside the website captures.](site/assets/showcase/05-open-notebook.jpg?v=4a16cb045333)](https://zanark.github.io/WhiskAndCrumbs/#cakes)
+[![Take a closer look: genuine four-photo notebooks with centered cake names and Enlarge and Order tabs, placed on lightly frosted glass above differently sized, irregular cream clusters.](site/assets/showcase/05-open-notebook.jpg?v=436f8a3dbff5)](https://zanark.github.io/WhiskAndCrumbs/#cakes)
 
-[![Your next cake starts with hello: genuine desktop and mobile ordering views, readable supporting copy and the website address on a forest-green composition with sculpted cream-blob accents.](site/assets/showcase/06-simple-ordering.jpg?v=11065b21ebe3)](https://zanark.github.io/WhiskAndCrumbs/#order)
+[![Your next cake starts with hello: genuine desktop and mobile ordering views and sharp green copy on lightly frosted glass, with a separately oriented cream-cluster and droplet background.](site/assets/showcase/06-simple-ordering.jpg?v=efbcf27f804a)](https://zanark.github.io/WhiskAndCrumbs/#order)

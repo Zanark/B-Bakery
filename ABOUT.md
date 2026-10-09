@@ -173,10 +173,15 @@ The refreshed editorial edition uses larger supporting copy, clearer branding
 and website-address placement, and more space for the complete feature views.
 Its six-part sequence introduces the website, entrance, story, collection, photo
 notebook and ordering, without changing the actual interface or product images.
-The current launch images add original, softly lit cream blobs to their editorial
-backgrounds. These are static artwork accents around the genuine website views,
-not a new background effect inside the live website. Text, branding and the
-captured interface remain unchanged; earlier launch editions are preserved.
+The current launch images place all foreground content on one lightly frosted
+glass panel, with only 8% tint. Behind it, each image has an independently arranged
+background of original irregular cream clusters and smaller droplets. Seeded
+Gaussian variation changes their positions, sizes, lobes and orientations.
+There are no text-shaped cutouts: the lettering stays sharp above the continuous
+glass. These are static launch-art accents, not a new effect inside the live
+website. The genuine website captures, wording, type sizes and foreground
+positions are preserved; the editorial lettering uses deep green on cream.
+Earlier launch editions remain available as history.
 This overview uses
 the same public-ready product images. Authoring sources, original photos,
 the account export, masks, private reviews and detailed maintenance guides remain
