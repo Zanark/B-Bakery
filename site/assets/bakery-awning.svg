@@ -1,15 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" preserveAspectRatio="none">
   <title>Original rose-pink narrow-striped bakery canopy</title>
-  <desc>40 alternating rose and cream stripes cover a projecting slope, filled to both side edges. The straight hanging fabric extends down to shallow, equally wide semicircular scallops, retaining the overall hem height. A separate static metal support layer attaches the wall rail to the front bar.</desc>
+  <desc>40 alternating rose and cream stripes cover a projecting roof and a shaded vertical front valance. Upper-left light catches the rounded front edge; a rear contact shadow recesses the roof and the projecting lip casts a soft shadow onto the hanging fabric. Shallow semicircular ends and the overall geometry are retained. Separate fixed supports cast consistent down-right shadows.</desc>
   <defs>
     <linearGradient id="awning-slope-shade" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#654d3b" stop-opacity=".24"/><stop offset=".15" stop-color="#654d3b" stop-opacity=".09"/>
-      <stop offset=".45" stop-color="#ffffff" stop-opacity=".08"/><stop offset=".8" stop-color="#ffffff" stop-opacity=".24"/>
-      <stop offset="1" stop-color="#654d3b" stop-opacity=".2"/>
+      <stop stop-color="#654d3b" stop-opacity=".18"/><stop offset=".18" stop-color="#654d3b" stop-opacity=".04"/>
+      <stop offset=".45" stop-color="#ffffff" stop-opacity=".08"/><stop offset=".85" stop-color="#ffffff" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".28"/>
     </linearGradient>
     <linearGradient id="awning-valance-shade" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#654d3b" stop-opacity=".24"/><stop offset=".35" stop-color="#654d3b" stop-opacity=".05"/>
-      <stop offset="1" stop-color="#ffffff" stop-opacity=".16"/>
+      <stop stop-color="#49382a" stop-opacity=".24"/><stop offset=".28" stop-color="#49382a" stop-opacity=".16"/>
+      <stop offset=".75" stop-color="#49382a" stop-opacity=".10"/><stop offset="1" stop-color="#49382a" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="awning-directional-light" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="180">
+      <stop stop-color="#fffaf1" stop-opacity=".08"/><stop offset=".5" stop-color="#fffaf1" stop-opacity="0"/>
+      <stop offset="1" stop-color="#49382a" stop-opacity=".055"/>
+    </linearGradient>
+    <linearGradient id="awning-rear-contact" gradientUnits="userSpaceOnUse" x1="0" y1="16" x2="0" y2="40">
+      <stop stop-color="#35271d" stop-opacity=".38"/><stop offset=".32" stop-color="#35271d" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#35271d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="awning-fold-light" gradientUnits="userSpaceOnUse" x1="0" y1="168" x2="0" y2="184">
+      <stop stop-color="#fffaf1" stop-opacity="0"/><stop offset=".72" stop-color="#fffaf1" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#fffaf1" stop-opacity=".12"/>
+    </linearGradient>
+    <linearGradient id="awning-lip-shadow" gradientUnits="userSpaceOnUse" x1="0" y1="190" x2="0" y2="217">
+      <stop stop-color="#35271d" stop-opacity=".40"/><stop offset=".18" stop-color="#35271d" stop-opacity=".24"/>
+      <stop offset=".6" stop-color="#35271d" stop-opacity=".065"/><stop offset="1" stop-color="#35271d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="awning-front-roll" gradientUnits="userSpaceOnUse" x1="0" y1="182" x2="0" y2="190">
+      <stop stop-color="#fff4df"/><stop offset=".18" stop-color="#f3dcc0"/>
+      <stop offset=".52" stop-color="#b59572"/><stop offset=".82" stop-color="#70553d"/><stop offset="1" stop-color="#483a2c"/>
     </linearGradient>
     <linearGradient id="awning-rail" x1="0" y1="0" x2="0" y2="1">
       <stop stop-color="#71816b"/><stop offset=".3" stop-color="#415743"/><stop offset="1" stop-color="#283e30"/>
@@ -33,17 +53,21 @@
     <rect y="13" width="1200" height="171" fill="#fffaf1"/>
     <g fill="#ce7183"><path d="M41.4 13H70.8L64.86 112.84Q60 160 60 184H30Q30 160 35.13 112.84Z"/><path d="M100.2 13H129.6L124.32 112.84Q120 160 120 184H90Q90 160 94.59 112.84Z"/><path d="M159 13H188.4L183.78 112.84Q180 160 180 184H150Q150 160 154.05 112.84Z"/><path d="M217.8 13H247.2L243.24 112.84Q240 160 240 184H210Q210 160 213.51 112.84Z"/><path d="M276.6 13H306L302.7 112.84Q300 160 300 184H270Q270 160 272.97 112.84Z"/><path d="M335.4 13H364.8L362.16 112.84Q360 160 360 184H330Q330 160 332.43 112.84Z"/><path d="M394.2 13H423.6L421.62 112.84Q420 160 420 184H390Q390 160 391.89 112.84Z"/><path d="M453 13H482.4L481.08 112.84Q480 160 480 184H450Q450 160 451.35 112.84Z"/><path d="M511.8 13H541.2L540.54 112.84Q540 160 540 184H510Q510 160 510.81 112.84Z"/><path d="M570.6 13H600L600 112.84Q600 160 600 184H570Q570 160 570.27 112.84Z"/><path d="M629.4 13H658.8L659.46 112.84Q660 160 660 184H630Q630 160 629.73 112.84Z"/><path d="M688.2 13H717.6L718.92 112.84Q720 160 720 184H690Q690 160 689.19 112.84Z"/><path d="M747 13H776.4L778.38 112.84Q780 160 780 184H750Q750 160 748.65 112.84Z"/><path d="M805.8 13H835.2L837.84 112.84Q840 160 840 184H810Q810 160 808.11 112.84Z"/><path d="M864.6 13H894L897.3 112.84Q900 160 900 184H870Q870 160 867.57 112.84Z"/><path d="M923.4 13H952.8L956.76 112.84Q960 160 960 184H930Q930 160 927.03 112.84Z"/><path d="M982.2 13H1011.6L1016.22 112.84Q1020 160 1020 184H990Q990 160 986.49 112.84Z"/><path d="M1041 13H1070.4L1075.68 112.84Q1080 160 1080 184H1050Q1050 160 1045.95 112.84Z"/><path d="M1099.8 13H1129.2L1135.14 112.84Q1140 160 1140 184H1110Q1110 160 1105.41 112.84Z"/><path d="M1158.6 13H1200L1200 112.84Q1200 160 1200 184H1170Q1170 160 1164.87 112.84Z"/></g>
     <rect y="13" width="1200" height="171" fill="url(#awning-slope-shade)"/>
+    <rect id="awning-slope-directional-light" y="13" width="1200" height="171" fill="url(#awning-directional-light)"/>
+    <rect id="awning-rear-contact-shadow" y="16" width="1200" height="24" fill="url(#awning-rear-contact)"/>
     <g fill="none" stroke="#986662" stroke-width=".7" opacity=".35"><path d="M41.4 13L35.13 112.84Q30 160 30 184"/><path d="M70.8 13L64.86 112.84Q60 160 60 184"/><path d="M100.2 13L94.59 112.84Q90 160 90 184"/><path d="M129.6 13L124.32 112.84Q120 160 120 184"/><path d="M159 13L154.05 112.84Q150 160 150 184"/><path d="M188.4 13L183.78 112.84Q180 160 180 184"/><path d="M217.8 13L213.51 112.84Q210 160 210 184"/><path d="M247.2 13L243.24 112.84Q240 160 240 184"/><path d="M276.6 13L272.97 112.84Q270 160 270 184"/><path d="M306 13L302.7 112.84Q300 160 300 184"/><path d="M335.4 13L332.43 112.84Q330 160 330 184"/><path d="M364.8 13L362.16 112.84Q360 160 360 184"/><path d="M394.2 13L391.89 112.84Q390 160 390 184"/><path d="M423.6 13L421.62 112.84Q420 160 420 184"/><path d="M453 13L451.35 112.84Q450 160 450 184"/><path d="M482.4 13L481.08 112.84Q480 160 480 184"/><path d="M511.8 13L510.81 112.84Q510 160 510 184"/><path d="M541.2 13L540.54 112.84Q540 160 540 184"/><path d="M570.6 13L570.27 112.84Q570 160 570 184"/><path d="M600 13L600 112.84Q600 160 600 184"/><path d="M629.4 13L629.73 112.84Q630 160 630 184"/><path d="M658.8 13L659.46 112.84Q660 160 660 184"/><path d="M688.2 13L689.19 112.84Q690 160 690 184"/><path d="M717.6 13L718.92 112.84Q720 160 720 184"/><path d="M747 13L748.65 112.84Q750 160 750 184"/><path d="M776.4 13L778.38 112.84Q780 160 780 184"/><path d="M805.8 13L808.11 112.84Q810 160 810 184"/><path d="M835.2 13L837.84 112.84Q840 160 840 184"/><path d="M864.6 13L867.57 112.84Q870 160 870 184"/><path d="M894 13L897.3 112.84Q900 160 900 184"/><path d="M923.4 13L927.03 112.84Q930 160 930 184"/><path d="M952.8 13L956.76 112.84Q960 160 960 184"/><path d="M982.2 13L986.49 112.84Q990 160 990 184"/><path d="M1011.6 13L1016.22 112.84Q1020 160 1020 184"/><path d="M1041 13L1045.95 112.84Q1050 160 1050 184"/><path d="M1070.4 13L1075.68 112.84Q1080 160 1080 184"/><path d="M1099.8 13L1105.41 112.84Q1110 160 1110 184"/><path d="M1129.2 13L1135.14 112.84Q1140 160 1140 184"/><path d="M1158.6 13L1164.87 112.84Q1170 160 1170 184"/></g>
-    <path d="M5 170H1195" fill="none" stroke="#fffaf1" stroke-width="2" opacity=".36"/>
+    <rect id="awning-rounded-fold-light" y="168" width="1200" height="16" fill="url(#awning-fold-light)"/>
   </g>
   <g id="awning-hanging-valance" data-scallop-count="40" data-curve-depth="15" data-straight-depth="91" mask="url(#awning-valance-mask)">
     <rect y="188" width="1200" height="108" fill="url(#awning-stripes)"/>
     <rect y="188" width="1200" height="108" fill="url(#awning-valance-shade)"/>
+    <rect id="awning-front-directional-light" y="188" width="1200" height="108" fill="url(#awning-directional-light)"/>
+    <rect id="awning-front-lip-shadow" y="190" width="1200" height="27" fill="url(#awning-lip-shadow)"/>
     <rect y="188" width="1200" height="108" fill="url(#awning-hem-stitch)"/>
   </g>
   <g id="awning-front-bar">
-    <rect y="182" width="1200" height="8" fill="#967861"/><rect y="182" width="1200" height="3" fill="#fff4df"/>
-    <path d="M0 189H1200" stroke="#6b5745" stroke-width="1.2" opacity=".5"/>
+    <rect y="182" width="1200" height="8" fill="url(#awning-front-roll)"/>
+    <path d="M0 182.7H1200" stroke="#fffaf1" stroke-width="1" opacity=".7"/>
   </g>
   <g id="awning-wall-rail">
     <rect width="1200" height="16" fill="url(#awning-rail)"/>

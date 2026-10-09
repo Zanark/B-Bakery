@@ -1,18 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" preserveAspectRatio="none">
   <title>Original fixed wall brackets and canopy tension rods</title>
-  <desc>Two bolted wall plates carry rigid angled tension rods above the cloth, connected to clamps on the projecting front bar. Hardware is separate from the flexible fabric and never deforms with it.</desc>
+  <desc>Two bolted wall plates carry rigid angled tension rods above the cloth, connected to clamps on the projecting front bar. Both rods cast soft down-right shadows from the same upper-left light. Hardware stays separate from the flexible fabric.</desc>
   <defs>
+    <filter id="awning-support-shadow-softness" filterUnits="userSpaceOnUse" x="0" y="0" width="1200" height="300" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.6"/>
+    </filter>
+    <clipPath id="awning-support-shadow-clip"><rect y="16" width="1200" height="174"/></clipPath>
     <g id="awning-tension-support">
-      <path d="M162 18 92 188" fill="none" stroke="#35291e" stroke-opacity=".22" stroke-width="9" stroke-linecap="round"/>
       <rect x="150" y="1" width="20" height="24" rx="2" fill="#34483a" stroke="#24392c" stroke-width="1.5"/>
       <path d="M160 16 90 186" fill="none" stroke="#263b2b" stroke-width="6" stroke-linecap="round"/>
-      <path d="M158.5 16 88.5 186" fill="none" stroke="#91a38a" stroke-width="1.4" stroke-linecap="round"/>
       <path d="M123 101 116.5 117" fill="none" stroke="#536850" stroke-width="9" stroke-linecap="round"/>
       <rect x="77" y="179" width="27" height="14" rx="2" fill="#34483a" stroke="#24392c" stroke-width="1.5"/>
       <path d="M79 182H102" stroke="#91a38a" stroke-width="1.4"/>
       <g fill="#d7b783" stroke="#6d583f" stroke-width=".8"><circle cx="160" cy="7" r="2.4"/><circle cx="160" cy="20" r="2.4"/><circle cx="90" cy="187" r="2.8"/></g>
     </g>
   </defs>
+  <g id="awning-support-cast-shadows" clip-path="url(#awning-support-shadow-clip)" filter="url(#awning-support-shadow-softness)" fill="none" stroke="#35271d" stroke-opacity=".27" stroke-width="7" stroke-linecap="round">
+    <path d="M162 18Q149 109 92 188"/>
+    <path d="M1042 18Q1099 109 1112 188"/>
+  </g>
   <g id="awning-support-left"><use href="#awning-tension-support"/></g>
   <g id="awning-support-right" transform="translate(1200 0) scale(-1 1)"><use href="#awning-tension-support"/></g>
+  <g id="awning-support-light-edges" fill="none" stroke="#91a38a" stroke-width="1.4" stroke-linecap="round">
+    <path d="M158.5 16 88.5 186"/><path d="M1038.5 16 1108.5 186"/>
+  </g>
 </svg>

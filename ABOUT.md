@@ -43,6 +43,9 @@ width, with a longer straight hanging section above it. The sloped fabric reache
 edges without uncovered side strips. Visible bolted wall brackets and
 angled tension rods support the projecting front bar; they stay rigid while
 the cloth moves.
+The roof catches upper-left light while the hanging front stays softly shaded.
+A rounded, highlighted edge and a shadow beneath the projecting lip separate
+the two surfaces; both support rods cast shadows in the same direction.
 Wide layouts have fixed display bays beside the paired doors. Narrow layouts keep
 the doorway and a separately composed upper floor, rather than squeezing all the
 wide-building details into the same space.
