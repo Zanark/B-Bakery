@@ -100,19 +100,24 @@ Notebook pages hold **four photos per page**, with fewer on the final page when
 necessary. Open notebooks fit the screen **without horizontal or vertical scrolling**: images
 and spacing adapt, with two-by-two pages on desktop/portrait phones and four
 across on short landscape screens. The page count is not reduced to fit.
-On multi-page notebooks, use **Back / Next**, the arrow keys, or drag the bottom
-**Turn** control upward. Single-page notebooks do not show unnecessary page controls.
-The top **Back** button returns to the category covers. **Enlarge** opens the full photograph;
-**Order** opens the direct contact link to start an order enquiry; it does not
-confirm an order. Full accessible action names are retained.
+Select any cake image to open its full photograph. This is a catalogue:
+there are no per-photo Enlarge, Ask or Order buttons.
+On multi-page notebooks, use the **left/right arrow tags**, both attached to the
+**right side** of the book, or the keyboard arrow keys. The next-page tag also
+supports an optional upward drag. Single-page notebooks hide page controls.
+The top **Back** button returns to the category covers. Full accessible names
+distinguish it from the **Previous page** and **Next page** arrows.
 The notebook's cream paper and pastel tabs are opaque, including the attachment
 strips. Only the space outside its visible outline is transparent, keeping the
-tabs clearly outside the paper. The category-return **Back** button, page controls and each photo's
-**Enlarge / Order** tabs project beyond that outline, with generous click/tap areas.
+tabs clearly outside the paper. The category-return **Back** button and both page
+arrows project beyond its right edge, with generous click/tap areas.
 Cake names and category headings use larger type, with clearly labelled,
 generously sized controls. Each cake name is centered beneath its photograph.
 Enlarged photographs also fit the screen; their titles and controls wrap without
 forcing sideways scrolling.
+Image links also work without JavaScript. With enhancement, Enter and Space open
+the viewer; closing it returns focus to the selected image. Modified clicks keep
+the browser's normal image-link behavior.
 
 All six covers now use real, reviewed sticker derivatives. The twelve earlier
 examples are retained, with three new photograph records for Birthday Cakes,

@@ -92,9 +92,9 @@ export function initCategoryNotebooks() {
       const page = active.pages[index];
       const bounds = dialog.getBoundingClientRect();
       const content = [...page.querySelectorAll('img, h4, a, button'),
-        closeButton, ...active.controls.querySelectorAll('button')].filter(node => node.getClientRects().length);
+        closeButton, ...active.controls.querySelectorAll('button, [data-page-counter]')].filter(node => node.getClientRects().length);
       const problems = [];
-      for (const node of [dialog, active.stage, page]) {
+      for (const node of [dialog, active.stage, page, active.controls]) {
         if (node.scrollHeight > node.clientHeight + 1 || node.scrollWidth > node.clientWidth + 1) {
           problems.push({ reason: 'content exceeds available space', element: node.className || node.id,
             available: [node.clientWidth, node.clientHeight], required: [node.scrollWidth, node.scrollHeight] });
@@ -327,8 +327,8 @@ export function initCategoryNotebooks() {
   }
   for (const book of books) {
     book.previous.addEventListener('click', () => { if (active === book) turn(-1); });
-    book.next.addEventListener('click', () => { if (active === book) turn(1); });
     const handle = book.dragButton;
+    if (book.next !== handle) book.next.addEventListener('click', () => { if (active === book) turn(1); });
     handle.addEventListener('click', event => {
       if (suppressClick) {
         event.preventDefault();
@@ -397,7 +397,7 @@ export function initCategoryNotebooks() {
     fitObserver.observe(dialog);
     fitObserver.observe(closeButton);
     for (const book of books) {
-      for (const node of book.element.querySelectorAll('.cake-card-info, .cake-card-actions, .notebook-sheet-copy, .notebook-controls')) {
+      for (const node of book.element.querySelectorAll('.cake-card-info, .notebook-sheet-copy, .notebook-controls')) {
         fitObserver.observe(node);
       }
     }

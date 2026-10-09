@@ -1,9 +1,9 @@
 /* Readability is part of the design, not an optional display mode. */
 :root { --reading-size: 1.125rem; --control-size: 1rem; }
 body { font-size: var(--reading-size); line-height: 1.75; }
-.button, #site-nav > a, .cake-enquire, .photo-dialog button,
+.button, #site-nav > a, .photo-dialog button,
 .site-footer a, .mobile-enquire, .story-copy .text-link, .notebook-controls button,
-.notebook-dialog-toolbar button, .notebook-drag-edge, .notebook-static-back {
+.notebook-dialog-toolbar button, .notebook-static-back {
   font-size: var(--control-size);
   min-height: 48px;
 }
@@ -16,15 +16,14 @@ body { font-size: var(--reading-size); line-height: 1.75; }
 .note-signature { font-size: 1.625rem; }
 .order-action > p.small-note { font-size: var(--control-size); }
 .order-layout > div > a:not(.button) { display: inline-flex; align-items: center; min-height: 48px; font-size: var(--control-size); }
-.category-notebook .cake-card-actions > :is(a, button),
 .category-notebook .notebook-controls button,
 .notebook-dialog .notebook-dialog-toolbar button,
 .photo-dialog button { font-size: 1.25rem; line-height: 1.25; }
-.category-notebook .photo-link::after { font-size: 1.25rem; line-height: 1.25; }
+.category-notebook .notebook-controls :is([data-page-previous], [data-page-next]) { font-size: 1.75rem; line-height: 1; }
 .notebook-cover h3, .category-notebook .notebook-heading h3 { font-size: 2.25rem; line-height: 1.2; }
 .notebook-dialog .notebook-dialog-toolbar > p { font-size: 2.125rem; line-height: 1.2; }
 .category-notebook .cake-card-info h4,
 .category-notebook .notebook-sheet-copy h4, #photo-title { font-size: 1.75rem; line-height: 1.25; }
 .category-notebook .cake-card-info h4 { width: 100%; text-align: center; }
-.category-notebook [data-page-counter], .category-notebook .notebook-turn-label,
+.category-notebook [data-page-counter],
 .category-notebook .notebook-empty-note, #notebook-fit-note, #photo-counter { font-size: 1.125rem; line-height: 1.25; }
