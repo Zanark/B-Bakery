@@ -163,6 +163,10 @@ The device frames are illustrations, not photographs of physical hardware.
 The separate six-post **3:4 Instagram launch kit** uses phone-and-website
 compositions only on the first and last posts. Its middle four posts focus on
 genuine website features without phone mockups. Creating the kit does not post it.
+The refreshed editorial edition uses larger supporting copy, clearer branding
+and website-address placement, and more space for the complete feature views.
+Its six-part sequence introduces the website, entrance, story, collection, photo
+notebook and ordering, without changing the actual interface or product images.
 This overview uses
 the same public-ready product images. Authoring sources, original photos,
 the account export, masks, private reviews and detailed maintenance guides remain
