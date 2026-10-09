@@ -111,6 +111,10 @@ and spacing adapt, with two-by-two pages on desktop/portrait phones and four
 across on short landscape screens. The page count is not reduced to fit.
 Select any cake image to open its full photograph. This is a catalogue:
 there are no per-photo Enlarge, Ask or Order buttons.
+
+Photo-frame cuts in the affected stickers are rounded inward. Their full photographs
+remain unchanged; no missing details have been reconstructed.
+
 On multi-page notebooks, use the **left/right arrow tags**, both attached to the
 **right side** of the book, or the keyboard arrow keys. The next-page tag also
 supports an optional upward drag. Single-page notebooks hide page controls.
