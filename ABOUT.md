@@ -100,11 +100,12 @@ across on short landscape screens. The page count is not reduced to fit.
 On multi-page notebooks, use **Back / Next**, the arrow keys, or drag the bottom
 **Turn** control upward. Single-page notebooks do not show unnecessary page controls.
 **All categories** returns to the covers. **Enlarge** opens the full photograph;
-**Ask** opens the direct enquiry link. Full accessible action names are retained.
+**Order** opens the direct contact link to start an order enquiry; it does not
+confirm an order. Full accessible action names are retained.
 The notebook's cream paper and pastel tabs are opaque, including the attachment
 strips. Only the space outside its visible outline is transparent, keeping the
 tabs clearly outside the paper. **All categories**, page controls and each photo's
-**Enlarge / Ask** tabs project beyond that outline, with generous click/tap areas.
+**Enlarge / Order** tabs project beyond that outline, with generous click/tap areas.
 Cake names and category headings use larger type, with clearly labelled,
 generously sized controls.
 Enlarged photographs also fit the screen; their titles and controls wrap without

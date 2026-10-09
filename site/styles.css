@@ -748,9 +748,10 @@ html:has(:target) .bakery-entrance { display: none; }
   .is-open-notebook:has(.notebook-controls:not([hidden])) .notebook-stage { padding-bottom: 0; }
   .is-open-notebook .cake-grid { column-gap: 4px; padding-inline: 4px calc(var(--book-edge-gutter) + 20px); }
   .is-open-notebook .cake-card { grid-template-rows: minmax(48px, 1fr) auto 56px; }
+  /* Use the existing column gap so Order fits without smaller text. */
   .is-open-notebook .cake-card-actions,
   .is-open-notebook .cake-card:nth-child(even) .cake-card-actions,
-  .is-open-notebook .cake-card:only-child .cake-card-actions { position: relative; top: auto; left: auto; right: auto; width: min(100%, 12rem); transform: none; align-self: end; grid-template-columns: minmax(0, 1fr) minmax(48px, .65fr); gap: 2px; --tab-direction: 180deg; }
+  .is-open-notebook .cake-card:only-child .cake-card-actions { position: relative; top: auto; left: auto; right: auto; width: min(calc(100% + 4px), 12rem); transform: none; align-self: end; grid-template-columns: minmax(0, 1fr) minmax(3.5rem, .65fr); gap: 0; --tab-direction: 180deg; }
   .is-open-notebook .cake-card-actions > :is(.cake-enlarge, .cake-enquire) { min-height: 56px; padding-inline: 2px; }
   .is-open-notebook .cake-enquire > span:last-child { display: none; }
   .is-open-notebook .notebook-controls { position: absolute; top: 20px; right: 0; width: calc(var(--book-edge-gutter) + 16px); grid-template-columns: minmax(0, 1fr); margin: 0; gap: 8px; padding: 0; }
