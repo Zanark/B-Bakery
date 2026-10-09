@@ -91,6 +91,10 @@ still follows as its own section.
 **Birthday Cakes, Tea cakes, Cream cakes, Decorated cakes, Doll cakes and Chocolates**.
 Each cover has its own category-themed sticker pair rather than repeated hearts
 and bows.
+
+The Chocolates cover uses five individually scattered chocolate pieces. The notebook
+and enlarged photograph still show the original full assortment.
+
 The notepads have **extra-pale blush-pink covers** with deep-green lettering, so they stand
 apart from the cream website background. Inside pages stay cream, with fine sheet
 edges and paired top-wire rings, without a wide left-hand spine.
