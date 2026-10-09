@@ -172,6 +172,10 @@ The refreshed editorial edition uses larger supporting copy, clearer branding
 and website-address placement, and more space for the complete feature views.
 Its six-part sequence introduces the website, entrance, story, collection, photo
 notebook and ordering, without changing the actual interface or product images.
+The current launch images add original, softly lit cream blobs to their editorial
+backgrounds. These are static artwork accents around the genuine website views,
+not a new background effect inside the live website. Text, branding and the
+captured interface remain unchanged; earlier launch editions are preserved.
 This overview uses
 the same public-ready product images. Authoring sources, original photos,
 the account export, masks, private reviews and detailed maintenance guides remain
