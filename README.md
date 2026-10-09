@@ -1,6 +1,6 @@
-[![Our little corner is now online: genuine desktop and mobile bakery views and crisp lettering on lightly frosted glass, above a unique arrangement of irregular cream clusters and small droplets.](site/assets/showcase/01-welcome.jpg?v=01c48b62c4e7)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Our little corner is now online: genuine bakery views with longer straight awning fabric and short rounded ends, framed by lightly frosted glass above unique cream clusters and droplets.](site/assets/showcase/01-welcome.jpg?v=388f410b94c4)](https://zanark.github.io/WhiskAndCrumbs/)
 
-[![Come on in: genuine desktop and mobile views of the illustrated bakery entrance on one lightly frosted panel, with an independently arranged creamy background of connected lobes and smaller droplets.](site/assets/showcase/02-bakery-entrance.jpg?v=973735d96d58)](https://zanark.github.io/WhiskAndCrumbs/)
+[![Come on in: genuine views of the illustrated bakery entrance with shallow semicircular awning ends and a longer straight valance, on lightly frosted glass above irregular cream clusters.](site/assets/showcase/02-bakery-entrance.jpg?v=650b73b2fdc2)](https://zanark.github.io/WhiskAndCrumbs/)
 
 [![A little care in every layer: genuine story and recipe-note views with sharp green lettering on lightly frosted glass, above distinct irregular cream clusters and small droplets.](site/assets/showcase/03-our-story.jpg?v=6005ece5f787)](https://zanark.github.io/WhiskAndCrumbs/#story)
 

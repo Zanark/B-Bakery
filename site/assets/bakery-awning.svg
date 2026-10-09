@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" preserveAspectRatio="none">
   <title>Original rose-pink narrow-striped bakery canopy</title>
-  <desc>40 alternating rose and cream stripes cover a longer projecting slope, filled to both side edges. Each stripe ends in one equally wide deep scallop, retaining the original hem depth. A separate static metal support layer attaches the wall rail to the front bar.</desc>
+  <desc>40 alternating rose and cream stripes cover a projecting slope, filled to both side edges. The straight hanging fabric extends down to shallow, equally wide semicircular scallops, retaining the overall hem height. A separate static metal support layer attaches the wall rail to the front bar.</desc>
   <defs>
     <linearGradient id="awning-slope-shade" x1="0" y1="0" x2="0" y2="1">
       <stop stop-color="#654d3b" stop-opacity=".24"/><stop offset=".15" stop-color="#654d3b" stop-opacity=".09"/>
@@ -19,14 +19,14 @@
       <rect width="30" height="300" fill="#fffaf1"/><rect x="30" width="30" height="300" fill="#ce7183"/>
     </pattern>
     <pattern id="awning-hanging-panels" width="30" height="300" patternUnits="userSpaceOnUse">
-      <path d="M0 188H30V241Q30 294 15 294Q0 294 0 241Z" fill="white"/>
+      <path d="M0 188H30V279A15 15 0 0 1 0 279Z" fill="white"/>
     </pattern>
     <mask id="awning-valance-mask" maskUnits="userSpaceOnUse" x="0" y="188" width="1200" height="108">
       <rect y="188" width="1200" height="108" fill="url(#awning-hanging-panels)"/>
     </mask>
     <pattern id="awning-hem-stitch" width="30" height="300" patternUnits="userSpaceOnUse">
-      <path d="M0 192V241Q0 294 15 294Q30 294 30 241V192" fill="none" stroke="#8e5d59" stroke-width="1.2"/>
-      <path d="M4 240Q4 289 15 289Q26 289 26 240" fill="none" stroke="#fffaf1" stroke-width=".8" opacity=".55"/>
+      <path d="M0 192V279A15 15 0 0 0 30 279V192" fill="none" stroke="#8e5d59" stroke-width="1.2"/>
+      <path d="M4 279A11 11 0 0 0 26 279" fill="none" stroke="#fffaf1" stroke-width=".8" opacity=".55"/>
     </pattern>
   </defs>
   <g id="awning-sloped-fabric" data-stripe-count="40" clip-path="url(#awning-slope-clip)">
@@ -36,7 +36,7 @@
     <g fill="none" stroke="#986662" stroke-width=".7" opacity=".35"><path d="M41.4 13L35.13 112.84Q30 160 30 184"/><path d="M70.8 13L64.86 112.84Q60 160 60 184"/><path d="M100.2 13L94.59 112.84Q90 160 90 184"/><path d="M129.6 13L124.32 112.84Q120 160 120 184"/><path d="M159 13L154.05 112.84Q150 160 150 184"/><path d="M188.4 13L183.78 112.84Q180 160 180 184"/><path d="M217.8 13L213.51 112.84Q210 160 210 184"/><path d="M247.2 13L243.24 112.84Q240 160 240 184"/><path d="M276.6 13L272.97 112.84Q270 160 270 184"/><path d="M306 13L302.7 112.84Q300 160 300 184"/><path d="M335.4 13L332.43 112.84Q330 160 330 184"/><path d="M364.8 13L362.16 112.84Q360 160 360 184"/><path d="M394.2 13L391.89 112.84Q390 160 390 184"/><path d="M423.6 13L421.62 112.84Q420 160 420 184"/><path d="M453 13L451.35 112.84Q450 160 450 184"/><path d="M482.4 13L481.08 112.84Q480 160 480 184"/><path d="M511.8 13L510.81 112.84Q510 160 510 184"/><path d="M541.2 13L540.54 112.84Q540 160 540 184"/><path d="M570.6 13L570.27 112.84Q570 160 570 184"/><path d="M600 13L600 112.84Q600 160 600 184"/><path d="M629.4 13L629.73 112.84Q630 160 630 184"/><path d="M658.8 13L659.46 112.84Q660 160 660 184"/><path d="M688.2 13L689.19 112.84Q690 160 690 184"/><path d="M717.6 13L718.92 112.84Q720 160 720 184"/><path d="M747 13L748.65 112.84Q750 160 750 184"/><path d="M776.4 13L778.38 112.84Q780 160 780 184"/><path d="M805.8 13L808.11 112.84Q810 160 810 184"/><path d="M835.2 13L837.84 112.84Q840 160 840 184"/><path d="M864.6 13L867.57 112.84Q870 160 870 184"/><path d="M894 13L897.3 112.84Q900 160 900 184"/><path d="M923.4 13L927.03 112.84Q930 160 930 184"/><path d="M952.8 13L956.76 112.84Q960 160 960 184"/><path d="M982.2 13L986.49 112.84Q990 160 990 184"/><path d="M1011.6 13L1016.22 112.84Q1020 160 1020 184"/><path d="M1041 13L1045.95 112.84Q1050 160 1050 184"/><path d="M1070.4 13L1075.68 112.84Q1080 160 1080 184"/><path d="M1099.8 13L1105.41 112.84Q1110 160 1110 184"/><path d="M1129.2 13L1135.14 112.84Q1140 160 1140 184"/><path d="M1158.6 13L1164.87 112.84Q1170 160 1170 184"/></g>
     <path d="M5 170H1195" fill="none" stroke="#fffaf1" stroke-width="2" opacity=".36"/>
   </g>
-  <g id="awning-hanging-valance" data-scallop-count="40" mask="url(#awning-valance-mask)">
+  <g id="awning-hanging-valance" data-scallop-count="40" data-curve-depth="15" data-straight-depth="91" mask="url(#awning-valance-mask)">
     <rect y="188" width="1200" height="108" fill="url(#awning-stripes)"/>
     <rect y="188" width="1200" height="108" fill="url(#awning-valance-shade)"/>
     <rect y="188" width="1200" height="108" fill="url(#awning-hem-stitch)"/>
