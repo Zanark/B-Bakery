@@ -1,5 +1,11 @@
 export const CREAM_FRAME_INTERVAL = 1000 / 30;
 export const CREAM_PIXEL_BUDGET = 2_000_000;
+export const CREAM_MOTION_MULTIPLIER = 2;
+
+export function creamSampleTime(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) throw new RangeError('Nonnegative finite cream motion time required.');
+  return seconds * CREAM_MOTION_MULTIPLIER;
+}
 
 export function creamOutputSize(width, height, requestedRatio, limit = 16384, viewport = [limit, limit]) {
   if (![width, height, requestedRatio, limit, ...viewport].every(value => Number.isFinite(value) && value > 0) ||
@@ -13,12 +19,20 @@ export function creamOutputSize(width, height, requestedRatio, limit = 16384, vi
 }
 
 export function creamLifecycle({ failed, lost, enabled = true, reduced, forced, printing, hidden,
-  blurred, pageHidden, entrance, dialog, paused }) {
+  pageHidden, entrance, paused }) {
   const reason = failed ? 'failed' : lost ? 'context-lost' : !enabled ? 'disabled' :
     reduced ? 'reduced-motion' : forced ? 'forced-colors' : printing ? 'print' :
-      pageHidden ? 'page-hidden' : hidden ? 'hidden' : blurred ? 'blurred' :
-        entrance ? 'entrance' : dialog ? 'dialog' : '';
+      pageHidden ? 'page-hidden' : hidden ? 'hidden' :
+        entrance ? 'entrance' : '';
   return { visible: !reason, animate: !reason && !paused, reason: reason || (paused ? 'paused' : 'moving') };
+}
+
+export function creamPauseShortcut(event) {
+  if (event.defaultPrevented || event.repeat || event.isComposing || !event.altKey || !event.shiftKey ||
+      event.ctrlKey || event.metaKey || event.key?.toLowerCase() !== 'p') return false;
+  const path = typeof event.composedPath === 'function' ? event.composedPath() : [event.target];
+  return !path.some(node => node?.isContentEditable ||
+    node?.closest?.('input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"]'));
 }
 
 export function creamElapsed(previous, now) {
@@ -184,8 +198,9 @@ async function initialize(layer, model) {
   const entrance = document.getElementById('bakery-entrance');
   const body = document.body;
   const revision = new URL(import.meta.url).searchParams.get('v') || 'unversioned';
-  let renderer, sources, recipe, output, frame, overlays, controlsObserver, stylesObserver;
+  let renderer, sources, recipe, output, frame, heartbeat, overlays, controlsObserver, stylesObserver;
   let width = 0, height = 0, ratio = 0, scoops = [], paintCount = 0, motionTime = 0, lastTime = 0;
+  let lastPaintTime = 0, clampedTime = 0;
   let paused = false, lost = false, failed = false, disposed = false, pageHidden = false, printEvent = false;
   let blurred = !document.hasFocus(), pointerPresent = false, dirty = true, refreshing = false;
   let cursor = { x: 0, y: 0 }, target = { ...cursor }, trail;
@@ -210,6 +225,8 @@ async function initialize(layer, model) {
   const stop = () => {
     if (frame !== undefined) cancelAnimationFrame(frame);
     frame = undefined;
+    clearInterval(heartbeat);
+    heartbeat = undefined;
     lastTime = 0;
     nativePointer();
   };
@@ -233,18 +250,20 @@ async function initialize(layer, model) {
     getComputedStyle(entrance).display !== 'none' && getComputedStyle(entrance).visibility !== 'hidden';
   const lifecycle = () => creamLifecycle({ failed: failed || disposed, lost,
     enabled: body.dataset.creamEffects === 'enabled', reduced: motion.matches, forced: forced.matches,
-    printing: printEvent || printing.matches, hidden: document.hidden, blurred, pageHidden,
-    entrance: entranceVisible(), dialog: !!document.querySelector('dialog[open]'), paused });
+    printing: printEvent || printing.matches, hidden: document.hidden, pageHidden,
+    entrance: entranceVisible(), paused });
+  const viewerOpen = () => !!document.querySelector('dialog[open]');
   const recoverFocus = () => {
-    if (blurred && !document.hidden && document.hasFocus()) { blurred = false; lastTime = 0; }
+    if (blurred && !document.hidden && document.hasFocus()) blurred = false;
   };
+  const pointerFocused = () => !blurred && document.hasFocus() && fine.matches && !viewerOpen();
   const stylesReady = () => getComputedStyle(layer).getPropertyValue('--cream-effect-ready').trim() === '1';
   const controlFits = () => {
     const bounds = button.getBoundingClientRect();
     const style = getComputedStyle(button);
     return style.display !== 'none' && style.visibility !== 'hidden' &&
-      bounds.width >= 48 && bounds.height >= 48 && bounds.left >= 0 && bounds.top >= 0 &&
-      bounds.right <= innerWidth + .5 && bounds.bottom <= innerHeight + .5 &&
+      bounds.width >= 48 && bounds.height >= 48 && bounds.left >= 0 &&
+      bounds.right <= innerWidth + .5 &&
       button.scrollWidth <= button.clientWidth + 1 && button.scrollHeight <= button.clientHeight + 1;
   };
   const resize = () => {
@@ -271,19 +290,33 @@ async function initialize(layer, model) {
       outputPixels: output.width * output.height, viewportWidth: width, viewportHeight: height });
   };
   const render = animate => {
-    const primitives = model.expandScoops(model.sampleScoops(scoops, motionTime, width, height));
+    const sampleTime = creamSampleTime(motionTime);
+    const primitives = model.expandScoops(model.sampleScoops(scoops, sampleTime, width, height));
     const painted = renderer.draw({ width, height, output, primitives, cursor, trail,
-      pointerActive: animate && fine.matches && pointerPresent });
+      pointerActive: animate && pointerFocused() && pointerPresent });
     // Never hide the native cursor before both GPU passes and the overlay copy succeed.
     pointerCanvas.hidden = !painted.pointerPainted;
     body.classList.toggle('cream-cursor-active', painted.pointerPainted);
     if (painted.pointerPainted) pointerCanvas.dataset.paintCount = String(Number(pointerCanvas.dataset.paintCount || 0) + 1);
-    setData({ paintCount: ++paintCount, motionTime: motionTime.toFixed(4), primitiveCount: primitives.length,
+    lastPaintTime = performance.now();
+    setData({ paintCount: ++paintCount, motionTime: motionTime.toFixed(4), sampleTime: sampleTime.toFixed(6),
+      lastPaintTime: lastPaintTime.toFixed(2), clampedTime: clampedTime.toFixed(4), primitiveCount: primitives.length,
       cursorRadius: painted.radius.toFixed(3), trailSegments: painted.segments, pointerActive: painted.pointerPainted });
     dirty = false;
   };
   const schedule = () => {
-    if (frame === undefined && !disposed && lifecycle().animate) frame = requestAnimationFrame(tick);
+    if (frame === undefined && !disposed && lifecycle().animate) {
+      frame = requestAnimationFrame(tick);
+      if (heartbeat === undefined) heartbeat = setInterval(() => {
+        if (!lifecycle().animate) { refresh(); return; }
+        // A scheduled animation is not proof of progress if the browser stops delivering frames.
+        if (performance.now() - lastPaintTime > 1500) {
+          pointerPresent = false;
+          nativePointer();
+          setData({ state: 'waiting-for-frame' });
+        }
+      }, 1000);
+    }
   };
   function tick(time) {
     frame = undefined;
@@ -293,8 +326,10 @@ async function initialize(layer, model) {
     try {
       resize();
       const elapsed = creamElapsed(lastTime, time);
+      if (lastTime) clampedTime += Math.max(0, time - lastTime - elapsed) / 1000;
       motionTime += elapsed / 1000;
-      if (pointerPresent && fine.matches) cursor = model.followPointer(cursor, target, elapsed);
+      if (!pointerFocused()) pointerPresent = false;
+      if (pointerPresent) cursor = model.followPointer(cursor, target, elapsed);
       trail = model.followTrail(trail, cursor, elapsed, model.cursorRadius(width, height));
       lastTime = time;
       render(true);
@@ -308,6 +343,9 @@ async function initialize(layer, model) {
     if (!state.visible) { hide(state.reason); return; }
     refreshing = true;
     try {
+      const viewer = viewerOpen();
+      setData({ viewerOpen: viewer });
+      if (viewer) { pointerPresent = false; nativePointer(); }
       if (!stylesReady()) throw new Error('Cream styles are unavailable.');
       if (!renderer) { renderer = createRenderer(canvas, pointerCanvas, model, sources); dirty = true; output = undefined; }
       resize();
@@ -316,11 +354,11 @@ async function initialize(layer, model) {
       button.setAttribute('aria-pressed', String(paused));
       const label = paused ? 'Resume cream motion' : 'Pause cream motion';
       if (button.textContent !== label) button.textContent = label;
-      // No motion is offered without an on-screen, readable way to pause it.
+      // The normal-flow footer control must fit its column, but need not be in the viewport.
       if (!controlFits()) { hide('control-fit'); return; }
       if (dirty) render(false);
       body.classList.add('has-cream-effects');
-      setData({ state: state.reason, paused });
+      setData({ state: state.animate ? (lastTime ? layer.dataset.state : 'scheduled') : state.reason, paused });
       if (state.animate) schedule();
       else stop();
     } catch (error) { fail(error); }
@@ -328,6 +366,13 @@ async function initialize(layer, model) {
   }
   const on = (node, type, handler, options = {}) =>
     node.addEventListener(type, handler, { ...options, signal: events.signal });
+  const togglePause = () => {
+    recoverFocus();
+    paused = !paused;
+    target = { ...cursor };
+    stop();
+    refresh();
+  };
   const dispose = () => {
     if (disposed) return;
     disposed = true;
@@ -339,7 +384,8 @@ async function initialize(layer, model) {
     renderer?.dispose();
     renderer = undefined;
   };
-  setData({ state: 'initializing', revision, paintCount: 0, motionTime: '0.0000', paused: false, error: '' });
+  setData({ state: 'initializing', revision, paintCount: 0, motionTime: '0.0000', sampleTime: '0.000000',
+    motionMultiplier: CREAM_MOTION_MULTIPLIER, lastPaintTime: 0, clampedTime: '0.0000', paused: false, error: '' });
   try {
     if (!canvas || !pointerCanvas || !control || !button) throw new Error('Cream enhancement markup is incomplete.');
     if (!model || !['createSceneRecipe', 'seedScoops', 'sampleScoops', 'expandScoops', 'followPointer',
@@ -355,16 +401,17 @@ async function initialize(layer, model) {
     setData({ sceneSeed: seed, groupCount: recipe.groupCount, dropletCount: recipe.dropletCount,
       scoopCount: recipe.clumps.length, seedCount: recipe.clumps.length,
       capacity: model.MAX_PRIMITIVES, primitiveCapacity: model.MAX_PRIMITIVES, logicalCapacity: model.MAX_SCOOPS });
-    on(button, 'click', () => {
-      recoverFocus();
-      paused = !paused;
-      target = { ...cursor };
-      stop();
-      refresh();
+    button.setAttribute('aria-keyshortcuts', 'Alt+Shift+P');
+    button.setAttribute('title', 'Pause or resume cream motion (Alt+Shift+P)');
+    on(button, 'click', togglePause);
+    on(window, 'keydown', event => {
+      if (!renderer || !lifecycle().visible || !creamPauseShortcut(event)) return;
+      event.preventDefault();
+      togglePause();
     });
     on(window, 'pointermove', event => {
       recoverFocus();
-      if (!lifecycle().animate || !fine.matches || event.pointerType !== 'mouse' || event.buttons) {
+      if (!lifecycle().animate || !pointerFocused() || event.pointerType !== 'mouse' || event.buttons) {
         pointerPresent = false; nativePointer(); refresh(); return;
       }
       target = { x: event.clientX, y: event.clientY };
@@ -375,12 +422,12 @@ async function initialize(layer, model) {
     on(window, 'pointerdown', () => { recoverFocus(); pointerPresent = false; nativePointer(); refresh(); }, { passive: true });
     on(document.documentElement, 'pointerleave', () => { pointerPresent = false; nativePointer(); }, { passive: true });
     on(window, 'pointercancel', () => { pointerPresent = false; nativePointer(); }, { passive: true });
-    on(window, 'blur', () => { blurred = true; hide('blurred'); });
+    on(window, 'blur', () => { blurred = true; pointerPresent = false; nativePointer(); refresh(); });
     on(window, 'focus', () => { recoverFocus(); refresh(); });
     on(document, 'focusin', () => { recoverFocus(); refresh(); });
     on(window, 'pagehide', () => { pageHidden = true; hide('page-hidden'); });
     on(window, 'pageshow', () => { pageHidden = false; recoverFocus(); refresh(); });
-    on(document, 'visibilitychange', () => { stop(); recoverFocus(); refresh(); });
+    on(document, 'visibilitychange', () => { recoverFocus(); refresh(); });
     on(window, 'beforeprint', () => { printEvent = true; refresh(); });
     on(window, 'afterprint', () => { printEvent = false; recoverFocus(); refresh(); });
     on(window, 'resize', refresh, { passive: true });

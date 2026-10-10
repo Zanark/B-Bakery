@@ -6,22 +6,37 @@
   pointer-events: none;
 }
 #cream-material { display: block; width: 100%; height: 100%; filter: blur(.8px); }
-.cream-glass, .cream-etching {
+.cream-glass {
+  display: none;
   position: absolute;
-  inset-block: 0;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
   left: 50%;
-  width: min(760px, calc(100% - 80px));
+  width: min(1344px, calc(100vw - 32px));
   transform: translateX(-50%);
   pointer-events: none;
+  background-color: var(--cream-glass-color, var(--cream));
+  background-color: color-mix(in srgb, var(--cream-glass-color, var(--cream)) var(--cream-glass-opacity, 30%), transparent);
+  overflow: clip;
 }
-.cream-glass { z-index: 1; background: rgb(255 250 241 / 10%); }
-.cream-etching { z-index: 2; background: var(--cream-etching-image) repeat; background-size: 640px 480px; }
+.cream-etching { position: absolute; inset: 0; pointer-events: none; opacity: .08; background: var(--cream-etching-image) repeat; background-size: 640px 480px; }
 @supports (backdrop-filter: blur(1px)) {
   .cream-glass { backdrop-filter: blur(8px) saturate(1.025); }
 }
 #cream-cursor { position: fixed; z-index: 70; pointer-events: none; filter: blur(.8px); }
-body.has-cream-effects { isolation: isolate; }
-body.has-cream-effects .hero-section { isolation: auto; }
+body.has-cream-effects { isolation: isolate; padding-bottom: 0; }
+body.has-cream-effects :is(#home, #story, #cakes, #order, .site-footer) { position: relative; isolation: auto; }
+body.has-cream-effects :is(#story, #order) { --cream-glass-color: var(--green); --cream-glass-opacity: 88%; }
+body.has-cream-effects :is(.story-copy, .order-layout) p,
+body.has-cream-effects :is(.hero-description, .section-heading > p) { color: inherit; }
+body.has-cream-effects .cream-glass { display: block; }
+body.has-cream-effects :is(.hero-copy, .section-heading, .story-copy, .order-layout > div, .order-action)::before { content: none; }
+body.has-cream-effects .hero-photo .photo-link::after { background: transparent; }
+body.has-cream-effects .category-notebooks { background: transparent; box-shadow: none; border-color: transparent; }
+body.has-cream-effects .category-notebooks::before,
+body.has-cream-effects .category-notebooks::after { content: none; }
+body.has-cream-effects .cake-weight-info { background: transparent; box-shadow: none; }
 body.has-cream-effects .hero,
 body.has-cream-effects .story-layout,
 body.has-cream-effects #cakes > .section-heading,
@@ -29,18 +44,16 @@ body.has-cream-effects #cakes > .cake-weight-info,
 body.has-cream-effects #cakes > .category-notebooks,
 body.has-cream-effects #cakes > .notebook-library,
 body.has-cream-effects .order-layout,
-body.has-cream-effects .bakery-shelf { position: relative; z-index: 2; }
+body.has-cream-effects .bakery-shelf,
+body.has-cream-effects .site-footer > :not(.cream-glass) { position: relative; z-index: 3; }
 body.has-cream-effects .site-header,
-body.has-cream-effects .site-awning,
-body.has-cream-effects .site-footer { position: relative; z-index: 3; }
-body.has-cream-effects .site-footer { background: var(--cream); }
-body.has-cream-effects .mobile-enquire { z-index: 21; }
+body.has-cream-effects .site-awning { position: relative; z-index: 4; }
+body.has-cream-effects .site-footer { background: transparent; color: var(--green); }
+body.has-cream-effects .mobile-enquire { position: relative; inset: auto; width: 100%; border-radius: 16px; }
 #cream-motion-control {
-  position: fixed;
-  z-index: 20;
-  left: 12px;
-  bottom: calc(12px + env(safe-area-inset-bottom));
-  max-width: calc(100% - 24px);
+  position: relative;
+  z-index: 3;
+  max-width: 100%;
 }
 #cream-motion-toggle {
   display: block;
@@ -59,17 +72,11 @@ body.has-cream-effects .mobile-enquire { z-index: 21; }
 @media (hover: hover) and (pointer: fine) {
   body.cream-cursor-active, body.cream-cursor-active * { cursor: none !important; }
 }
-@media (max-width: 900px) {
-  .cream-glass, .cream-etching { width: min(760px, calc(100% - 48px)); }
-}
-@media (max-width: 600px) {
-  .cream-glass, .cream-etching { width: calc(100% - 40px); }
-  #cream-motion-control { bottom: calc(84px + env(safe-area-inset-bottom)); }
-}
 @media (prefers-reduced-transparency: reduce) {
-  .cream-glass, .cream-etching { display: none; backdrop-filter: none; }
+  body.has-cream-effects .cream-glass { background-color: var(--cream-glass-color, var(--cream)); backdrop-filter: none; }
+  .cream-etching { display: none; }
 }
 @media (prefers-reduced-motion: reduce), (forced-colors: active), print {
-  #cream-effects, #cream-cursor, #cream-motion-control { display: none !important; }
+  #cream-effects, #cream-cursor, #cream-motion-control, .cream-glass { display: none !important; }
   body.cream-cursor-active, body.cream-cursor-active * { cursor: auto !important; }
 }

@@ -77,7 +77,7 @@ flash or animate; the original font and logo artwork are retained.
 
 The real hero cake sits directly on the cream canvas, without an illustrated
 window behind it. Small timber edges, a layered-paper recipe note,
-a quiet linen surround beneath the notebooks and
+the physical notebook covers and
 a kitchen shelf near the footer carry the warm bakery mood through the page.
 These details are static and decorative; reading areas and controls stay clear.
 
@@ -162,14 +162,22 @@ cover uses five individually scattered pieces while the full assortment stays in
 The cream, deep-green and terracotta palette, clear handwritten headings and
 readable body text are retained. Ruled lines stay away from reading text.
 Soft cream shapes move over the bakery backgrounds, with small droplets and
-groups that drift together or gently separate and rejoin. A lightly frosted,
-etched center sits behind the foreground; reading panels and notebook paper stay
-solid so the text and real cake photographs remain clear.
+groups that drift together or gently separate and rejoin. The frosted column
+spans the full content area below the awning and inherits each section's cream
+or green colour. Text sits directly on that shared glass, without individual
+background panels; the real notebook covers and recipe-note illustration retain
+their own paper surfaces.
 On supported mouse devices, a pale strawberry-cream shape and trail replace the
 normal pointer while the effect is active. They never intercept clicks.
-Use **Pause cream motion** to freeze the decoration and restore the normal pointer.
-The effect stays out of the entrance and open notebooks or enlarged photos.
-Reduced motion, forced colours, printing, inactive pages and unsupported graphics
+Use **Pause cream motion** in the footer to freeze the decoration and restore the normal pointer.
+With cream enabled, the mobile **How to order** shortcut also stays in the footer
+rather than floating over reading text.
+Ambient movement continues while the page is visible, even when the window loses
+focus or the pointer leaves it, and now runs twice as fast as the first website edition.
+The effect stays out of the entrance. Background motion continues behind open
+notebooks and enlarged photos, while their controls use the normal pointer.
+**Alt+Shift+P** pauses or resumes the motion without closing a viewer.
+Reduced motion, forced colours, printing, hidden pages and unsupported graphics
 keep the ordinary static website and pointer. These shapes are decorative,
 not photographs of products or statements about ingredients.
 The notebooks support click, touch, Enter and Space, with visible keyboard focus.
