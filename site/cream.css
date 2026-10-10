@@ -1,0 +1,75 @@
+#cream-effects {
+  --cream-effect-ready: 1;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+#cream-material { display: block; width: 100%; height: 100%; filter: blur(.8px); }
+.cream-glass, .cream-etching {
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: min(760px, calc(100% - 80px));
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.cream-glass { z-index: 1; background: rgb(255 250 241 / 10%); }
+.cream-etching { z-index: 2; background: var(--cream-etching-image) repeat; background-size: 640px 480px; }
+@supports (backdrop-filter: blur(1px)) {
+  .cream-glass { backdrop-filter: blur(8px) saturate(1.025); }
+}
+#cream-cursor { position: fixed; z-index: 70; pointer-events: none; filter: blur(.8px); }
+body.has-cream-effects { isolation: isolate; }
+body.has-cream-effects .hero-section { isolation: auto; }
+body.has-cream-effects .hero,
+body.has-cream-effects .story-layout,
+body.has-cream-effects #cakes > .section-heading,
+body.has-cream-effects #cakes > .cake-weight-info,
+body.has-cream-effects #cakes > .category-notebooks,
+body.has-cream-effects #cakes > .notebook-library,
+body.has-cream-effects .order-layout,
+body.has-cream-effects .bakery-shelf { position: relative; z-index: 2; }
+body.has-cream-effects .site-header,
+body.has-cream-effects .site-awning,
+body.has-cream-effects .site-footer { position: relative; z-index: 3; }
+body.has-cream-effects .site-footer { background: var(--cream); }
+body.has-cream-effects .mobile-enquire { z-index: 21; }
+#cream-motion-control {
+  position: fixed;
+  z-index: 20;
+  left: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  max-width: calc(100% - 24px);
+}
+#cream-motion-toggle {
+  display: block;
+  max-width: 100%;
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--green);
+  font: 600 1rem/1.35 var(--sans);
+  overflow-wrap: anywhere;
+  box-shadow: 0 3px 10px rgb(52 72 58 / 12%);
+}
+#cream-motion-toggle[aria-pressed="true"] { background: var(--green); color: var(--paper); }
+@media (hover: hover) and (pointer: fine) {
+  body.cream-cursor-active, body.cream-cursor-active * { cursor: none !important; }
+}
+@media (max-width: 900px) {
+  .cream-glass, .cream-etching { width: min(760px, calc(100% - 48px)); }
+}
+@media (max-width: 600px) {
+  .cream-glass, .cream-etching { width: calc(100% - 40px); }
+  #cream-motion-control { bottom: calc(84px + env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .cream-glass, .cream-etching { display: none; backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce), (forced-colors: active), print {
+  #cream-effects, #cream-cursor, #cream-motion-control { display: none !important; }
+  body.cream-cursor-active, body.cream-cursor-active * { cursor: auto !important; }
+}

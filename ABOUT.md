@@ -161,8 +161,17 @@ cover uses five individually scattered pieces while the full assortment stays in
 
 The cream, deep-green and terracotta palette, clear handwritten headings and
 readable body text are retained. Ruled lines stay away from reading text.
-The cream background and quiet bakery outlines stay static. The experimental
-pointer-reactive cream effect has been removed and parked for a possible future revisit.
+Soft cream shapes move over the bakery backgrounds, with small droplets and
+groups that drift together or gently separate and rejoin. A lightly frosted,
+etched center sits behind the foreground; reading panels and notebook paper stay
+solid so the text and real cake photographs remain clear.
+On supported mouse devices, a pale strawberry-cream shape and trail replace the
+normal pointer while the effect is active. They never intercept clicks.
+Use **Pause cream motion** to freeze the decoration and restore the normal pointer.
+The effect stays out of the entrance and open notebooks or enlarged photos.
+Reduced motion, forced colours, printing, inactive pages and unsupported graphics
+keep the ordinary static website and pointer. These shapes are decorative,
+not photographs of products or statements about ingredients.
 The notebooks support click, touch, Enter and Space, with visible keyboard focus.
 Reduced motion, forced colours, missing enhancements and no JavaScript show the
 complete category pages directly. An extreme screen/text-size combination also
@@ -189,7 +198,7 @@ The display name is **Whisk & Crumbs**. The owner renamed the repository to
 [Zanark/WhiskAndCrumbs](https://github.com/Zanark/WhiskAndCrumbs).
 The website is **https://zanark.github.io/WhiskAndCrumbs/**.
 
-GitHub Pages publishes only the **1,241 generated files in `site/`**, including the
+GitHub Pages publishes only the **1,246 generated files in `site/`**, including the
 category-notebook module, original decorative shop artwork and six landscape website showcase images.
 The image-only README links six coordinated launch images to the website. Each
 uses real, complete desktop and mobile browser viewport captures, with original
@@ -207,8 +216,8 @@ glass panel, with only 8% tint. Behind it, each image has an independently arran
 background of original irregular cream clusters and smaller droplets. Seeded
 Gaussian variation changes their positions, sizes, lobes and orientations.
 There are no text-shaped cutouts: the lettering stays sharp above the continuous
-glass. These are static launch-art accents, not a new effect inside the live
-website. The genuine website captures, wording, type sizes and foreground
+glass. These static launch-art accents are separate from the website's optional
+moving cream layer. The genuine website captures, wording, type sizes and foreground
 positions are preserved; the editorial lettering uses deep green on cream.
 Earlier launch editions remain available as history.
 This overview uses

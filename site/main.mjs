@@ -118,6 +118,21 @@ const versionedModule = name => {
   url.search = moduleVersion;
   return url.href;
 };
+if (document.body.dataset.creamEffects === 'enabled') {
+  Promise.all([
+    import(versionedModule('./cream.mjs')),
+    import(versionedModule('./cream-model.mjs')),
+  ])
+    .then(([{ initCreamEffect }, model]) => initCreamEffect({ model }))
+    .catch(error => {
+      document.body.classList.remove('has-cream-effects', 'cream-cursor-active');
+      for (const id of ['cream-effects', 'cream-cursor', 'cream-motion-control']) {
+        const element = byId(id);
+        if (element) element.hidden = true;
+      }
+      console.warn('The optional cream effect is unavailable; keeping the static bakery and normal pointer.', error);
+    });
+}
 import(versionedModule('./notebooks.mjs'))
   .then(({ initCategoryNotebooks }) => initCategoryNotebooks())
   .catch(error => {
